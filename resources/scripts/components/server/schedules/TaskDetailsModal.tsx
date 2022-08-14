@@ -122,7 +122,7 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
                     <h2 css={tw`text-2xl mb-6`}>{task ? '编辑任务' : '创建任务'}</h2>
                     <div css={tw`flex`}>
                         <div css={tw`mr-2 w-1/3`}>
-                            <Label>Action</Label>
+                            <Label>动作</Label>
                             <ActionListener />
                             <FormikFieldWrapper name={'action'}>
                                 <FormikField as={Select} name={'action'}>
@@ -164,7 +164,7 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
                             </div>
                         ) : (
                             <div>
-                                <Label>Ignored Files</Label>
+                                <Label>被忽略的文件</Label>
                                 <FormikFieldWrapper
                                     name={'payload'}
                                     description={
