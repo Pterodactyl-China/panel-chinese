@@ -43,7 +43,7 @@
                             <th>名称</th>
                             <th>UUID</th>
                             <th>所有者</th>
-                            <th>所属节点服务器</th>
+                            <th>节点</th>
                             <th>连接地址</th>
                             <th></th>
                             <th></th>
