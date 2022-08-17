@@ -73,7 +73,7 @@ return [
     |
     */
 
-    'timezone' => env('APP_TIMEZONE', 'CST'),
+    'timezone' => env('APP_TIMEZONE', 'Asia/Shanghai'),
 
     /*
     |--------------------------------------------------------------------------

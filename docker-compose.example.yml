@@ -9,7 +9,7 @@ x-common:
     &panel-environment
     APP_URL: "http://example.com"
     # 可以在这里找到有效时区列表：http://php.net/manual/zh/timezones.php
-    APP_TIMEZONE: "CST"
+    APP_TIMEZONE: "Asia/Shanghai"
     APP_SERVICE_AUTHOR: "noreply@example.com"
     # 如果您想使用 Let's Encrypt 为面板生成 SSL 证书，请取消下面的注释行并写入配置
     # LE_EMAIL: ""
