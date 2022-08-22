@@ -20,7 +20,7 @@ return [
     'servers' => '服务器实例',
     'id' => 'ID',
     'name' => '名称',
-    'node' => '节点服务器',
+    'node' => '节点',
     'connection' => '连接地址',
     'memory' => '内存',
     'cpu' => 'CPU',

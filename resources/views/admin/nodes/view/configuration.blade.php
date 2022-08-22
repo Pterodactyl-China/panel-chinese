@@ -1,6 +1,6 @@
 {{-- Pterodactyl CHINA - Panel --}}
 {{-- Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com> --}}
-{{-- Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn> --}}
+{{-- Simplified Chinese Translation Copyright (c) 2018 - 2022 ValiantShishu <vlssu@vlssu.com> --}}
 
 {{-- This software is licensed under the terms of the MIT license. --}}
 {{-- https://opensource.org/licenses/MIT --}}
@@ -26,9 +26,9 @@
         <div class="nav-tabs-custom nav-tabs-floating">
             <ul class="nav nav-tabs">
                 <li><a href="{{ route('admin.nodes.view', $node->id) }}">关于</a></li>
-                <li><a href="{{ route('admin.nodes.view.settings', $node->id) }}">节点服务器设置</a></li>
-                <li class="active"><a href="{{ route('admin.nodes.view.configuration', $node->id) }}">守护进程设置</a></li>
-                <li><a href="{{ route('admin.nodes.view.allocation', $node->id) }}">资源分配</a></li>
+                <li><a href="{{ route('admin.nodes.view.settings', $node->id) }}">设置</a></li>
+                <li class="active"><a href="{{ route('admin.nodes.view.configuration', $node->id) }}">配置</a></li>
+                <li><a href="{{ route('admin.nodes.view.allocation', $node->id) }}">分配</a></li>
                 <li><a href="{{ route('admin.nodes.view.servers', $node->id) }}">服务器实例</a></li>
             </ul>
         </div>
@@ -78,7 +78,7 @@
             swal({
                 type: 'success',
                 title: '指令已生成.',
-                text: '<p>要自动配置节点服务器守护进程，请在节点服务器输入:<br /><small><pre>cd /etc/pterodactyl && sudo wings configure --panel-url {{ config('app.url') }} --token ' + data.token + ' --node ' + data.node + '{{ config('app.debug') ? ' --allow-insecure' : '' }}</pre></small></p>',
+                text: '<p>要自动配置节点，请运行以下命令:<br /><small><pre>cd /etc/pterodactyl && sudo wings configure --panel-url {{ config('app.url') }} --token ' + data.token + ' --node ' + data.node + '{{ config('app.debug') ? ' --allow-insecure' : '' }}</pre></small></p>',
                 html: true
             })
         }).fail(function () {

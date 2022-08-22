@@ -168,7 +168,7 @@
                         <div class="small-box bg-gray">
                             <div class="inner">
                                 <h3>{{ str_limit($server->node->name, 16) }}</h3>
-                                <p>所在节点服务器</p>
+                                <p>服务器节点</p>
                             </div>
                             <div class="icon"><i class="fa fa-codepen"></i></div>
                             <a href="{{ route('admin.nodes.view', $server->node->id) }}" class="small-box-footer">

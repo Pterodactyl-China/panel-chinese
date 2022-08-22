@@ -1,6 +1,6 @@
 {{-- Pterodactyl CHINA - Panel --}}
 {{-- Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com> --}}
-{{-- Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn> --}}
+{{-- Simplified Chinese Translation Copyright (c) 2018 - 2022 ValiantShishu <vlssu@vlssu.com> --}}
 
 {{-- This software is licensed under the terms of the MIT license. --}}
 {{-- https://opensource.org/licenses/MIT --}}
@@ -67,12 +67,12 @@
             <div class="box">
                 <div class="overlay" id="allocationLoader" style="display:none;"><i class="fa fa-refresh fa-spin"></i></div>
                 <div class="box-header with-border">
-                    <h3 class="box-title">资源分配管理</h3>
+                    <h3 class="box-title">分配管理</h3>
                 </div>
 
                 <div class="box-body row">
                     <div class="form-group col-sm-4">
-                        <label for="pNodeId">节点服务器</label>
+                        <label for="pNodeId">节点</label>
                         <select name="node_id" id="pNodeId" class="form-control">
                             @foreach($locations as $location)
                                 <optgroup label="{{ $location->long }} ({{ $location->short }})">
@@ -87,7 +87,7 @@
                             @endforeach
                         </select>
 
-                        <p class="small text-muted no-margin">此服务器实例运行于此节点服务器上.</p>
+                        <p class="small text-muted no-margin">该服务器将被部署到的节点。</p>
                     </div>
 
                     <div class="form-group col-sm-4">

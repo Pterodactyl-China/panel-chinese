@@ -1,6 +1,6 @@
 {{-- Pterodactyl CHINA - Panel --}}
 {{-- Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com> --}}
-{{-- Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn> --}}
+{{-- Simplified Chinese Translation Copyright (c) 2018 - 2022 ValiantShishu <vlssu@vlssu.com> --}}
 
 {{-- This software is licensed under the terms of the MIT license. --}}
 {{-- https://opensource.org/licenses/MIT --}}
@@ -11,10 +11,10 @@
 @endsection
 
 @section('content-header')
-    <h1>{{ $node->name }}<small>节点服务器概览.</small></h1>
+    <h1>{{ $node->name }}<small>快速概览您的节点。</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">管理</a></li>
-        <li><a href="{{ route('admin.nodes') }}">节点服务器</a></li>
+        <li><a href="{{ route('admin.nodes') }}">节点</a></li>
         <li class="active">{{ $node->name }}</li>
     </ol>
 @endsection
@@ -25,9 +25,9 @@
         <div class="nav-tabs-custom nav-tabs-floating">
             <ul class="nav nav-tabs">
                 <li class="active"><a href="{{ route('admin.nodes.view', $node->id) }}">关于</a></li>
-                <li><a href="{{ route('admin.nodes.view.settings', $node->id) }}">节点服务器设置</a></li>
-                <li><a href="{{ route('admin.nodes.view.configuration', $node->id) }}">守护进程设置</a></li>
-                <li><a href="{{ route('admin.nodes.view.allocation', $node->id) }}">资源分配</a></li>
+                <li><a href="{{ route('admin.nodes.view.settings', $node->id) }}">设置</a></li>
+                <li><a href="{{ route('admin.nodes.view.configuration', $node->id) }}">配置</a></li>
+                <li><a href="{{ route('admin.nodes.view.allocation', $node->id) }}">分配</a></li>
                 <li><a href="{{ route('admin.nodes.view.servers', $node->id) }}">服务器实例</a></li>
             </ul>
         </div>
@@ -74,16 +74,16 @@
             <div class="col-xs-12">
                 <div class="box box-danger">
                     <div class="box-header with-border">
-                        <h3 class="box-title">删除此节点服务器</h3>
+                        <h3 class="box-title">删除节点</h3>
                     </div>
                     <div class="box-body">
-                        <p class="no-margin">删除节点服务器是不可逆的操作，会立即从面板中删除该节点服务器。必须没有与此节点服务器关联的服务器实例才能进行删除操作。</p>
+                        <p class="no-margin">删除节点是不可逆的操作，会立即从面板中删除该节点。必须没有与此节点关联的服务器实例才能进行删除操作。</p>
                     </div>
                     <div class="box-footer">
                         <form action="{{ route('admin.nodes.view.delete', $node->id) }}" method="POST">
                             {!! csrf_field() !!}
                             {!! method_field('DELETE') !!}
-                            <button type="submit" class="btn btn-danger btn-sm pull-right" {{ ($node->servers_count < 1) ?: 'disabled' }}>确定，删除此节点服务器。</button>
+                            <button type="submit" class="btn btn-danger btn-sm pull-right" {{ ($node->servers_count < 1) ?: 'disabled' }}>确定，删除此节点。</button>
                         </form>
                     </div>
                 </div>

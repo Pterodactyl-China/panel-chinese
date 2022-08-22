@@ -1,22 +1,22 @@
 {{-- Pterodactyl CHINA - Panel --}}
 {{-- Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com> --}}
-{{-- Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn> --}}
+{{-- Simplified Chinese Translation Copyright (c) 2018 - 2022 ValiantShishu <vlssu@vlssu.com> --}}
 
 {{-- This software is licensed under the terms of the MIT license. --}}
 {{-- https://opensource.org/licenses/MIT --}}
 @extends('layouts.admin')
 
 @section('title')
-    {{ $node->name }}: 资源分配
+    {{ $node->name }}: 分配
 @endsection
 
 @section('content-header')
-    <h1>{{ $node->name }}<small>控制此节点上的服务器可用的资源分配.</small></h1>
+    <h1>{{ $node->name }}<small>控制此节点上的服务器可用的分配.</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">管理</a></li>
-        <li><a href="{{ route('admin.nodes') }}">节点服务器</a></li>
+        <li><a href="{{ route('admin.nodes') }}">节点</a></li>
         <li><a href="{{ route('admin.nodes.view', $node->id) }}">{{ $node->name }}</a></li>
-        <li class="active">资源分配</li>
+        <li class="active">分配</li>
     </ol>
 @endsection
 
@@ -26,9 +26,9 @@
         <div class="nav-tabs-custom nav-tabs-floating">
             <ul class="nav nav-tabs">
                 <li><a href="{{ route('admin.nodes.view', $node->id) }}">关于</a></li>
-                <li><a href="{{ route('admin.nodes.view.settings', $node->id) }}">节点服务器设置</a></li>
-                <li><a href="{{ route('admin.nodes.view.configuration', $node->id) }}">守护进程设置</a></li>
-                <li class="active"><a href="{{ route('admin.nodes.view.allocation', $node->id) }}">资源分配</a></li>
+                <li><a href="{{ route('admin.nodes.view.settings', $node->id) }}">设置</a></li>
+                <li><a href="{{ route('admin.nodes.view.configuration', $node->id) }}">配置</a></li>
+                <li class="active"><a href="{{ route('admin.nodes.view.allocation', $node->id) }}">分配</a></li>
                 <li><a href="{{ route('admin.nodes.view.servers', $node->id) }}">服务器实例</a></li>
             </ul>
         </div>

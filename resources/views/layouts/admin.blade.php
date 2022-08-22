@@ -104,7 +104,7 @@
                         </li>
                         <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.nodes') ?: 'active' }}">
                             <a href="{{ route('admin.nodes') }}">
-                                <i class="fa fa-sitemap"></i> <span>节点服务器</span>
+                                <i class="fa fa-sitemap"></i> <span>节点</span>
                             </a>
                         </li>
                         <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.servers') ?: 'active' }}">

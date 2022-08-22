@@ -41,7 +41,7 @@ export default () => {
         socket.on('status', (status) => setServerStatus(status));
 
         socket.on('daemon error', (message) => {
-            console.warn('节点服务器传出错误信息:', message);
+            console.warn('从守护程序套接字(socket)得到错误信息:', message);
         });
 
         socket.on('token expiring', () => updateToken(uuid, socket));

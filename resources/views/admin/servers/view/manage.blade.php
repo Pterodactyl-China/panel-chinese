@@ -1,6 +1,6 @@
 {{-- Pterodactyl CHINA - Panel --}}
 {{-- Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com> --}}
-{{-- Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn> --}}
+{{-- Simplified Chinese Translation Copyright (c) 2018 - 2022 ValiantShishu <vlssu@vlssu.com> --}}
 
 {{-- This software is licensed under the terms of the MIT license. --}}
 {{-- https://opensource.org/licenses/MIT --}}
@@ -106,7 +106,7 @@
                     </div>
                     <div class="box-body">
                         <p>
-                            将此服务器实例转移到连接到此面板的另一个节点服务器.
+                            将此服务器实例转移到连接到此面板的另一个节点.
                             <strong>警告!</strong> 此功能未完全测试可能有BUG.
                         </p>
                     </div>
@@ -116,7 +116,7 @@
                             <button class="btn btn-success" data-toggle="modal" data-target="#transferServerModal">转移服务器实例</button>
                         @else
                             <button class="btn btn-success disabled">转移服务器实例</button>
-                            <p style="padding-top: 1rem;">转移一台服务器实例需要在您的面板上配置多个节点服务器。</p>
+                            <p style="padding-top: 1rem;">转移一台服务器实例需要在您的面板上配置多个节点。</p>
                         @endif
                     </div>
                 </div>
@@ -129,7 +129,7 @@
                     </div>
                     <div class="box-body">
                         <p>
-                            此服务器实例正在转移至另一个节点服务器.
+                            此服务器实例正在转移至另一个节点.
                             转移开始于 <strong>{{ $server->transfer->created_at }}</strong>
                         </p>
                     </div>
@@ -154,7 +154,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label for="pNodeId">节点服务器</label>
+                                <label for="pNodeId">节点</label>
                                 <select name="node_id" id="pNodeId" class="form-control">
                                     @foreach($locations as $location)
                                         <optgroup label="{{ $location->long }} ({{ $location->short }})">
@@ -170,7 +170,7 @@
                                         </optgroup>
                                     @endforeach
                                 </select>
-                                <p class="small text-muted no-margin">该服务器实例将被转移到的节点服务器.</p>
+                                <p class="small text-muted no-margin">该服务器实例将被转移到的节点.</p>
                             </div>
 
                             <div class="form-group col-md-12">

@@ -59,7 +59,7 @@ export default () => {
                     </Can>
                     <TitledGreyBox title={'Debug 调试信息'} css={tw`mb-6 md:mb-10`}>
                         <div css={tw`flex items-center justify-between text-sm`}>
-                            <p>节点服务器</p>
+                            <p>节点</p>
                             <code css={tw`font-mono bg-neutral-900 rounded py-1 px-2`}>{node}</code>
                         </div>
                         <CopyOnClick text={uuid}>
