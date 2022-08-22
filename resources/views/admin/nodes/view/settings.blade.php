@@ -7,7 +7,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    {{ $node->name }}: Settings
+    {{ $node->name }}: 设置
 @endsection
 
 @section('content-header')
