@@ -7,7 +7,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    {{ $node->name }}: 守护进程设置
+    {{ $node->name }}: 配置
 @endsection
 
 @section('content-header')
@@ -16,7 +16,7 @@
         <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li><a href="{{ route('admin.nodes') }}">节点</a></li>
         <li><a href="{{ route('admin.nodes.view', $node->id) }}">{{ $node->name }}</a></li>
-        <li class="active">守护进程设置</li>
+        <li class="active">配置</li>
     </ol>
 @endsection
 
