@@ -42,9 +42,9 @@ docker-compose exec panel php artisan p:user:make
 | `CACHE_DRIVER`   | 缓存驱动程序（详见[缓存驱动程序](#缓存驱动程序)）。 | 是   |
 | `SESSION_DRIVER` |                              | 是   |
 | `QUEUE_DRIVER`   |                              | 是   |
-| `REDIS_HOST`     | Redis 数据库主机名或IP地址            | 是   |
+| `REDIS_HOST`     | Redis 数据库的主机名或IP地址            | 是   |
 | `REDIS_PASSWORD` | 用于保护 redis 数据库的密码            | 可选  |
-| `REDIS_PORT`     | Redis 数据库主机端口                | 可选  |
+| `REDIS_PORT`     | Redis 数据库端口                | 可选  |
 | `MAIL_DRIVER`    | 邮件驱动程序（详见 [邮件驱动程序](#邮件驱动程序)） | 是   |
 | `MAIL_FROM`      | 发件邮箱                         | 是   |
 | `MAIL_HOST`      | 邮件驱动主机                       | 可选  |
