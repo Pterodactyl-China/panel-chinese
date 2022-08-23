@@ -1,20 +1,20 @@
 {{-- Pterodactyl CHINA - Panel --}}
 {{-- Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com> --}}
-{{-- Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn> --}}
+{{-- Simplified Chinese Translation Copyright (c) 2018 - 2022 ValiantShishu <vlssu@vlssu.com> --}}
 
 {{-- This software is licensed under the terms of the MIT license. --}}
 {{-- https://opensource.org/licenses/MIT --}}
 @extends('layouts.admin')
 
 @section('title')
-    服务器实例 — {{ $server->name }}: 删除
+    服务器 — {{ $server->name }}: 删除
 @endsection
 
 @section('content-header')
     <h1>{{ $server->name }}<small>将此服务器从面板上删除.</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">管理</a></li>
-        <li><a href="{{ route('admin.servers') }}">服务器实例</a></li>
+        <li><a href="{{ route('admin.servers') }}">服务器</a></li>
         <li><a href="{{ route('admin.servers.view', $server->id) }}">{{ $server->name }}</a></li>
         <li class="active">删除</li>
     </ol>
@@ -26,7 +26,7 @@
     <div class="col-md-6">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">安全删除服务器实例</h3>
+                <h3 class="box-title">安全删除服务器</h3>
             </div>
             <div class="box-body">
                 <p>此操作将尝试从面板和守护程序中删除服务器。如果其中任何流程一个报告错误，则该操作将被取消.</p>
@@ -35,7 +35,7 @@
             <div class="box-footer">
                 <form id="deleteform" action="{{ route('admin.servers.view.delete', $server->id) }}" method="POST">
                     {!! csrf_field() !!}
-                    <button id="deletebtn" class="btn btn-danger">安全删除此服务器实例</button>
+                    <button id="deletebtn" class="btn btn-danger">安全删除此服务器</button>
                 </form>
             </div>
         </div>
@@ -43,7 +43,7 @@
     <div class="col-md-6">
         <div class="box box-danger">
             <div class="box-header with-border">
-                <h3 class="box-title">强制删除服务器实例</h3>
+                <h3 class="box-title">强制删除服务器</h3>
             </div>
             <div class="box-body">
                 <p>此操作将尝试从面板和守护程序中删除服务器。如果守护进程没有响应，或报告错误，删除操作将继续.</p>
@@ -53,7 +53,7 @@
                 <form id="forcedeleteform" action="{{ route('admin.servers.view.delete', $server->id) }}" method="POST">
                     {!! csrf_field() !!}
                     <input type="hidden" name="force_delete" value="1" />
-                    <button id="forcedeletebtn"" class="btn btn-danger">强制删除此服务器实例</button>
+                    <button id="forcedeletebtn"" class="btn btn-danger">强制删除此服务器</button>
                 </form>
             </div>
         </div>

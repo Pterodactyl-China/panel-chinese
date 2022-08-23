@@ -57,7 +57,7 @@
                         <th>ID</th>
                         <th>名称</th>
                         <th>域名</th>
-                        <th>服务器实例</th>
+                        <th>服务器</th>
                     </tr>
                     @foreach($location->nodes as $node)
                         <tr>

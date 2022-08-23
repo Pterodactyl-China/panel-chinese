@@ -75,7 +75,7 @@ export default () => {
                             <p css={tw`text-center text-sm text-neutral-400`}>
                                 {showOnlyAdmin
                                     ? '这里没有服务器可显示。'
-                                    : '你的账户下没有关联的服务器实例。'}
+                                    : '你的账户下没有关联的服务器。'}
                             </p>
                         )
                     }

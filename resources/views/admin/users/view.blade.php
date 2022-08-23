@@ -1,6 +1,6 @@
 {{-- Pterodactyl CHINA - Panel --}}
 {{-- Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com> --}}
-{{-- Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn> --}}
+{{-- Simplified Chinese Translation Copyright (c) 2018 - 2022 ValiantShishu <vlssu@vlssu.com> --}}
 
 {{-- This software is licensed under the terms of the MIT license. --}}
 {{-- https://opensource.org/licenses/MIT --}}
@@ -114,7 +114,7 @@
                 <h3 class="box-title">删除此用户</h3>
             </div>
             <div class="box-body">
-                <p class="no-margin">必须没有与此帐户关联的服务器实例才能删除此用户.</p>
+                <p class="no-margin">必须没有与此帐户关联的服务器才能删除此用户.</p>
             </div>
             <div class="box-footer">
                 <form action="{{ route('admin.users.view', $user->id) }}" method="POST">

@@ -1,6 +1,6 @@
 {{-- Pterodactyl CHINA - Panel --}}
 {{-- Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com> --}}
-{{-- Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn> --}}
+{{-- Simplified Chinese Translation Copyright (c) 2018 - 2022 ValiantShishu <vlssu@vlssu.com> --}}
 
 {{-- This software is licensed under the terms of the MIT license. --}}
 {{-- https://opensource.org/licenses/MIT --}}
@@ -45,8 +45,8 @@
                             <th>姓名</th>
                             <th>用户名</th>
                             <th class="text-center">动态口令认证</th>
-                            <th class="text-center"><span data-toggle="tooltip" data-placement="top" title="此用户作为所有者的服务器实例。">拥有的服务器实例</span></th>
-                            <th class="text-center"><span data-toggle="tooltip" data-placement="top" title="此用户作为子用户可以访问的服务器实例。">可访问</span></th>
+                            <th class="text-center"><span data-toggle="tooltip" data-placement="top" title="此用户作为所有者的服务器。">拥有的服务器</span></th>
+                            <th class="text-center"><span data-toggle="tooltip" data-placement="top" title="此用户作为子用户可以访问的服务器。">可访问</span></th>
                             <th></th>
                         </tr>
                     </thead>

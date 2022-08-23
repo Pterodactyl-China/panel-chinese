@@ -1,20 +1,20 @@
 {{-- Pterodactyl CHINA - Panel --}}
 {{-- Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com> --}}
-{{-- Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn> --}}
+{{-- Simplified Chinese Translation Copyright (c) 2018 - 2022 ValiantShishu <vlssu@vlssu.com> --}}
 
 {{-- This software is licensed under the terms of the MIT license. --}}
 {{-- https://opensource.org/licenses/MIT --}}
 @extends('layouts.admin')
 
 @section('title')
-    服务器实例列表
+    服务器列表
 @endsection
 
 @section('content-header')
-    <h1>服务器实例列表<small>此系统上所有的可用服务器实例.</small></h1>
+    <h1>服务器列表<small>此系统上所有的可用服务器.</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">管理</a></li>
-        <li class="active">服务器实例</li>
+        <li class="active">服务器</li>
     </ol>
 @endsection
 
@@ -23,7 +23,7 @@
     <div class="col-xs-12">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">服务器实例列表</h3>
+                <h3 class="box-title">服务器列表</h3>
                 <div class="box-tools search01">
                     <form action="{{ route('admin.servers') }}" method="GET">
                         <div class="input-group input-group-sm">
