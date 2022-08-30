@@ -33,6 +33,7 @@ class AssetComposer
                 'enabled' => config('recaptcha.enabled', false),
                 'siteKey' => config('recaptcha.website_key') ?? '',
             ],
+            'icp_record' => config('app.icp_record') ?? '',
         ]);
     }
 }

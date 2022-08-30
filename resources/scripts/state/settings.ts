@@ -7,6 +7,7 @@ export interface SiteSettings {
         enabled: boolean;
         siteKey: string;
     };
+    icp_record: string;
 }
 
 export interface SettingsStore {

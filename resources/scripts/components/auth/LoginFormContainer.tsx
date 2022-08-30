@@ -4,6 +4,7 @@ import styled from 'styled-components/macro';
 import { breakpoint } from '@/theme';
 import FlashMessageRender from '@/components/FlashMessageRender';
 import tw from 'twin.macro';
+import { useStoreState } from 'easy-peasy';
 
 type Props = React.DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> & {
     title?: string;
@@ -58,6 +59,16 @@ export default forwardRef<HTMLFormElement, Props>(({ title, ...props }, ref) => 
                 css={tw`no-underline text-neutral-500 hover:text-neutral-300`}
             >
                 翼龙中国
+            </a>
+        </p>
+        <p css={tw`text-center text-neutral-500 text-xs mt-4`}>
+            <a
+                rel={'noopener nofollow noreferrer'}
+                href={'http://beian.miit.gov.cn'}
+                target={'_blank'}
+                css={tw`no-underline text-neutral-500 hover:text-neutral-300`}
+            >
+                {useStoreState((state) => state.settings.data?.icp_record)}
             </a>
         </p>
     </Container>

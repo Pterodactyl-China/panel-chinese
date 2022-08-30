@@ -63,6 +63,15 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label class="control-label">ICP备案号</label>
+                                <div>
+                                    <input type="text" class="form-control" name="app:icp_record" value="{{ old('app:icp_record', config('app.icp_record')) }}" />
+                                    <p class="text-muted"><small>如果需要，请将站点的备案号写入此处</small></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="box-footer">
                         {!! csrf_field() !!}
