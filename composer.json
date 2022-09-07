@@ -1,6 +1,6 @@
 {
-    "name": "pterodactyl/panel",
-    "description": "The free, open-source game management panel. Supporting Minecraft, Spigot, BungeeCord, and SRCDS servers.",
+    "name": "pterodactyl-china/panel",
+    "description": "免费的开源游戏管理面板。支持 Minecraft、Spigot、BungeeCord 和 SRCDS 服务器。",
     "license": "MIT",
     "authors": [
         {
@@ -92,5 +92,11 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": false
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
     }
 }
