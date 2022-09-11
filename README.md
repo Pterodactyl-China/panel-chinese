@@ -12,42 +12,31 @@ Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP�
 
 不要再安于现状了。让游戏服务器成为您平台上的一等公民。
 
-**此仓库将实时同步上游进行汉化 , 发布的 Releases 会经过构建测试成功后才会发布，大部分情况下是不会出现问题，如果有一般不会致命，开发版会第一时间修复/更新内容。**
+**此仓库将实时同步上游进行汉化 , 发布的 Releases 均通过 Github Actions 的构建测试，并在发布前会经过本地环境测试，所以！在大部分情况下不会出现问题，如有一般不会致命，开发版会第一时间修复/更新内容。**
 
 ![Image](https://cdn.pterodactyl.io/site-assets/pterodactyl_v1_demo.gif)
 
-## 翼龙中文文档
-* [Panel 前端中文文档](https://pterodactyl.top/panel/1.0/getting_started.html)
-* [Wings 后端中文文档](https://pterodactyl.top/wings/1.0/installing.html)
+## 翼龙中国文档
+* [Panel 文档](https://pterodactyl.top/panel/1.0/getting_started.html)
+* [Wings 文档](https://pterodactyl.top/wings/1.0/installing.html)
 * [社区指南文档](https://pterodactyl.top/community/about.html)
 * 或者，[通过 KOOK](https://kook.top/0Grsf5) 获得更多帮助
 
-<!--
 ## 赞助商
-I would like to extend my sincere thanks to the following sponsors for helping fund Pterodactyl's developement.
-[Interested in becoming a sponsor?](https://github.com/sponsors/DaneEveritt)
+衷心感谢以下赞助商为翼龙中国的发展提供资金支持。
+[有兴趣成为赞助商吗？](https://afdian.net/a/vlssu)
 
-| 公司 | 关于 |
+| 公司/个人 | 关于 |
 | ------- | ----- |
-| [**WISP**](https://wisp.gg) | Extra features. |
-| [**BisectHosting**](https://www.bisecthosting.com/) | BisectHosting provides Minecraft, Valheim and other server hosting services with the highest reliability and lightning fast support since 2012. |
-| [**Fragnet**](https://fragnet.net) | Providing low latency, high-end game hosting solutions to gamers, game studios and eSports platforms. |
-| [**Tempest**](https://tempest.net/) | Tempest Hosting is a subsidiary of Path Network, Inc. offering unmetered DDoS protected 10Gbps dedicated servers, starting at just $80/month. Full anycast, tons of filters. |
-| [**Bloom.host**](https://bloom.host) | Bloom.host offers dedicated core VPS and Minecraft hosting with Ryzen 9 processors. With owned-hardware, we offer truly unbeatable prices on high-performance hosting. |
-| [**MineStrator**](https://minestrator.com/) | Looking for the most highend French hosting company for your minecraft server? More than 24,000 members on our discord trust us. Give us a try! |
-| [**Skynode**](https://www.skynode.pro/) | Skynode provides blazing fast game servers along with a top-notch user experience. Whatever our clients are looking for, we're able to provide it! |
-| [**DeinServerHost**](https://deinserverhost.de/) | DeinServerHost offers Dedicated, vps and Gameservers for many popular Games like Minecraft and Rust in Germany since 2013. |
-| [**Aussie Server Hosts**](https://aussieserverhosts.com/) | No frills Australian Owned and operated High Performance Server hosting for some of the most demanding games serving Australia and New Zealand. |
-| [**VibeGAMES**](https://vibegames.net/) | VibeGAMES is a game server provider that specializes in DDOS protection for the games we offer. We have multiple locations in the US, Brazil, France, Germany, Singapore, Australia and South Africa.|
-| [**Gamenodes**](https://gamenodes.nl) | Gamenodes love quality. For Minecraft, Discord Bots and other services, among others. With our own programmers, we provide just that little bit of extra service! |
--->
+| [**VLssu公益服**](https://vlssu.cn) | 一个热衷于美好社区的我的世界服务器。 |
+
 ### 支持的游戏
 我们通过使用 Docker 容器隔离每个实例来支持各种游戏，为您提供强大的功能
 在全球范围内托管您的游戏，而不必让每台物理机器都因安装额外的依赖而变得臃肿。
 
 我们支持的一些核心游戏包括:
 
-* Minecraft（我的世界） — 包括 Spigot, Sponge, Bungeecord, Waterfall, 等....
+* Minecraft（我的世界） — 包括 Paper, Sponge, Bungeecord, Waterfall, 等....
 * Rust （腐蚀）
 * Terraria （泰拉瑞亚）
 * Teamspeak
@@ -74,4 +63,4 @@ Pterodactyl® Copyright © 2015 - 2022 Dane Everitt and contributors.
 Code released under the [MIT License](./LICENSE.md).
 
 此本地化项目同样遵循 翼龙开源协议 与 MIT 开源协议   
-引用资源文件/汉化文本请注意作者署名。 
+引用资源文件/汉化文本请注意作者署名。
