@@ -51,7 +51,7 @@ export default forwardRef<HTMLFormElement, Props>(({ title, ...props }, ref) => 
             >
                 Pterodactyl Software
             </a>
-            &nbsp;which Sinicizated by&nbsp;
+            &nbsp;| Sinicizated by&nbsp;
             <a
                 rel={'noopener nofollow noreferrer'}
                 href={'https://pterodactyl.top'}
