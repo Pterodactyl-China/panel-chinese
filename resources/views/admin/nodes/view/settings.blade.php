@@ -78,11 +78,11 @@
                             <input type="text" autocomplete="off" name="fqdn" class="form-control" value="{{ old('fqdn', $node->fqdn) }}" />
                         </div>
                         <p class="text-muted"><small>请输入用于连接守护程序的域名 (例如 <code>node.example.com</code>). 仅当您没有为此节点使用 SSL 时才可以使用 IP 地址.
-                                <a tabindex="0" data-toggle="popover" data-trigger="focus" title="为什么需要(FQDN)域名？" data-content="为了保护您的服务器与此节点之间的通信，我们使用 SSL。我们无法为 IP 地址生成 SSL 证书，因此您需要提供(FQDN)域名。">为什么？</a>
+                                <a tabindex="0" data-toggle="popover" data-trigger="focus" title="为什么需要(FQDN)域名？" data-content="为了保护您的服务器与此节点之间的通信，我们需要使用 SSL。我们无法为 IP 地址生成 SSL 证书，因此您需要提供(FQDN)域名。">为什么？</a>
                             </small></p>
                     </div>
                     <div class="form-group col-xs-12">
-                        <label class="form-label"><span class="label label-warning"><i class="fa fa-power-off"></i></span>与面板前端以 SSL 通信</label>
+                        <label class="form-label"><span class="label label-warning"><i class="fa fa-power-off"></i></span>面板前端以 SSL 通信</label>
                         <div>
                             <div class="radio radio-success radio-inline">
                                 <input type="radio" id="pSSLTrue" value="https" name="scheme" {{ (old('scheme', $node->scheme) === 'https') ? 'checked' : '' }}>
