@@ -7,16 +7,16 @@
 @extends('layouts.admin')
 
 @section('title')
-    预设配置
+预设配置
 @endsection
 
 @section('content-header')
-    <h1>新预设<small>为服务器创建新预设.</small></h1>
-    <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">管理</a></li>
-        <li><a href="{{ route('admin.nests') }}">预设组</a></li>
-        <li class="active">新预设</li>
-    </ol>
+<h1>新预设<small>为服务器创建新预设.</small></h1>
+<ol class="breadcrumb">
+    <li><a href="{{ route('admin.index') }}">管理</a></li>
+    <li><a href="{{ route('admin.nests') }}">预设组</a></li>
+    <li class="active">新预设</li>
+</ol>
 @endsection
 
 @section('content')
@@ -35,7 +35,7 @@
                                 <div>
                                     <select name="nest_id" id="pNestId">
                                         @foreach($nests as $nest)
-                                            <option value="{{ $nest->id }}" {{ old('nest_id') != $nest->id ?: 'selected' }}>{{ $nest->name }} &lt;{{ $nest->author }}&gt;</option>
+                                        <option value="{{ $nest->id }}" {{ old('nest_id') != $nest->id ?: 'selected' }}>{{ $nest->name }} &lt;{{ $nest->author }}&gt;</option>
                                         @endforeach
                                     </select>
                                     <p class="text-muted small">官方将此功能定义为 Nest 和 Egg，为了中文语境下更方便理解，将其翻译为预设组和预设。</p>
@@ -50,6 +50,20 @@
                                 <label for="pDescription" class="form-label">描述</label>
                                 <textarea id="pDescription" name="description" class="form-control" rows="8">{{ old('description') }}</textarea>
                                 <p class="text-muted small">预设的描述.</p>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox checkbox-primary no-margin-bottom">
+                                    <input id="pForceOutgoingIp" name="force_outgoing_ip" type="checkbox" value="1" {{ \Pterodactyl\Helpers\Utilities::checked('force_outgoing_ip', 0) }} />
+                                    <label for="pForceOutgoingIp" class="strong">强制传出 IP</label>
+                                    <p class="text-muted small">
+                                        强制所有传出的网络流量将其源 IP 地址转换(NAT)到服务器首选IP的IP地址。
+                                        当节点有多个公共 IP 地址时，某些游戏需要正常运行。
+                                        <br>
+                                        <strong>
+                                            启用此选项将禁用任何使用此预设的服务器内网，这将导致它们无法从内部访问同一节点上的其他服务器。
+                                        </strong>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -124,16 +138,16 @@
 @endsection
 
 @section('footer-scripts')
-    @parent
-    {!! Theme::js('vendor/lodash/lodash.js') !!}
-    <script>
+@parent
+{!! Theme::js('vendor/lodash/lodash.js') !!}
+<script>
     $(document).ready(function() {
         $('#pNestId').select2().change();
         $('#pConfigFrom').select2();
     });
-    $('#pNestId').on('change', function (event) {
+    $('#pNestId').on('change', function(event) {
         $('#pConfigFrom').html('<option value="">None</option>').select2({
-            data: $.map(_.get(Pterodactyl.nests, $(this).val() + '.eggs', []), function (item) {
+            data: $.map(_.get(Pterodactyl.nests, $(this).val() + '.eggs', []), function(item) {
                 return {
                     id: item.id,
                     text: item.name + ' <' + item.author + '>',
@@ -152,5 +166,5 @@
             $(this).val(prepend + '    ' + append);
         }
     });
-    </script>
+</script>
 @endsection

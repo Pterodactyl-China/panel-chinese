@@ -92,6 +92,21 @@
                                     后跟一个竖线字符，然后是镜像 URL. 例如: <code>镜像显示名称|ghcr.io/my/egg</code>
                                 </p>
                             </div>
+                            <div class="form-group">
+                                <div class="checkbox checkbox-primary no-margin-bottom">
+                                    <input id="pForceOutgoingIp" name="force_outgoing_ip" type="checkbox" value="1" @if($egg->force_outgoing_ip) checked @endif />
+                                    <label for="pForceOutgoingIp" class="strong">强制传出 IP</label>
+                                    <p class="text-muted small">
+                                        强制所有传出的网络流量将其源IP NAT(网络地址转换)到服务器的首选IP的IP地址。
+                                        当节点有多个公共 IP 地址时，某些游戏需要正常运行。
+                                        <br>
+                                        <strong>
+                                            启用此选项将禁用任何使用此预设的服务器内网，这将导致它们无法从内部访问同一节点上的其他服务器。
+                                        </strong>
+                                    </p>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
