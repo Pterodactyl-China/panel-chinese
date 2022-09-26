@@ -56,8 +56,8 @@
                                     <input id="pForceOutgoingIp" name="force_outgoing_ip" type="checkbox" value="1" {{ \Pterodactyl\Helpers\Utilities::checked('force_outgoing_ip', 0) }} />
                                     <label for="pForceOutgoingIp" class="strong">强制传出 IP</label>
                                     <p class="text-muted small">
-                                        强制所有传出的网络流量将其源 IP 地址转换(NAT)到服务器首选IP的IP地址。
-                                        当节点有多个公共 IP 地址时，某些游戏需要正常运行。
+                                        强制所有传出的网络流量将其源 IP地址转换(NAT) 到服务器首选IP 的 IP地址。
+                                        当节点有多个公共 IP 地址时，可以解决某些游戏正常运行的问题。
                                         <br>
                                         <strong>
                                             启用此选项将禁用任何使用此预设的服务器内网，这将导致它们无法从内部访问同一节点上的其他服务器。
