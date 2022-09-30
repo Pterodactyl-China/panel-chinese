@@ -1,6 +1,6 @@
 {{-- Pterodactyl CHINA - Panel --}}
 {{-- Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com> --}}
-{{-- Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn> --}}
+{{-- Simplified Chinese Translation Copyright (c) 2018 - 2022 ValiantShishu <vlssu@vlssu.com> --}}
 
 {{-- This software is licensed under the terms of the MIT license. --}}
 {{-- https://opensource.org/licenses/MIT --}}
@@ -28,7 +28,7 @@
             <ul class="nav nav-tabs">
                 <li><a href="{{ route('admin.nests.egg.view', $egg->id) }}">设置</a></li>
                 <li class="active"><a href="{{ route('admin.nests.egg.variables', $egg->id) }}">变量</a></li>
-                <li><a href="{{ route('admin.nests.egg.scripts', $egg->id) }}">安装程序</a></li>
+                <li><a href="{{ route('admin.nests.egg.scripts', $egg->id) }}">安装脚本</a></li>
             </ul>
         </div>
     </div>
