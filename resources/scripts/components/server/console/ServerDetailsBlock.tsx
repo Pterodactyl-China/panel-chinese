@@ -98,12 +98,12 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
                 title={'正常运行时间'}
                 color={getBackgroundColor(status === 'running' ? 0 : status !== 'offline' ? 9 : 10, 10)}
             >
-                {status === 'starting' || status === 'stopping' ? (
-                    capitalize(status)
+                {status === null ? (
+                    "Offline"
                 ) : stats.uptime > 0 ? (
                     <UptimeDuration uptime={stats.uptime / 1000} />
                 ) : (
-                    '离线'
+                    capitalize(status)
                 )}
             </StatBlock>
             <StatBlock icon={faMicrochip} title={'CPU'} color={getBackgroundColor(stats.cpu, limits.cpu)}>
