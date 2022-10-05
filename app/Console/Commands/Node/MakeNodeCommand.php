@@ -24,27 +24,27 @@ class MakeNodeCommand extends Command
      * @var string
      */
     protected $signature = 'p:node:make
-                            {--name= : A name to identify the node.}
-                            {--description= : A description to identify the node.}
-                            {--locationId= : A valid locationId.}
-                            {--fqdn= : The domain name (e.g node.example.com) to be used for connecting to the daemon. An IP address may only be used if you are not using SSL for this node.}
-                            {--public= : Should the node be public or private? (public=1 / private=0).}
-                            {--scheme= : Which scheme should be used? (Enable SSL=https / Disable SSL=http).}
-                            {--proxy= : Is the daemon behind a proxy? (Yes=1 / No=0).}
-                            {--maintenance= : Should maintenance mode be enabled? (Enable Maintenance mode=1 / Disable Maintenance mode=0).}
-                            {--maxMemory= : Set the max memory amount.}
-                            {--overallocateMemory= : Enter the amount of ram to overallocate (% or -1 to overallocate the maximum).}
-                            {--maxDisk= : Set the max disk amount.}
-                            {--overallocateDisk= : Enter the amount of disk to overallocate (% or -1 to overallocate the maximum).}
-                            {--uploadSize= : Enter the maximum upload filesize.}
-                            {--daemonListeningPort= : Enter the wings listening port.}
-                            {--daemonSFTPPort= : Enter the wings SFTP listening port.}
-                            {--daemonBase= : Enter the base folder.}';
+                            {--name= : 用于标识节点的名称。}
+                            {--description= : 用于标识节点的描述。}
+                            {--locationId= : 一个有效的地域 ID。}
+                            {--fqdn= : 请输入用于连接守护程序的域名 (例如 node.example.com)。仅在 您没有为此节点使用 SSL 连接的情况下才可以使用 IP 地址。}
+                            {--public= : 节点应该是公共的还是私有的？ （公共 = 1 / 私人 = 0）。}
+                            {--scheme= : 应该使用哪种方案？ （启用 SSL=https / 禁用 SSL=http）。}
+                            {--proxy= : 守护进程是否使用了代理？ （是=1 / 否=0）。}
+                            {--maintenance= : 是否应该启用维护模式？ （启用维护模式 = 1 / 禁用维护模式 = 0）。}
+                            {--maxMemory= : 设置最大内存容量。}
+                            {--overallocateMemory= : 输入要过度分配的内存容量 (% or -1 to overallocate the maximum).}
+                            {--maxDisk= : 设置最大存储容量。}
+                            {--overallocateDisk= : 输入要过度分配的存储容量 (% or -1 to overallocate the maximum).}
+                            {--uploadSize= : 输入最大文件上传大小}
+                            {--daemonListeningPort= : 输入wings监听端口。}
+                            {--daemonSFTPPort= : 输入wings SFTP监听端口。}
+                            {--daemonBase= : 输入服务器文件存储目录}';
 
     /**
      * @var string
      */
-    protected $description = 'Creates a new node on the system via the CLI.';
+    protected $description = '通过CLI在系统上创建一个新节点。';
 
     /**
      * Handle the command execution process.
@@ -55,10 +55,10 @@ class MakeNodeCommand extends Command
     {
         $this->creationService = $creationService;
 
-        $data['name'] = $this->option('name') ?? $this->ask('Enter a short identifier used to distinguish this node from others');
-        $data['description'] = $this->option('description') ?? $this->ask('Enter a description to identify the node');
-        $data['location_id'] = $this->option('locationId') ?? $this->ask('Enter a valid location id');
-        $data['fqdn'] = $this->option('fqdn') ?? $this->ask('Enter a domain name (e.g node.example.com) to be used for connecting to the daemon. An IP address may only be used if you are not using SSL for this node');
+        $data['name'] = $this->option('name') ?? $this->ask('输入用于区分此节点与其他节点的简短标识符');
+        $data['description'] = $this->option('description') ?? $this->ask('输入描述以识别节点');
+        $data['location_id'] = $this->option('locationId') ?? $this->ask('输入有效的地域 ID');
+        $data['fqdn'] = $this->option('fqdn') ?? $this->ask('请输入用于连接守护程序的域名 (例如 node.example.com)。仅在 您没有为此节点使用 SSL 连接的情况下才可以使用 IP 地址');
 
         // Note, this function will also resolve CNAMEs for us automatically,
         // there is no need to manually resolve them here.
@@ -66,33 +66,33 @@ class MakeNodeCommand extends Command
         // Using @ as workaround to fix https://bugs.php.net/bug.php?id=73149
         $records = @dns_get_record($data['fqdn'], DNS_A + DNS_AAAA);
         if (empty($records)) {
-            $this->error('The FQDN or IP address provided does not resolve to a valid IP address.');
+            $this->error('提供的 FQDN(域名) 或 IP 地址无法解析为有效的 IP 地址。');
 
             return;
         }
-        $data['public'] = $this->option('public') ?? $this->confirm('Should this node be public? As a note, setting a node to private you will be denying the ability to auto-deploy to this node.', true);
+        $data['public'] = $this->option('public') ?? $this->confirm('这个节点应该是公开的吗？ 请注意，将节点设置为私有您将无法使用自动部署到该节点的能力。', true);
         $data['scheme'] = $this->option('scheme') ?? $this->anticipate(
-            'Please either enter https for SSL or http for a non-ssl connection',
+            '请为 SSL 输入 https 或为非 SSL 连接输入 http',
             ['https', 'http'],
             'https'
         );
         if (filter_var($data['fqdn'], FILTER_VALIDATE_IP) && $data['scheme'] === 'https') {
-            $this->error('A fully qualified domain name that resolves to a public IP address is required in order to use SSL for this node.');
+            $this->error('需要解析为公共 IP 地址的完全限定域名才能为此节点使用 SSL。');
 
             return;
         }
-        $data['behind_proxy'] = $this->option('proxy') ?? $this->confirm('Is your FQDN behind a proxy?');
-        $data['maintenance_mode'] = $this->option('maintenance') ?? $this->confirm('Should maintenance mode be enabled?');
-        $data['memory'] = $this->option('maxMemory') ?? $this->ask('Enter the maximum amount of memory');
-        $data['memory_overallocate'] = $this->option('overallocateMemory') ?? $this->ask('Enter the amount of memory to over allocate by, -1 will disable checking and 0 will prevent creating new servers');
-        $data['disk'] = $this->option('maxDisk') ?? $this->ask('Enter the maximum amount of disk space');
-        $data['disk_overallocate'] = $this->option('overallocateDisk') ?? $this->ask('Enter the amount of memory to over allocate by, -1 will disable checking and 0 will prevent creating new server');
-        $data['upload_size'] = $this->option('uploadSize') ?? $this->ask('Enter the maximum filesize upload', '100');
-        $data['daemonListen'] = $this->option('daemonListeningPort') ?? $this->ask('Enter the wings listening port', '8080');
-        $data['daemonSFTP'] = $this->option('daemonSFTPPort') ?? $this->ask('Enter the wings SFTP listening port', '2022');
-        $data['daemonBase'] = $this->option('daemonBase') ?? $this->ask('Enter the base folder', '/var/lib/pterodactyl/volumes');
+        $data['behind_proxy'] = $this->option('proxy') ?? $this->confirm('您的 FQDN(域名) 是否使用了代理？');
+        $data['maintenance_mode'] = $this->option('maintenance') ?? $this->confirm('是否应该启用维护模式？');
+        $data['memory'] = $this->option('maxMemory') ?? $this->ask('输入最大内存容量');
+        $data['memory_overallocate'] = $this->option('overallocateMemory') ?? $this->ask('输入要过度分配的内存容量，-1 将禁用检查，0 将阻止创建新服务器');
+        $data['disk'] = $this->option('maxDisk') ?? $this->ask('输入最大存储空间容量');
+        $data['disk_overallocate'] = $this->option('overallocateDisk') ?? $this->ask('输入要过度分配的存储空间容量，-1 将禁用检查，0 将阻止创建新服务器');
+        $data['upload_size'] = $this->option('uploadSize') ?? $this->ask('输入最大文件上传大小', '100');
+        $data['daemonListen'] = $this->option('daemonListeningPort') ?? $this->ask('输入wings监听端口', '8080');
+        $data['daemonSFTP'] = $this->option('daemonSFTPPort') ?? $this->ask('输入wings SFTP监听端口', '2022');
+        $data['daemonBase'] = $this->option('daemonBase') ?? $this->ask('输入服务器文件存储目录', '/var/lib/pterodactyl/volumes');
 
         $node = $this->creationService->handle($data);
-        $this->line('Successfully created a new node on the location ' . $data['location_id'] . ' with the name ' . $data['name'] . ' and has an id of ' . $node->id . '.');
+        $this->line('在地域 ' . $data['location_id'] . ' 上成功创建了一个名为 ' . $data['name'] . ' 且 id 为 ' . $node->id . ' 的新节点。');
     }
 }
