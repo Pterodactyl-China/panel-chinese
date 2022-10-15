@@ -71,7 +71,7 @@ class ProcessRunnableCommand extends Command
         } catch (Throwable|Exception $exception) {
             Log::error($exception, ['schedule_id' => $schedule->id]);
 
-            $this->error("An error was encountered while processing Schedule #$schedule->id: " . $exception->getMessage());
+            $this->error("处理计划时遇到错误 #$schedule->id: " . $exception->getMessage());
         }
     }
 }

@@ -43,9 +43,9 @@ class MakeUserCommand extends Command
         $this->table(['Field', 'Value'], [
             ['UUID', $user->uuid],
             ['Email', $user->email],
-            ['Username', $user->username],
-            ['Name', $user->name],
-            ['Admin', $user->root_admin ? 'Yes' : 'No'],
+            ['用户名', $user->username],
+            ['姓名', $user->name],
+            ['管理员', $user->root_admin ? '是' : '否'],
         ]);
     }
 }
