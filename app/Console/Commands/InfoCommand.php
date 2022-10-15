@@ -1,12 +1,4 @@
 <?php
-/**
- * Pterodactyl CHINA - Panel
- * Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com>.
- * Simplified Chinese Translation Copyright (c) 2018 - 2022 ValiantShishu <vlssu@vlssu.com>
- *
- * This software is licensed under the terms of the MIT license.
- * https://opensource.org/licenses/MIT
- */
 
 namespace Pterodactyl\Console\Commands;
 
@@ -16,35 +8,16 @@ use Illuminate\Contracts\Config\Repository as ConfigRepository;
 
 class InfoCommand extends Command
 {
-    /**
-     * @var string
-     */
     protected $description = 'Displays the application, database, and email configurations along with the panel version.';
 
-    /**
-     * @var \Illuminate\Contracts\Config\Repository
-     */
-    protected $config;
-
-    /**
-     * @var string
-     */
     protected $signature = 'p:info';
-
-    /**
-     * @var \Pterodactyl\Services\Helpers\SoftwareVersionService
-     */
-    protected $versionService;
 
     /**
      * VersionCommand constructor.
      */
-    public function __construct(ConfigRepository $config, SoftwareVersionService $versionService)
+    public function __construct(private ConfigRepository $config, private SoftwareVersionService $versionService)
     {
         parent::__construct();
-
-        $this->config = $config;
-        $this->versionService = $versionService;
     }
 
     /**
@@ -79,10 +52,10 @@ class InfoCommand extends Command
         $driver = $this->config->get('database.default');
         $this->table([], [
             ['驱动器', $driver],
-            ['主机', $this->config->get("database.connections.{$driver}.host")],
-            ['端口', $this->config->get("database.connections.{$driver}.port")],
-            ['数据库', $this->config->get("database.connections.{$driver}.database")],
-            ['用户名', $this->config->get("database.connections.{$driver}.username")],
+            ['主机', $this->config->get("database.connections.$driver.host")],
+            ['端口', $this->config->get("database.connections.$driver.port")],
+            ['数据库', $this->config->get("database.connections.$driver.database")],
+            ['用户名', $this->config->get("database.connections.$driver.username")],
         ], 'compact');
 
         $this->output->title('邮件发件配置');
@@ -99,13 +72,8 @@ class InfoCommand extends Command
 
     /**
      * Format output in a Name: Value manner.
-     *
-     * @param string $value
-     * @param string $opts
-     *
-     * @return string
      */
-    private function formatText($value, $opts = '')
+    private function formatText(string $value, string $opts = ''): string
     {
         return sprintf('<%s>%s</>', $opts, $value);
     }

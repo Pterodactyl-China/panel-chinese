@@ -10,10 +10,7 @@ class BaseSettingsFormRequest extends AdminFormRequest
 {
     use AvailableLanguages;
 
-    /**
-     * @return array
-     */
-    public function rules()
+    public function rules(): array
     {
         return [
             'app:name' => 'required|string|max:191',
@@ -23,10 +20,7 @@ class BaseSettingsFormRequest extends AdminFormRequest
         ];
     }
 
-    /**
-     * @return array
-     */
-    public function attributes()
+    public function attributes(): array
     {
         return [
             'app:name' => 'Company Name',

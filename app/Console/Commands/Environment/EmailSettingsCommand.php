@@ -1,12 +1,4 @@
 <?php
-/**
- * Pterodactyl CHINA - Panel
- * Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com>.
- * Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn>
- *
- * This software is licensed under the terms of the MIT license.
- * https://opensource.org/licenses/MIT
- */
 
 namespace Pterodactyl\Console\Commands\Environment;
 
@@ -18,19 +10,8 @@ class EmailSettingsCommand extends Command
 {
     use EnvironmentWriterTrait;
 
-    /**
-     * @var \Illuminate\Contracts\Config\Repository
-     */
-    protected $config;
-
-    /**
-     * @var string
-     */
     protected $description = '设置或更新面板前端的电子邮件发送配置.';
 
-    /**
-     * @var string
-     */
     protected $signature = 'p:environment:mail
                             {--driver= : 要使用的邮件驱动程序.}
                             {--email= : 邮件地址.}
@@ -42,19 +23,14 @@ class EmailSettingsCommand extends Command
                             {--username=}
                             {--password=}';
 
-    /**
-     * @var array
-     */
-    protected $variables = [];
+    protected array $variables = [];
 
     /**
      * EmailSettingsCommand constructor.
      */
-    public function __construct(ConfigRepository $config)
+    public function __construct(private ConfigRepository $config)
     {
         parent::__construct();
-
-        $this->config = $config;
     }
 
     /**

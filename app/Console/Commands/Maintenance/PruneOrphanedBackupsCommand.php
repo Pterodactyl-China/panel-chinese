@@ -9,24 +9,26 @@ use Pterodactyl\Repositories\Eloquent\BackupRepository;
 
 class PruneOrphanedBackupsCommand extends Command
 {
-    /**
-     * @var string
-     */
     protected $signature = 'p:maintenance:prune-backups {--prune-age=}';
 
-    /**
-     * @var string
-     */
-    protected $description = '将所有在过去"n"分钟内未完成的备份标记为失败。';
+    protected $description = 'Marks all backups that have not completed in the last "n" minutes as being failed.';
 
-    public function handle(BackupRepository $repository)
+    /**
+     * PruneOrphanedBackupsCommand constructor.
+     */
+    public function __construct(private BackupRepository $backupRepository)
+    {
+        parent::__construct();
+    }
+
+    public function handle()
     {
         $since = $this->option('prune-age') ?? config('backups.prune_age', 360);
         if (!$since || !is_digit($since)) {
             throw new InvalidArgumentException('"--prune-age" 参数的值必须大于 0。');
         }
 
-        $query = $repository->getBuilder()
+        $query = $this->backupRepository->getBuilder()
             ->whereNull('completed_at')
             ->where('created_at', '<=', CarbonImmutable::now()->subMinutes($since)->toDateTimeString());
 
@@ -37,7 +39,7 @@ class PruneOrphanedBackupsCommand extends Command
             return;
         }
 
-        $this->warn("将在过去 {$since} 分钟内未标记为已完成的 {$count} 个备份标记为失败。");
+        $this->warn("将在过去 $since 分钟内未标记为已完成的 $count 个备份标记为失败。");
 
         $query->update([
             'is_successful' => false,

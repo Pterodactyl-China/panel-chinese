@@ -12,7 +12,6 @@ class UpgradeCommand extends Command
 {
     protected const DEFAULT_URL = 'https://github.com/pterodactyl-china/panel/releases/%s/panel.tar.gz';
 
-    /** @var string */
     protected $signature = 'p:upgrade
         {--user= : 运行 PHP 的用户。所有文件将归此用户所有。}
         {--group= : 运行 PHP 所在的组。所有文件都归该组所有。}
@@ -20,7 +19,6 @@ class UpgradeCommand extends Command
         {--release= : 要从 GitHub 下载的特定翼龙版本。 留空则下载最新的。}
         {--skip-download : 如果设置，则不会下载存档。}';
 
-    /** @var string */
     protected $description = '从 GitHub 下载翼龙中国的新存档，然后执行正常的升级命令。';
 
     /**
@@ -92,7 +90,7 @@ class UpgradeCommand extends Command
             }
         }
 
-        ini_set('output_buffering', 0);
+        ini_set('output_buffering', '0');
         $bar = $this->output->createProgressBar($skipDownload ? 9 : 10);
         $bar->start();
 
