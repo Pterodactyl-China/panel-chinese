@@ -102,7 +102,7 @@
                                     @if($server->disk === 0)
                                         <code>无限制</code>
                                     @else
-                                        <code>{{ $server->disk }}MB</code>
+                                        <code>{{ $server->disk }}MiB</code>
                                     @endif
                                 </td>
                             </tr>

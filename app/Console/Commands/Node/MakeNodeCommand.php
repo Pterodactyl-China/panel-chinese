@@ -55,32 +55,16 @@ class MakeNodeCommand extends Command
     {
         $this->creationService = $creationService;
 
-        $data['name'] = $this->option('name') ?? $this->ask('输入用于区分此节点与其他节点的简短标识符');
+	    $data['name'] = $this->option('name') ?? $this->ask('输入用于区分此节点与其他节点的简短标识符');
         $data['description'] = $this->option('description') ?? $this->ask('输入描述以识别节点');
         $data['location_id'] = $this->option('locationId') ?? $this->ask('输入有效的地域 ID');
-        $data['fqdn'] = $this->option('fqdn') ?? $this->ask('请输入用于连接守护程序的域名 (例如 node.example.com)。仅在 您没有为此节点使用 SSL 连接的情况下才可以使用 IP 地址');
-
-        // Note, this function will also resolve CNAMEs for us automatically,
-        // there is no need to manually resolve them here.
-        //
-        // Using @ as workaround to fix https://bugs.php.net/bug.php?id=73149
-        $records = @dns_get_record($data['fqdn'], DNS_A + DNS_AAAA);
-        if (empty($records)) {
-            $this->error('提供的 FQDN(域名) 或 IP 地址无法解析为有效的 IP 地址。');
-
-            return;
-        }
-        $data['public'] = $this->option('public') ?? $this->confirm('这个节点应该是公开的吗？ 请注意，将节点设置为私有您将无法使用自动部署到该节点的能力。', true);
         $data['scheme'] = $this->option('scheme') ?? $this->anticipate(
             '请为 SSL 输入 https 或为非 SSL 连接输入 http',
             ['https', 'http'],
             'https'
         );
-        if (filter_var($data['fqdn'], FILTER_VALIDATE_IP) && $data['scheme'] === 'https') {
-            $this->error('需要解析为公共 IP 地址的完全限定域名才能为此节点使用 SSL。');
-
-            return;
-        }
+        $data['fqdn'] = $this->option('fqdn') ?? $this->ask('请输入用于连接守护程序的域名 (例如 node.example.com). 仅当您没有为此节点使用 SSL 时才可以使用 IP 地址.');
+        $data['public'] = $this->option('public') ?? $this->confirm('该节点是否应该公开？ 请注意，将节点设置为私有将拒绝自动部署到此节点的能力。', true);
         $data['behind_proxy'] = $this->option('proxy') ?? $this->confirm('您的 FQDN(域名) 是否使用了代理？');
         $data['maintenance_mode'] = $this->option('maintenance') ?? $this->confirm('是否应该启用维护模式？');
         $data['memory'] = $this->option('maxMemory') ?? $this->ask('输入最大内存容量');
