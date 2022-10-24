@@ -39,7 +39,7 @@ class MailController extends Controller
     public function index(): View
     {
         return $this->view->make('admin.settings.mail', [
-            'disabled' => $this->config->get('mail.driver') !== 'smtp',
+            'disabled' => $this->config->get('mail.default') !== 'smtp',
         ]);
     }
 
@@ -52,8 +52,8 @@ class MailController extends Controller
      */
     public function update(MailSettingsFormRequest $request): Response
     {
-        if ($this->config->get('mail.driver') !== 'smtp') {
-            throw new DisplayException('此功能仅在 SMTP 是面板选定的电子邮件驱动程序时才可用。');
+        if ($this->config->get('mail.default') !== 'smtp') {
+            throw new DisplayException('功能仅在 SMTP 是面板选定的电子邮件驱动程序时才可用。');
         }
 
         $values = $request->normalize();

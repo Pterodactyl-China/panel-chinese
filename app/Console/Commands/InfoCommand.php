@@ -8,7 +8,7 @@ use Illuminate\Contracts\Config\Repository as ConfigRepository;
 
 class InfoCommand extends Command
 {
-    protected $description = 'Displays the application, database, and email configurations along with the panel version.';
+    protected $description = '显示应用程序、数据库和电子邮件配置以及面板版本。';
 
     protected $signature = 'p:info';
 
@@ -58,15 +58,16 @@ class InfoCommand extends Command
             ['用户名', $this->config->get("database.connections.$driver.username")],
         ], 'compact');
 
+        // TODO: Update this to handle other mail drivers
         $this->output->title('邮件发件配置');
         $this->table([], [
-            ['驱动器', $this->config->get('mail.driver')],
-            ['主机', $this->config->get('mail.host')],
-            ['端口', $this->config->get('mail.port')],
-            ['用户名', $this->config->get('mail.username')],
+            ['驱动器', $this->config->get('mail.default')],
+            ['主机', $this->config->get('mail.mailers.smtp.host')],
+            ['端口', $this->config->get('mail.mailers.smtp.port')],
+            ['用户名', $this->config->get('mail.mailers.smtp.username')],
             ['发件地址', $this->config->get('mail.from.address')],
             ['发件人', $this->config->get('mail.from.name')],
-            ['加密方式', $this->config->get('mail.encryption')],
+            ['加密方式', $this->config->get('mail.mailers.smtp.encryption')],
         ], 'compact');
     }
 
