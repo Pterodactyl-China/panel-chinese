@@ -20,7 +20,7 @@ Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP�
 * [Panel 文档](https://pterodactyl.top/panel/1.0/getting_started.html)
 * [Wings 文档](https://pterodactyl.top/wings/1.0/installing.html)
 * [社区指南文档](https://pterodactyl.top/community/about.html)
-* 或者，[通过 KOOK](https://kook.top/0Grsf5) 获得更多帮助
+* 或者，[通过 KOOK](https://kook.top/0Grsf5) 或 [通过 翼龙中国社区](https://bbs.pterodactyl.top) 来获得更多帮助
 
 ## 赞助商
 衷心感谢以下赞助商为翼龙中国的发展提供资金支持。
