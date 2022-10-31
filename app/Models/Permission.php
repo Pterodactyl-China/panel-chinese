@@ -195,8 +195,8 @@ class Permission extends Model
         'settings' => [
             'description' => '控制用户访问此服务器设置的权限。',
             'keys' => [
-                'rename' => '允许用户重命名此服务器。',
-                'reinstall' => '允许用户触发重新安装此服务器。。',
+                'rename' => '允许用户重命名此服务器并更改其描述。',
+                'reinstall' => '允许用户触发重新安装此服务器。',
             ],
         ],
 

@@ -8,6 +8,7 @@
 ![Alt](https://repobeats.axiom.co/api/embed/9e3f7d2c6db2f248adf85b55e7ebd4a3a4911bdf.svg "Repobeats analytics image")
 
 # 翼龙面板
+
 Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP、React 和 Go 构建。Pterodactyl 在设计时考虑了安全性，在隔离的 Docker 容器中运行所有游戏服务器，同时向最终用户展示了美观直观的 UI。
 
 不要再安于现状了。让游戏服务器成为您平台上的一等公民。
@@ -17,12 +18,14 @@ Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP�
 ![Image](https://cdn.pterodactyl.io/site-assets/pterodactyl_v1_demo.gif)
 
 ## 翼龙中国文档
+
 * [Panel 文档](https://pterodactyl.top/panel/1.0/getting_started.html)
 * [Wings 文档](https://pterodactyl.top/wings/1.0/installing.html)
 * [社区指南文档](https://pterodactyl.top/community/about.html)
 * 或者，[通过 KOOK](https://kook.top/0Grsf5) 或 [通过 翼龙中国社区](https://bbs.pterodactyl.top) 来获得更多帮助
 
 ## 赞助商
+
 衷心感谢以下赞助商为翼龙中国的发展提供资金支持。
 [有兴趣成为赞助商吗？](https://afdian.net/a/vlssu)
 
@@ -32,6 +35,7 @@ Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP�
 | [**酷牛网络**](https://www.kuniu.net) | 为您提供专业的游戏服务器 |
 
 ### 支持的游戏
+
 我们通过使用 Docker 容器隔离每个实例来支持各种游戏，为您提供强大的功能
 在全球范围内托管您的游戏，而不必让每台物理机器都因安装额外的依赖而变得臃肿。
 
@@ -56,10 +60,12 @@ Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP�
 * Squad （战术小队）
 * FiveM
 * Xonotic
-* Discord ATLBot
+* Starmade
+* Discord ATLBot, and most other Node.js/Python discord bots
 * [更多...](https://github.com/pterodactyl-china/eggs)
 
 ## 开源协议
+
 Pterodactyl® Copyright © 2015 - 2022 Dane Everitt and contributors.     
 Code released under the [MIT License](./LICENSE.md).
 
