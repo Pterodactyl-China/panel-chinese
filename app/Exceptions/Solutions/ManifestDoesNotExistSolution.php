@@ -8,7 +8,7 @@ class ManifestDoesNotExistSolution implements Solution
 {
     public function getSolutionTitle(): string
     {
-        return "manifest.json 文件尚未生成";
+        return 'manifest.json 文件尚未生成';
     }
 
     public function getSolutionDescription(): string
