@@ -115,6 +115,7 @@ return [
         ],
         'settings' => [
             'rename' => '将服务器从 :old 重命名为 :new',
+            'description' => '将服务器描述从 :old 更改为 :new',
         ],
         'startup' => [
             'edit' => '将 :variable 变量从 ":old" 更改为 ":new"',
