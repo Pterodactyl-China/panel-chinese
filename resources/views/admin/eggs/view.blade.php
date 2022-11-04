@@ -157,7 +157,7 @@
                             <div class="form-group">
                                 <label for="pConfigFiles" class="form-label">配置文件</label>
                                 <textarea data-action="handle-tabs" id="pConfigFiles" name="config_files" class="form-control" rows="6">{{ ! is_null($egg->config_files) ? json_encode(json_decode($egg->config_files), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) : '' }}</textarea>
-                                <p class="text-muted small">这里应该用 JSON 格式语法来让系统判断是否进行日志记录并指定日志存储的位置。</p>
+                                <p class="text-muted small">这里应该用 JSON 格式语法来让系统判断是否进行指定配置文件中部分内容修改。</p>
                             </div>
                             <div class="form-group">
                                 <label for="pConfigStartup" class="form-label">启动识别</label>
