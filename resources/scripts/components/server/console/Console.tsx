@@ -76,13 +76,6 @@ export default () => {
             case 'failure':
                 terminal.writeln(TERMINAL_PRELUDE + '迁移失败.\u001b[0m');
                 return;
-
-            // Sent by the source node whenever the server was archived successfully.
-            case 'archive':
-                terminal.writeln(
-                    TERMINAL_PRELUDE +
-                        '服务器文件已成功压缩打包，正在尝试连接到目标节点....\u001b[0m'
-                );
         }
     };
 
