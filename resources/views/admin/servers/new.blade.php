@@ -166,7 +166,7 @@
 
                 <div class="box-body row">
                     <div class="form-group col-xs-6">
-                        <label for="pMemory">运行内存</label>
+                        <label for="pMemory">内存</label>
 
                         <div class="input-group">
                             <input type="text" id="pMemory" name="memory" class="form-control" value="{{ old('memory') }}" />

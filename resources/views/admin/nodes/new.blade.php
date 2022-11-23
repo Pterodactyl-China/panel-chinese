@@ -107,7 +107,7 @@
                             <p class="text-muted small">输入存储服务器使用的文件目录. <strong>如果您使用 OVH，您应该检查您的分区方案。你可能需要让 <code>/home/daemon-data</code> 有足够的空间.</strong></p>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="pMemory" class="form-label">总运行内存容量</label>
+                            <label for="pMemory" class="form-label">总内存容量</label>
                             <div class="input-group">
                                 <input type="text" name="memory" data-multiplicator="true" class="form-control" id="pMemory" value="{{ old('memory') }}"/>
                                 <span class="input-group-addon">MiB</span>

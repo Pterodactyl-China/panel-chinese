@@ -129,7 +129,7 @@
                     <div class="col-xs-12">
                         <div class="row">
                             <div class="form-group col-xs-6">
-                                <label for="memory" class="control-label">总运行内存</label>
+                                <label for="memory" class="control-label">总内存</label>
                                 <div class="input-group">
                                     <input type="text" name="memory" class="form-control" data-multiplicator="true" value="{{ old('memory', $node->memory) }}"/>
                                     <span class="input-group-addon">MiB</span>
