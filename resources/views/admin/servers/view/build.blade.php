@@ -43,7 +43,7 @@
                         <label for="memory" class="control-label">分配内存</label>
                         <div class="input-group">
                             <input type="text" name="memory" data-multiplicator="true" class="form-control" value="{{ old('memory', $server->memory) }}"/>
-                            <span class="input-group-addon">MB</span>
+                            <span class="input-group-addon">MiB</span>
                         </div>
                         <p class="text-muted small">此服务器允许的最大内存使用量。将此设置为 <code>0</code> 将不限制此服务器内存使用。</p>
                     </div>
@@ -51,7 +51,7 @@
                         <label for="swap" class="control-label">分配交换内存</label>
                         <div class="input-group">
                             <input type="text" name="swap" data-multiplicator="true" class="form-control" value="{{ old('swap', $server->swap) }}"/>
-                            <span class="input-group-addon">MB</span>
+                            <span class="input-group-addon">MiB</span>
                         </div>
                         <p class="text-muted small">将此设置为 <code>0</code> 将禁用此服务器的交换内存. 将此设置为 <code>-1</code> 将允许此服务器使用无限制交换内存.</p>
                     </div>
@@ -59,7 +59,7 @@
                         <label for="cpu" class="control-label">存储空间限制</label>
                         <div class="input-group">
                             <input type="text" name="disk" class="form-control" value="{{ old('disk', $server->disk) }}"/>
-                            <span class="input-group-addon">MB</span>
+                            <span class="input-group-addon">MiB</span>
                         </div>
                         <p class="text-muted small">如果此服务器使用的空间超过此数量，则将不允许它启动。如果服务器在运行时超过此限制，它将安全停止并锁定，直到有足够的可用空间。调成 <code>0</code> 允许此服务器无限制使用存储空间.</p>
                     </div>

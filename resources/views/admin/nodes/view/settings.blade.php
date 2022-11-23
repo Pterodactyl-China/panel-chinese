@@ -132,7 +132,7 @@
                                 <label for="memory" class="control-label">总运行内存</label>
                                 <div class="input-group">
                                     <input type="text" name="memory" class="form-control" data-multiplicator="true" value="{{ old('memory', $node->memory) }}"/>
-                                    <span class="input-group-addon">MB</span>
+                                    <span class="input-group-addon">MiB</span>
                                 </div>
                             </div>
                             <div class="form-group col-xs-6">
@@ -151,7 +151,7 @@
                                 <label for="disk" class="control-label">总存储空间</label>
                                 <div class="input-group">
                                     <input type="text" name="disk" class="form-control" data-multiplicator="true" value="{{ old('disk', $node->disk) }}"/>
-                                    <span class="input-group-addon">MB</span>
+                                    <span class="input-group-addon">MiB</span>
                                 </div>
                             </div>
                             <div class="form-group col-xs-6">
@@ -177,7 +177,7 @@
                         <label for="disk_overallocate" class="control-label">最大网页文件上传大小</label>
                         <div class="input-group">
                             <input type="text" name="upload_size" class="form-control" value="{{ old('upload_size', $node->upload_size) }}"/>
-                            <span class="input-group-addon">MB</span>
+                            <span class="input-group-addon">MiB</span>
                         </div>
                         <p class="text-muted"><small>输入可以通过基于 Web 的文件管理器上传的文件的最大大小.</small></p>
                     </div>

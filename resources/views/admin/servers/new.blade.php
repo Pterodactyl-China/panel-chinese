@@ -170,7 +170,7 @@
 
                         <div class="input-group">
                             <input type="text" id="pMemory" name="memory" class="form-control" value="{{ old('memory') }}" />
-                            <span class="input-group-addon">MB</span>
+                            <span class="input-group-addon">MiB</span>
                         </div>
 
                         <p class="text-muted small">此容器允许的最大内存量。将此设置为 <code>0</code> 将允许此服务器无限制使用内存.</p>
@@ -181,7 +181,7 @@
 
                         <div class="input-group">
                             <input type="text" id="pSwap" name="swap" class="form-control" value="{{ old('swap', 0) }}" />
-                            <span class="input-group-addon">MB</span>
+                            <span class="input-group-addon">MiB</span>
                         </div>
 
                         <p class="text-muted small">将此设置为 <code>0</code> 将禁用此服务器上的交换内存. 将此设置为 <code>-1</code> 将允许此服务器使用无限交换内存.</p>
@@ -194,7 +194,7 @@
 
                         <div class="input-group">
                             <input type="text" id="pDisk" name="disk" class="form-control" value="{{ old('disk') }}" />
-                            <span class="input-group-addon">MB</span>
+                            <span class="input-group-addon">MiB</span>
                         </div>
 
                         <p class="text-muted small">如果此服务器使用的空间超过此数量，则将不允许它启动。如果服务器在运行时超过此限制，它将安全停止并锁定，直到有足够的可用空间。调成 <code>0</code> 将允许此服务器使用无限存储空间.</p>

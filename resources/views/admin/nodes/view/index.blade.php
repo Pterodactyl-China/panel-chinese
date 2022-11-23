@@ -107,7 +107,7 @@
                             <span class="info-box-icon"><i class="ion ion-ios-folder-outline"></i></span>
                             <div class="info-box-content" style="padding: 15px 10px 0;">
                                 <span class="info-box-text">存储空间分配</span>
-                                <span class="info-box-number">{{ $stats['disk']['value'] }} / {{ $stats['disk']['max'] }} MB</span>
+                                <span class="info-box-number">{{ $stats['disk']['value'] }} / {{ $stats['disk']['max'] }} MiB</span>
                                 <div class="progress">
                                     <div class="progress-bar" style="width: {{ $stats['disk']['percent'] }}%"></div>
                                 </div>
@@ -118,8 +118,8 @@
                         <div class="info-box bg-{{ $stats['memory']['css'] }}">
                             <span class="info-box-icon"><i class="ion ion-ios-barcode-outline"></i></span>
                             <div class="info-box-content" style="padding: 15px 10px 0;">
-                                <span class="info-box-text">运行内存分配</span>
-                                <span class="info-box-number">{{ $stats['memory']['value'] }} / {{ $stats['memory']['max'] }} MB</span>
+                                <span class="info-box-text">内存分配</span>
+                                <span class="info-box-number">{{ $stats['memory']['value'] }} / {{ $stats['memory']['max'] }} MiB</span>
                                 <div class="progress">
                                     <div class="progress-bar" style="width: {{ $stats['memory']['percent'] }}%"></div>
                                 </div>
