@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { Actions, State, useStoreActions, useStoreState } from 'easy-peasy';
 import { Form, Formik, FormikHelpers } from 'formik';
 import Field from '@/components/elements/Field';
@@ -24,7 +24,7 @@ const schema = Yup.object().shape({
         '密码确认与您输入的密码不匹配。',
         function (value) {
             return value === this.parent.password;
-        }
+        },
     ),
 });
 
@@ -43,26 +43,26 @@ export default () => {
                 // @ts-expect-error this is valid
                 window.location = '/auth/login';
             })
-            .catch((error) =>
+            .catch(error =>
                 addFlash({
                     key: 'account:password',
                     type: 'error',
                     title: '错误',
                     message: httpErrorToHuman(error),
-                })
+                }),
             )
             .then(() => setSubmitting(false));
     };
 
     return (
-        <React.Fragment>
+        <Fragment>
             <Formik
                 onSubmit={submit}
                 validationSchema={schema}
                 initialValues={{ current: '', password: '', confirmPassword: '' }}
             >
                 {({ isSubmitting, isValid }) => (
-                    <React.Fragment>
+                    <Fragment>
                         <SpinnerOverlay size={'large'} visible={isSubmitting} />
                         <Form css={tw`m-0`}>
                             <Field
@@ -94,9 +94,9 @@ export default () => {
                                 <Button disabled={isSubmitting || !isValid}>更新密码</Button>
                             </div>
                         </Form>
-                    </React.Fragment>
+                    </Fragment>
                 )}
             </Formik>
-        </React.Fragment>
+        </Fragment>
     );
 };
