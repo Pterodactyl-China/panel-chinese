@@ -30,7 +30,7 @@ class ProcessRunnableCommand extends Command
             ->get();
 
         if ($schedules->count() < 1) {
-            $this->line('There are no scheduled tasks for servers that need to be run.');
+            $this->line('服务器没有需要运行的计划任务。');
 
             return 0;
         }
