@@ -59,8 +59,8 @@
             "field_type": "text"
         },
         {
-            "name": "Query Protocols",
-            "description": "Comma separated list of protocols that can be used to connect to the ServerQuery | \r\nPossible values are raw, ssh and http | \r\nE.g.: raw,ssh,http",
+            "name": "查询协议",
+            "description": "逗号分隔的协议列表，可用于连接到服务器查询| \r\n可能的值为 raw、ssh 和 http | \r\n例如：raw,ssh,http",
             "env_variable": "QUERY_PROTOCOLS_VAR",
             "default_value": "raw,http,ssh",
             "user_viewable": true,
@@ -69,8 +69,8 @@
             "field_type": "text"
         },
         {
-            "name": "Query SSH Port",
-            "description": "TCP Port opened for ServerQuery connections using SSH",
+            "name": "查询 SSH 端口",
+            "description": "使用 SSH 为服务器查询连接打开的 TCP 端口",
             "env_variable": "QUERY_SSH",
             "default_value": "10022",
             "user_viewable": true,
@@ -79,8 +79,8 @@
             "field_type": "text"
         },
         {
-            "name": "Query HTTP Port",
-            "description": "TCP Port opened for ServerQuery connections using http",
+            "name": "查询 HTTP 端口",
+            "description": "使用 http 为服务器查询连接打开的 TCP 端口",
             "env_variable": "QUERY_HTTP",
             "default_value": "10080",
             "user_viewable": true,
