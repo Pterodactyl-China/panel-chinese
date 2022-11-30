@@ -2,7 +2,6 @@
 
 namespace Pterodactyl\Console\Commands;
 
-use Closure;
 use Illuminate\Console\Command;
 use Pterodactyl\Console\Kernel;
 use Symfony\Component\Process\Process;
@@ -177,7 +176,7 @@ class UpgradeCommand extends Command
         $this->info('面板已成功升级。请确保您还更新了所有 Wings 的实例：https://pterodactyl.top/wings/1.0/upgrading.html');
     }
 
-    protected function withProgress(ProgressBar $bar, Closure $callback)
+    protected function withProgress(ProgressBar $bar, \Closure $callback)
     {
         $bar->clear();
         $callback();

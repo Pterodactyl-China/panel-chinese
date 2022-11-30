@@ -2,7 +2,6 @@
 
 namespace Pterodactyl\Console\Commands\Environment;
 
-use DateTimeZone;
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Console\Kernel;
 use Pterodactyl\Traits\Commands\EnvironmentWriterTrait;
@@ -87,8 +86,8 @@ class AppSettingsCommand extends Command
 
         $this->output->comment('时区应与 PHP 支持的时区之一匹配 北京时区是 Asia/Shanghai。如果不确定，请参考 https://php.net/manual/zh/timezones.php.');
         $this->variables['APP_TIMEZONE'] = $this->option('timezone') ?? $this->anticipate(
-            '应用时区',
-            DateTimeZone::listIdentifiers(),
+            '应用程序时区',
+            \DateTimeZone::listIdentifiers(),
             config('app.timezone')
         );
 
