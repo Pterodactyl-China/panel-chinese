@@ -27,7 +27,7 @@ function LoginContainer() {
 
     const navigate = useNavigate();
 
-    const name = useStoreState((state) => state.settings.data?.name);
+    const name = useStoreState(state => state.settings.data?.name);
 
     useEffect(() => {
         clearFlashes();

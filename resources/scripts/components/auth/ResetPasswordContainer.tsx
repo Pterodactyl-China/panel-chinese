@@ -52,9 +52,7 @@ function ResetPasswordContainer() {
                 passwordConfirmation: '',
             }}
             validationSchema={object().shape({
-                password: string()
-                    .required('需要新密码。')
-                    .min(8, '您的新密码长度应至少为 8 个字符。'),
+                password: string().required('需要新密码。').min(8, '您的新密码长度应至少为 8 个字符。'),
                 passwordConfirmation: string()
                     .required('您的新密码不匹配。')
                     .oneOf([ref('password'), null], '您的新密码不匹配。'),
