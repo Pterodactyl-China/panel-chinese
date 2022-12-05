@@ -13,7 +13,7 @@
         "registry.cn-shanghai.aliyuncs.com\/pterodactyl-china\/yolks:debian"
     ],
     "file_denylist": [],
-    "startup": ".\/ts3server default_voice_port={{SERVER_PORT}} query_port={{QUERY_PORT}} filetransfer_ip=0.0.0.0 filetransfer_port={{FILE_TRANSFER}} license_accepted=1",
+    "startup": ".\/ts3server default_voice_port={{SERVER_PORT}} query_port={{QUERY_PORT}} filetransfer_ip=0.0.0.0 filetransfer_port={{FILE_TRANSFER}} query_http_port={{QUERY_HTTP}} query_ssh_port={{QUERY_SSH}} query_protocols={{QUERY_PROTOCOLS_VAR}} license_accepted=1",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"listening on 0.0.0.0:\"\r\n}",
@@ -22,7 +22,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/ash\r\n# TS3 Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\n\r\nif [ -z ${TS_VERSION} ] || [ ${TS_VERSION} == latest ]; then\r\n    TS_VERSION=$(curl -sSL https:\/\/teamspeak.com\/versions\/server.json | jq -r '.linux.x86_64.version')\r\nfi\r\n\r\ncd \/mnt\/server\r\n\r\necho -e \"getting files from http:\/\/files.teamspeak-services.com\/releases\/server\/${TS_VERSION}\/teamspeak3-server_linux_amd64-${TS_VERSION}.tar.bz2\" \r\ncurl -L http:\/\/files.teamspeak-services.com\/releases\/server\/${TS_VERSION}\/teamspeak3-server_linux_amd64-${TS_VERSION}.tar.bz2 | tar -xvj --strip-components=1",
+            "script": "#!\/bin\/ash\r\n# TS3 Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\n\r\nif [ -z ${TS_VERSION} ] || [ ${TS_VERSION} == latest ]; then\r\n    TS_VERSION=$(curl -sSL https:\/\/teamspeak.com\/versions\/server.json | jq -r '.linux.x86_64.version')\r\nfi\r\n\r\ncd \/mnt\/server\r\n\r\necho -e \"getting files from http:\/\/files.teamspeak-services.com\/releases\/server\/${TS_VERSION}\/teamspeak3-server_linux_amd64-${TS_VERSION}.tar.bz2\" \r\ncurl -L http:\/\/files.teamspeak-services.com\/releases\/server\/${TS_VERSION}\/teamspeak3-server_linux_amd64-${TS_VERSION}.tar.bz2 | tar -xvj --strip-components=1\r\ncp .\/redist\/libmariadb.so.2 .\/",
             "container": "registry.cn-shanghai.aliyuncs.com\/pterodactyl-china\/installers:alpine",
             "entrypoint": "ash"
         }
@@ -35,7 +35,8 @@
             "default_value": "latest",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|string|max:6"
+            "rules": "required|string|max:6",
+            "field_type": "text"
         },
         {
             "name": "文件传输端口",
@@ -44,7 +45,8 @@
             "default_value": "30033",
             "user_viewable": true,
             "user_editable": false,
-            "rules": "required|integer|between:1,65535"
+            "rules": "required|integer|between:1025,65535",
+            "field_type": "text"
         },
         {
             "name": "查询端口",
@@ -53,7 +55,38 @@
             "default_value": "10011",
             "user_viewable": true,
             "user_editable": false,
-            "rules": "required|integer|between:1,65535"
+            "rules": "required|integer|between:1025,65535",
+            "field_type": "text"
+        },
+        {
+            "name": "查询协议",
+            "description": "逗号分隔的协议列表，可用于连接到服务器查询| \r\n可能的值为 raw、ssh 和 http | \r\n例如：raw,ssh,http",
+            "env_variable": "QUERY_PROTOCOLS_VAR",
+            "default_value": "raw,http,ssh",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:12",
+            "field_type": "text"
+        },
+        {
+            "name": "查询 SSH 端口",
+            "description": "使用 SSH 为服务器查询连接打开的 TCP 端口",
+            "env_variable": "QUERY_SSH",
+            "default_value": "10022",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|integer|between:1025,65535",
+            "field_type": "text"
+        },
+        {
+            "name": "查询 HTTP 端口",
+            "description": "使用 http 为服务器查询连接打开的 TCP 端口",
+            "env_variable": "QUERY_HTTP",
+            "default_value": "10080",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|integer|between:1025,65535",
+            "field_type": "text"
         }
     ]
 }

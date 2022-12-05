@@ -43,7 +43,8 @@ class AppSettingsCommand extends Command
                             {--redis-host= : 用于连接的 Redis 主机.}
                             {--redis-pass= : 用于连接 Redis 的密码.}
                             {--redis-port= : 连接到 Redis 的端口.}
-                            {--settings-ui= : 启用或禁用设置 UI.}';
+                            {--settings-ui= : 启用或禁用设置 UI.}
+                            {--telemetry= : 启用或禁用匿名遥测.}';
 
     protected array $variables = [];
 
@@ -117,6 +118,12 @@ class AppSettingsCommand extends Command
         } else {
             $this->variables['APP_ENVIRONMENT_ONLY'] = $this->confirm('启用基于 UI 的设置编辑器?', true) ? 'false' : 'true';
         }
+
+        $this->output->comment('Please reference https://pterodactyl.io/panel/1.0/additional_configuration.html#telemetry for more detailed information regarding telemetry data and collection.');
+        $this->variables['PTERODACTYL_TELEMETRY_ENABLED'] = $this->option('telemetry') ?? $this->confirm(
+            'Enable sending anonymous telemetry data?',
+            config('pterodactyl.telemetry.enabled', true)
+        ) ? 'true' : 'false';
 
         // Make sure session cookies are set as "secure" when using HTTPS
         if (str_starts_with($this->variables['APP_URL'], 'https://')) {
