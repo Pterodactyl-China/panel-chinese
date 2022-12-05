@@ -184,9 +184,10 @@ return [
     |--------------------------------------------------------------------------
     |
     | This section controls the telemetry sent by Pterodactyl.
+    | 按理说，此功能应默认打开，但由于中国国内访问外网困难，所以我们将此设置设为默认关闭
     */
 
     'telemetry' => [
-        'enabled' => env('PTERODACTYL_TELEMETRY_ENABLED', true),
+        'enabled' => env('PTERODACTYL_TELEMETRY_ENABLED', false),
     ],
 ];
