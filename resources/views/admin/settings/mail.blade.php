@@ -38,14 +38,14 @@
                                 <div class="form-group col-md-6">
                                     <label class="control-label">SMTP 主机</label>
                                     <div>
-                                        <input required type="text" class="form-control" name="mail:host" value="{{ old('mail:host', config('mail.mailers.smtp.host')) }}" />
+                                        <input required type="text" class="form-control" name="mail:mailers:smtp:host" value="{{ old('mail:mailers:smtp:host', config('mail.mailers.smtp.host')) }}" />
                                         <p class="text-muted small">输入发送邮件的 SMTP 服务器地址.</p>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label class="control-label">SMTP 主机端口</label>
                                     <div>
-                                        <input required type="number" class="form-control" name="mail:port" value="{{ old('mail:port', config('mail.mailers.smtp.port')) }}" />
+                                        <input required type="number" class="form-control" name="mail:mailers:smtp:port" value="{{ old('mail:mailers:smtp:port', config('mail.mailers.smtp.port')) }}" />
                                         <p class="text-muted small">输入发送邮件的 SMTP 服务器端口.</p>
                                     </div>
                                 </div>
@@ -53,9 +53,9 @@
                                     <label class="control-label">加密方式</label>
                                     <div>
                                         @php
-                                            $encryption = old('mail:encryption', config('mail.mailers.smtp.encryption'));
+                                            $encryption = old('mail:mailers:smtp:encryption', config('mail.mailers.smtp.encryption'));
                                         @endphp
-                                        <select name="mail:encryption" class="form-control">
+                                        <select name="mail:mailers:smtp:encryption" class="form-control">
                                             <option value="" @if($encryption === '') selected @endif>无</option>
                                             <option value="tls" @if($encryption === 'tls') selected @endif>传输层安全 (TLS)</option>
                                             <option value="ssl" @if($encryption === 'ssl') selected @endif>安全链路层 (SSL)</option>
@@ -66,14 +66,14 @@
                                 <div class="form-group col-md-6">
                                     <label class="control-label">用户名 <span class="field-optional"></span></label>
                                     <div>
-                                        <input type="text" class="form-control" name="mail:username" value="{{ old('mail:username', config('mail.mailers.smtp.username')) }}" />
+                                        <input type="text" class="form-control" name="mail:mailers:smtp:username" value="{{ old('mail:mailers:smtp:username', config('mail.mailers.smtp.username')) }}" />
                                         <p class="text-muted small">连接到 SMTP 服务器时使用的用户名.</p>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="control-label">密码 <span class="field-optional"></span></label>
                                     <div>
-                                        <input type="password" class="form-control" name="mail:password"/>
+                                        <input type="password" class="form-control" name="mail:mailers:smtp:password"/>
                                         <p class="text-muted small">与 SMTP 用户名一起使用的密码。留空以继续使用现有密码。要将密码设置为空值，请输入 <code>!e</code> .</p>
                                     </div>
                                 </div>
@@ -120,11 +120,11 @@
                 url: '/admin/settings/mail',
                 contentType: 'application/json',
                 data: JSON.stringify({
-                    'mail:host': $('input[name="mail:host"]').val(),
-                    'mail:port': $('input[name="mail:port"]').val(),
-                    'mail:encryption': $('select[name="mail:encryption"]').val(),
-                    'mail:username': $('input[name="mail:username"]').val(),
-                    'mail:password': $('input[name="mail:password"]').val(),
+                    'mail:mailers:smtp:host': $('input[name="mail:mailers:smtp:host"]').val(),
+                    'mail:mailers:smtp:port': $('input[name="mail:mailers:smtp:port"]').val(),
+                    'mail:mailers:smtp:encryption': $('select[name="mail:mailers:smtp:encryption"]').val(),
+                    'mail:mailers:smtp:username': $('input[name="mail:mailers:smtp:username"]').val(),
+                    'mail:mailers:smtp:password': $('input[name="mail:mailers:smtp:password"]').val(),
                     'mail:from:address': $('input[name="mail:from:address"]').val(),
                     'mail:from:name': $('input[name="mail:from:name"]').val()
                 }),
