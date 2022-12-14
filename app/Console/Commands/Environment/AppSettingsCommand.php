@@ -119,9 +119,9 @@ class AppSettingsCommand extends Command
             $this->variables['APP_ENVIRONMENT_ONLY'] = $this->confirm('启用基于 UI 的设置编辑器?', true) ? 'false' : 'true';
         }
 
-        $this->output->comment('Please reference https://pterodactyl.io/panel/1.0/additional_configuration.html#telemetry for more detailed information regarding telemetry data and collection.');
+        $this->output->comment('有关遥测数据和收集的更多详细信息，请参考 https://pterodactyl.top/panel/1.0/additional_configuration.html#telemetry。');
         $this->variables['PTERODACTYL_TELEMETRY_ENABLED'] = $this->option('telemetry') ?? $this->confirm(
-            'Enable sending anonymous telemetry data?',
+            '允许发送匿名遥测数据？',
             config('pterodactyl.telemetry.enabled', true)
         ) ? 'true' : 'false';
 
