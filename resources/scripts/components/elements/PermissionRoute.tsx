@@ -20,7 +20,7 @@ function PermissionRoute({ children, permission }: Props): JSX.Element {
         return <>{children}</>;
     }
 
-    return <ServerError title="Access Denied" message="You do not have permission to access this page." />;
+    return <ServerError title="拒绝访问" message="您无权访问此页面。" />;
 }
 
 export default PermissionRoute;
