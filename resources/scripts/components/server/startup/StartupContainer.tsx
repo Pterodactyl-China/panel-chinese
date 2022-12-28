@@ -116,7 +116,7 @@ const StartupContainer = () => {
                             <Input disabled readOnly value={variables.dockerImage} />
                             {isCustomImage && (
                                 <p css={tw`text-xs text-neutral-300 mt-2`}>
-                                    这是 {"server's"} Docker 镜像已由管理员手动设置，无法通过此界面更改。
+                                    这个服务器的 Docker 镜像已由管理员手动设置，无法通过此界面更改。
                                 </p>
                             )}
                         </>
