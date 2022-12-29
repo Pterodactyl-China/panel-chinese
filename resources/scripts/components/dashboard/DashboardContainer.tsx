@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Server } from '@/api/server/getServer';
 import getServers from '@/api/getServers';
 import ServerRow from '@/components/dashboard/ServerRow';
@@ -20,13 +20,13 @@ export default () => {
 
     const [page, setPage] = useState(!isNaN(defaultPage) && defaultPage > 0 ? defaultPage : 1);
     const { clearFlashes, clearAndAddHttpError } = useFlash();
-    const uuid = useStoreState((state) => state.user.data!.uuid);
-    const rootAdmin = useStoreState((state) => state.user.data!.rootAdmin);
+    const uuid = useStoreState(state => state.user.data!.uuid);
+    const rootAdmin = useStoreState(state => state.user.data!.rootAdmin);
     const [showOnlyAdmin, setShowOnlyAdmin] = usePersistedState(`${uuid}:show_all_servers`, false);
 
     const { data: servers, error } = useSWR<PaginatedResult<Server>>(
         ['/api/client/servers', showOnlyAdmin && rootAdmin, page],
-        () => getServers({ page, type: showOnlyAdmin && rootAdmin ? 'admin' : undefined })
+        () => getServers({ page, type: showOnlyAdmin && rootAdmin ? 'admin' : undefined }),
     );
 
     useEffect(() => {
@@ -53,12 +53,12 @@ export default () => {
             {rootAdmin && (
                 <div css={tw`mb-2 flex justify-end items-center`}>
                     <p css={tw`uppercase text-xs text-neutral-400 mr-2`}>
-                        {showOnlyAdmin ? "显示其他人的服务器" : '显示你的服务器'}
+                        {showOnlyAdmin ? '显示其他人的服务器' : '显示你的服务器'}
                     </p>
                     <Switch
                         name={'show_all_servers'}
                         defaultChecked={showOnlyAdmin}
-                        onChange={() => setShowOnlyAdmin((s) => !s)}
+                        onChange={() => setShowOnlyAdmin(s => !s)}
                     />
                 </div>
             )}
@@ -73,9 +73,7 @@ export default () => {
                             ))
                         ) : (
                             <p css={tw`text-center text-sm text-neutral-400`}>
-                                {showOnlyAdmin
-                                    ? '这里没有服务器可显示。'
-                                    : '你的账户下没有关联的服务器。'}
+                                {showOnlyAdmin ? '这里没有服务器可显示。' : '你的账户下没有关联的服务器。'}
                             </p>
                         )
                     }

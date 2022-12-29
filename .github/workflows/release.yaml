@@ -16,14 +16,14 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
-          cache: "yarn"
+          node-version: 18
+          cache: yarn
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
       - name: Build
-        run: yarn build:production
+        run: yarn build
 
       - name: Create release branch and bump version
         env:
@@ -41,7 +41,7 @@ jobs:
 
       - name: Create release archive
         run: |
-          rm -rf node_modules tests CODE_OF_CONDUCT.md CONTRIBUTING.md flake.lock flake.nix phpunit.xml shell.nix 
+          rm -rf node_modules tests CODE_OF_CONDUCT.md CONTRIBUTING.md flake.lock flake.nix phpstan.neon phpunit.xml shell.nix
           tar -czf panel.tar.gz * .editorconfig .env.example .eslintignore .eslintrc.js .gitignore .prettierrc.json
 
       - name: Extract changelog

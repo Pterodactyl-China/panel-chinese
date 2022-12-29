@@ -1,8 +1,7 @@
-import React from 'react';
 import PageContentBlock from '@/components/elements/PageContentBlock';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faSyncAlt } from '@fortawesome/free-solid-svg-icons';
-import styled, { keyframes } from 'styled-components/macro';
+import styled, { keyframes } from 'styled-components';
 import tw from 'twin.macro';
 import Button from '@/components/elements/Button';
 import NotFoundSvg from '@/assets/images/not_found.svg';
@@ -73,12 +72,7 @@ const ServerError = ({ title, ...props }: ServerErrorProps) => (
 );
 
 const NotFound = ({ title, message, onBack }: Partial<Pick<ScreenBlockProps, 'title' | 'message' | 'onBack'>>) => (
-    <ScreenBlock
-        title={title || '404'}
-        image={NotFoundSvg}
-        message={message || '找不到请求的资源。'}
-        onBack={onBack}
-    />
+    <ScreenBlock title={title || '404'} image={NotFoundSvg} message={message || '找不到请求的资源。'} onBack={onBack} />
 );
 
 export { ServerError, NotFound };

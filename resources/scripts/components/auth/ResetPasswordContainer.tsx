@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { RouteComponentProps } from 'react-router';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import performPasswordReset from '@/api/auth/performPasswordReset';
 import { httpErrorToHuman } from '@/api/http';
 import LoginFormContainer from '@/components/auth/LoginFormContainer';
@@ -18,7 +17,7 @@ interface Values {
     passwordConfirmation: string;
 }
 
-export default ({ match, location }: RouteComponentProps<{ token: string }>) => {
+function ResetPasswordContainer() {
     const [email, setEmail] = useState('');
 
     const { clearFlashes, addFlash } = useStoreActions((actions: Actions<ApplicationStore>) => actions.flashes);
@@ -28,14 +27,16 @@ export default ({ match, location }: RouteComponentProps<{ token: string }>) => 
         setEmail(parsed.get('email') || '');
     }
 
+    const params = useParams<'token'>();
+
     const submit = ({ password, passwordConfirmation }: Values, { setSubmitting }: FormikHelpers<Values>) => {
         clearFlashes();
-        performPasswordReset(email, { token: match.params.token, password, passwordConfirmation })
+        performPasswordReset(email, { token: params.token ?? '', password, passwordConfirmation })
             .then(() => {
                 // @ts-expect-error this is valid
                 window.location = '/';
             })
-            .catch((error) => {
+            .catch(error => {
                 console.error(error);
 
                 setSubmitting(false);
@@ -51,12 +52,9 @@ export default ({ match, location }: RouteComponentProps<{ token: string }>) => 
                 passwordConfirmation: '',
             }}
             validationSchema={object().shape({
-                password: string()
-                    .required('需要新密码。')
-                    .min(8, '您的新密码长度应至少为 8 个字符。'),
+                password: string().required('需要新密码。').min(8, '您的新密码长度应至少为 8 个字符。'),
                 passwordConfirmation: string()
                     .required('您的新密码不匹配。')
-                    // @ts-expect-error this is valid
                     .oneOf([ref('password'), null], '您的新密码不匹配。'),
             })}
         >
@@ -95,4 +93,6 @@ export default ({ match, location }: RouteComponentProps<{ token: string }>) => 
             )}
         </Formik>
     );
-};
+}
+
+export default ResetPasswordContainer;

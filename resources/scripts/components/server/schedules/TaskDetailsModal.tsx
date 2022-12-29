@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { Schedule, Task } from '@/api/server/schedules/getServerSchedules';
 import { Field as FormikField, Form, Formik, FormikHelpers, useField } from 'formik';
 import { ServerContext } from '@/state/server';
@@ -35,7 +35,7 @@ interface Values {
 const schema = object().shape({
     action: string().required().oneOf(['command', 'power', 'backup']),
     payload: string().when('action', {
-        is: (v) => v !== 'backup',
+        is: (v: string) => v !== 'backup',
         then: string().required('必须提供有效的任务操作。'),
         otherwise: string(),
     }),
@@ -68,9 +68,9 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
     const { dismiss } = useContext(ModalContext);
     const { clearFlashes, addError } = useFlash();
 
-    const uuid = ServerContext.useStoreState((state) => state.server.data!.uuid);
-    const appendSchedule = ServerContext.useStoreActions((actions) => actions.schedules.appendSchedule);
-    const backupLimit = ServerContext.useStoreState((state) => state.server.data!.featureLimits.backups);
+    const uuid = ServerContext.useStoreState(state => state.server.data!.uuid);
+    const appendSchedule = ServerContext.useStoreActions(actions => actions.schedules.appendSchedule);
+    const backupLimit = ServerContext.useStoreState(state => state.server.data!.featureLimits.backups);
 
     useEffect(() => {
         return () => {
@@ -83,21 +83,21 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
         if (backupLimit === 0 && values.action === 'backup') {
             setSubmitting(false);
             addError({
-                message: "当服务器的备份限制设置为 0 时，无法创建备份任务。",
+                message: '当服务器的备份限制设置为 0 时，无法创建备份任务。',
                 key: 'schedule:task',
             });
         } else {
             createOrUpdateScheduleTask(uuid, schedule.id, task?.id, values)
-                .then((task) => {
-                    let tasks = schedule.tasks.map((t) => (t.id === task.id ? task : t));
-                    if (!schedule.tasks.find((t) => t.id === task.id)) {
+                .then(task => {
+                    let tasks = schedule.tasks.map(t => (t.id === task.id ? task : t));
+                    if (!schedule.tasks.find(t => t.id === task.id)) {
                         tasks = [...tasks, task];
                     }
 
                     appendSchedule({ ...schedule, tasks });
                     dismiss();
                 })
-                .catch((error) => {
+                .catch(error => {
                     console.error(error);
                     setSubmitting(false);
                     addError({ message: httpErrorToHuman(error), key: 'schedule:task' });

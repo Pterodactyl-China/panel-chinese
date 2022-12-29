@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Spinner from '@/components/elements/Spinner';
 import useFlash from '@/plugins/useFlash';
 import Can from '@/components/elements/Can';
@@ -16,7 +16,7 @@ const BackupContainer = () => {
     const { clearFlashes, clearAndAddHttpError } = useFlash();
     const { data: backups, error, isValidating } = getServerBackups();
 
-    const backupLimit = ServerContext.useStoreState((state) => state.server.data!.featureLimits.backups);
+    const backupLimit = ServerContext.useStoreState(state => state.server.data!.featureLimits.backups);
 
     useEffect(() => {
         if (!error) {
@@ -43,7 +43,7 @@ const BackupContainer = () => {
                         !backupLimit ? null : (
                             <p css={tw`text-center text-sm text-neutral-300`}>
                                 {page > 1
-                                    ? "看起来这页没有您的备份，请尝试返回上一个页面。"
+                                    ? '看起来这页没有您的备份，请尝试返回上一个页面。'
                                     : '目前似乎没有为此服务器存储的备份。'}
                             </p>
                         )

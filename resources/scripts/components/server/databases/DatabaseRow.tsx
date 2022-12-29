@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDatabase, faEye, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import Modal from '@/components/elements/Modal';
@@ -26,13 +26,13 @@ interface Props {
 }
 
 export default ({ database, className }: Props) => {
-    const uuid = ServerContext.useStoreState((state) => state.server.data!.uuid);
+    const uuid = ServerContext.useStoreState(state => state.server.data!.uuid);
     const { addError, clearFlashes } = useFlash();
     const [visible, setVisible] = useState(false);
     const [connectionVisible, setConnectionVisible] = useState(false);
 
-    const appendDatabase = ServerContext.useStoreActions((actions) => actions.databases.appendDatabase);
-    const removeDatabase = ServerContext.useStoreActions((actions) => actions.databases.removeDatabase);
+    const appendDatabase = ServerContext.useStoreActions(actions => actions.databases.appendDatabase);
+    const removeDatabase = ServerContext.useStoreActions(actions => actions.databases.removeDatabase);
 
     const jdbcConnectionString = `jdbc:mysql://${database.username}${
         database.password ? `:${encodeURIComponent(database.password)}` : ''
@@ -44,14 +44,14 @@ export default ({ database, className }: Props) => {
             .oneOf([database.name.split('_', 2)[1], database.name], '必须提供数据库名称.'),
     });
 
-    const submit = (values: { confirm: string }, { setSubmitting }: FormikHelpers<{ confirm: string }>) => {
+    const submit = (_: { confirm: string }, { setSubmitting }: FormikHelpers<{ confirm: string }>) => {
         clearFlashes();
         deleteServerDatabase(uuid, database.id)
             .then(() => {
                 setVisible(false);
                 setTimeout(() => removeDatabase(database.id), 150);
             })
-            .catch((error) => {
+            .catch(error => {
                 console.error(error);
                 setSubmitting(false);
                 addError({ key: 'database:delete', message: httpErrorToHuman(error) });
@@ -74,8 +74,8 @@ export default ({ database, className }: Props) => {
                         <FlashMessageRender byKey={'database:delete'} css={tw`mb-6`} />
                         <h2 css={tw`text-2xl mb-6`}>数据库删除确认</h2>
                         <p css={tw`text-sm`}>
-                            删除数据库是一项永久性操作，无法撤消。这将永久
-                            删除 <strong>{database.name}</strong> 数据库并删除所有相关数据。
+                            删除数据库是一项永久性操作，无法撤消。这将永久 删除 <strong>{database.name}</strong>{' '}
+                            数据库并删除所有相关数据。
                         </p>
                         <Form css={tw`m-0 mt-6`}>
                             <Field

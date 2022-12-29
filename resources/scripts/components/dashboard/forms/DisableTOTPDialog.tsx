@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import * as React from 'react';
 import asDialog from '@/hoc/asDialog';
 import { Dialog, DialogWrapperContext } from '@/components/elements/dialog';
 import { Button } from '@/components/elements/button/index';
@@ -14,10 +15,10 @@ const DisableTOTPDialog = () => {
     const [password, setPassword] = useState('');
     const { clearAndAddHttpError } = useFlashKey('account:two-step');
     const { close, setProps } = useContext(DialogWrapperContext);
-    const updateUserData = useStoreActions((actions) => actions.user.updateUserData);
+    const updateUserData = useStoreActions(actions => actions.user.updateUserData);
 
     useEffect(() => {
-        setProps((state) => ({ ...state, preventExternalClose: submitting }));
+        setProps(state => ({ ...state, preventExternalClose: submitting }));
     }, [submitting]);
 
     const submit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -48,15 +49,11 @@ const DisableTOTPDialog = () => {
                 type={'password'}
                 variant={Input.Text.Variants.Loose}
                 value={password}
-                onChange={(e) => setPassword(e.currentTarget.value)}
+                onChange={e => setPassword(e.currentTarget.value)}
             />
             <Dialog.Footer>
                 <Button.Text onClick={close}>Cancel</Button.Text>
-                <Tooltip
-                    delay={100}
-                    disabled={password.length > 0}
-                    content={'您必须输入您的帐户密码才能继续。'}
-                >
+                <Tooltip delay={100} disabled={password.length > 0} content={'您必须输入您的帐户密码才能继续。'}>
                     <Button.Danger type={'submit'} form={'disable-totp-form'} disabled={submitting || !password.length}>
                         禁用
                     </Button.Danger>

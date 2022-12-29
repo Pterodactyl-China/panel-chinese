@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import * as React from 'react';
 import { Dialog, DialogWrapperContext } from '@/components/elements/dialog';
 import getTwoFactorTokenData, { TwoFactorTokenData } from '@/api/account/getTwoFactorTokenData';
 import { useFlashKey } from '@/plugins/useFlash';
@@ -32,11 +33,11 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
     useEffect(() => {
         getTwoFactorTokenData()
             .then(setToken)
-            .catch((error) => clearAndAddHttpError(error));
+            .catch(error => clearAndAddHttpError(error));
     }, []);
 
     useEffect(() => {
-        setProps((state) => ({ ...state, preventExternalClose: submitting }));
+        setProps(state => ({ ...state, preventExternalClose: submitting }));
     }, [submitting]);
 
     const submit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -48,11 +49,11 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
         setSubmitting(true);
         clearAndAddHttpError();
         enableAccountTwoFactor(value, password)
-            .then((tokens) => {
+            .then(tokens => {
                 updateUserData({ useTotp: true });
                 onTokens(tokens);
             })
-            .catch((error) => {
+            .catch(error => {
                 clearAndAddHttpError(error);
                 setSubmitting(false);
             });
@@ -80,7 +81,7 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
                 aria-labelledby={'totp-code-description'}
                 variant={Input.Text.Variants.Loose}
                 value={value}
-                onChange={(e) => setValue(e.currentTarget.value)}
+                onChange={e => setValue(e.currentTarget.value)}
                 className={'mt-3'}
                 placeholder={'000000'}
                 type={'text'}
@@ -96,17 +97,13 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
                 className={'mt-1'}
                 type={'password'}
                 value={password}
-                onChange={(e) => setPassword(e.currentTarget.value)}
+                onChange={e => setPassword(e.currentTarget.value)}
             />
             <Dialog.Footer>
                 <Button.Text onClick={close}>取消</Button.Text>
                 <Tooltip
                     disabled={password.length > 0 && value.length === 6}
-                    content={
-                        !token
-                            ? '正在等待二维码加载...'
-                            : '您必须输入 6 位验证码和密码才能继续。'
-                    }
+                    content={!token ? '正在等待二维码加载...' : '您必须输入 6 位验证码和密码才能继续。'}
                     delay={100}
                 >
                     <Button
@@ -124,6 +121,5 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
 
 export default asDialog({
     title: '启用动态口令认证',
-    description:
-        "帮助保护您的账户免遭未经授权的访问。每次登录时都会提示您输入验证码。",
+    description: '帮助保护您的账户免遭未经授权的访问。每次登录时都会提示您输入验证码。',
 })(ConfigureTwoFactorForm);

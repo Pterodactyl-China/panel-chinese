@@ -1,4 +1,3 @@
-import * as React from 'react';
 import ContentBox from '@/components/elements/ContentBox';
 import UpdatePasswordForm from '@/components/dashboard/forms/UpdatePasswordForm';
 import UpdateEmailAddressForm from '@/components/dashboard/forms/UpdateEmailAddressForm';
@@ -6,7 +5,7 @@ import ConfigureTwoFactorForm from '@/components/dashboard/forms/ConfigureTwoFac
 import PageContentBlock from '@/components/elements/PageContentBlock';
 import tw from 'twin.macro';
 import { breakpoint } from '@/theme';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import MessageBox from '@/components/MessageBox';
 import { useLocation } from 'react-router-dom';
 
@@ -27,24 +26,26 @@ const Container = styled.div`
 `;
 
 export default () => {
-    const { state } = useLocation<undefined | { twoFactorRedirect?: boolean }>();
+    const { state } = useLocation();
 
     return (
-        <PageContentBlock title={'账户概况'}>
+        <PageContentBlock title="账户概况">
             {state?.twoFactorRedirect && (
-                <MessageBox title={'需要启用动态口令认证'} type={'error'}>
+                <MessageBox title="需要启用动态口令认证" type="error">
                     您的帐户必须启用动态口令认证才能继续使用。
                 </MessageBox>
             )}
 
             <Container css={[tw`lg:grid lg:grid-cols-3 mb-10`, state?.twoFactorRedirect ? tw`mt-4` : tw`mt-10`]}>
-                <ContentBox title={'更新密码'} showFlashes={'account:password'}>
+                <ContentBox title="更新密码" showFlashes="account:password">
                     <UpdatePasswordForm />
                 </ContentBox>
-                <ContentBox css={tw`mt-8 sm:mt-0 sm:ml-8`} title={'更新电子邮箱地址'} showFlashes={'account:email'}>
+
+                <ContentBox css={tw`mt-8 sm:mt-0 sm:ml-8`} title="更新电子邮箱地址" showFlashes="account:email">
                     <UpdateEmailAddressForm />
                 </ContentBox>
-                <ContentBox css={tw`md:ml-8 mt-8 md:mt-0`} title={'配置动态口令认证'}>
+
+                <ContentBox css={tw`md:ml-8 mt-8 md:mt-0`} title="配置动态口令认证">
                     <ConfigureTwoFactorForm />
                 </ContentBox>
             </Container>

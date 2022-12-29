@@ -1,4 +1,3 @@
-import React from 'react';
 import { Field, Form, Formik, FormikHelpers } from 'formik';
 import { object, string } from 'yup';
 import FormikFieldWrapper from '@/components/elements/FormikFieldWrapper';
@@ -6,7 +5,7 @@ import SpinnerOverlay from '@/components/elements/SpinnerOverlay';
 import tw from 'twin.macro';
 import Button from '@/components/elements/Button';
 import Input, { Textarea } from '@/components/elements/Input';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { useFlashKey } from '@/plugins/useFlash';
 import { createSSHKey, useSSHKeys } from '@/api/account/ssh-keys';
 
@@ -27,11 +26,11 @@ export default () => {
         clearAndAddHttpError();
 
         createSSHKey(values.name, values.publicKey)
-            .then((key) => {
+            .then(key => {
                 resetForm();
-                mutate((data) => (data || []).concat(key));
+                mutate(data => (data || []).concat(key));
             })
-            .catch((error) => clearAndAddHttpError(error))
+            .catch(error => clearAndAddHttpError(error))
             .then(() => setSubmitting(false));
     };
 
@@ -51,11 +50,7 @@ export default () => {
                         <FormikFieldWrapper label={'SSH 密钥名'} name={'name'} css={tw`mb-6`}>
                             <Field name={'name'} as={Input} />
                         </FormikFieldWrapper>
-                        <FormikFieldWrapper
-                            label={'公钥'}
-                            name={'publicKey'}
-                            description={'输入你的公钥.'}
-                        >
+                        <FormikFieldWrapper label={'公钥'} name={'publicKey'} description={'输入你的公钥.'}>
                             <Field name={'publicKey'} as={CustomTextarea} />
                         </FormikFieldWrapper>
                         <div css={tw`flex justify-end mt-6`}>

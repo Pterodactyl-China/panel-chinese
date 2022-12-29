@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ContentBox from '@/components/elements/ContentBox';
 import CreateApiKeyForm from '@/components/dashboard/forms/CreateApiKeyForm';
 import getApiKeys, { ApiKey } from '@/api/account/getApiKeys';
@@ -23,9 +23,9 @@ export default () => {
 
     useEffect(() => {
         getApiKeys()
-            .then((keys) => setKeys(keys))
+            .then(keys => setKeys(keys))
             .then(() => setLoading(false))
-            .catch((error) => clearAndAddHttpError(error));
+            .catch(error => clearAndAddHttpError(error));
     }, []);
 
     const doDeletion = (identifier: string) => {
@@ -33,8 +33,8 @@ export default () => {
 
         clearAndAddHttpError();
         deleteApiKey(identifier)
-            .then(() => setKeys((s) => [...(s || []).filter((key) => key.identifier !== identifier)]))
-            .catch((error) => clearAndAddHttpError(error))
+            .then(() => setKeys(s => [...(s || []).filter(key => key.identifier !== identifier)]))
+            .catch(error => clearAndAddHttpError(error))
             .then(() => {
                 setLoading(false);
                 setDeleteIdentifier('');
@@ -46,7 +46,7 @@ export default () => {
             <FlashMessageRender byKey={'account'} />
             <div css={tw`md:flex flex-nowrap my-10`}>
                 <ContentBox title={'创建 API 密钥'} css={tw`flex-none w-full md:w-1/2`}>
-                    <CreateApiKeyForm onKeyCreated={(key) => setKeys((s) => [...s!, key])} />
+                    <CreateApiKeyForm onKeyCreated={key => setKeys(s => [...s!, key])} />
                 </ContentBox>
                 <ContentBox title={'API 密钥'} css={tw`flex-1 overflow-hidden mt-8 md:mt-0 md:ml-8`}>
                     <SpinnerOverlay visible={loading} />
@@ -60,9 +60,7 @@ export default () => {
                         所有使用 <Code>{deleteIdentifier}</Code> 密钥的请求将立即失效！
                     </Dialog.Confirm>
                     {keys.length === 0 ? (
-                        <p css={tw`text-center text-sm`}>
-                            {loading ? '载入中.....' : '此账户无 API 密钥'}
-                        </p>
+                        <p css={tw`text-center text-sm`}>{loading ? '载入中.....' : '此账户无 API 密钥'}</p>
                     ) : (
                         keys.map((key, index) => (
                             <GreyRowBox

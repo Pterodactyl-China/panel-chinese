@@ -1,29 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { Websocket } from '@/plugins/Websocket';
-import { ServerContext } from '@/state/server';
+import { useEffect, useState } from 'react';
+import tw from 'twin.macro';
+
 import getWebsocketToken from '@/api/server/getWebsocketToken';
 import ContentContainer from '@/components/elements/ContentContainer';
-import { CSSTransition } from 'react-transition-group';
 import Spinner from '@/components/elements/Spinner';
-import tw from 'twin.macro';
+import FadeTransition from '@/components/elements/transitions/FadeTransition';
+import { Websocket } from '@/plugins/Websocket';
+import { ServerContext } from '@/state/server';
 
 const reconnectErrors = ['jwt: exp claim is invalid', 'jwt: created too far in past (denylist)'];
 
-export default () => {
+function WebsocketHandler() {
     let updatingToken = false;
     const [error, setError] = useState<'connecting' | string>('');
-    const { connected, instance } = ServerContext.useStoreState((state) => state.socket);
-    const uuid = ServerContext.useStoreState((state) => state.server.data?.uuid);
-    const setServerStatus = ServerContext.useStoreActions((actions) => actions.status.setServerStatus);
-    const { setInstance, setConnectionState } = ServerContext.useStoreActions((actions) => actions.socket);
+    const { connected, instance } = ServerContext.useStoreState(state => state.socket);
+    const uuid = ServerContext.useStoreState(state => state.server.data?.uuid);
+    const setServerStatus = ServerContext.useStoreActions(actions => actions.status.setServerStatus);
+    const { setInstance, setConnectionState } = ServerContext.useStoreActions(actions => actions.socket);
 
     const updateToken = (uuid: string, socket: Websocket) => {
-        if (updatingToken) return;
+        if (updatingToken) {
+            return;
+        }
 
         updatingToken = true;
         getWebsocketToken(uuid)
-            .then((data) => socket.setToken(data.token, true))
-            .catch((error) => console.error(error))
+            .then(data => socket.setToken(data.token, true))
+            .catch(error => console.error(error))
             .then(() => {
                 updatingToken = false;
             });
@@ -38,9 +41,9 @@ export default () => {
             setError('connecting');
             setConnectionState(false);
         });
-        socket.on('status', (status) => setServerStatus(status));
+        socket.on('status', status => setServerStatus(status));
 
-        socket.on('daemon error', (message) => {
+        socket.on('daemon error', message => {
             console.warn('从守护程序套接字(socket)得到错误信息:', message);
         });
 
@@ -50,12 +53,10 @@ export default () => {
             setConnectionState(false);
             console.warn('JWT 与 WINGS 验证出现问题:', error);
 
-            if (reconnectErrors.find((v) => error.toLowerCase().indexOf(v) >= 0)) {
+            if (reconnectErrors.find(v => error.toLowerCase().indexOf(v) >= 0)) {
                 updateToken(uuid, socket);
             } else {
-                setError(
-                    '验证为 WEBSOCKET 提供的凭证时出错。请刷新页面。'
-                );
+                setError('验证为 WEBSOCKET 提供的凭证时出错。请刷新页面。');
             }
         });
 
@@ -74,14 +75,14 @@ export default () => {
         });
 
         getWebsocketToken(uuid)
-            .then((data) => {
+            .then(data => {
                 // Connect and then set the authentication token.
                 socket.setToken(data.token).connect(data.socket);
 
                 // Once that is done, set the instance.
                 setInstance(socket);
             })
-            .catch((error) => console.error(error));
+            .catch(error => console.error(error));
     };
 
     useEffect(() => {
@@ -105,21 +106,21 @@ export default () => {
     }, [uuid]);
 
     return error ? (
-        <CSSTransition timeout={150} in appear classNames={'fade'}>
+        <FadeTransition duration="duration-150" appear show>
             <div css={tw`bg-red-500 py-2`}>
                 <ContentContainer css={tw`flex items-center justify-center`}>
                     {error === 'connecting' ? (
                         <>
                             <Spinner size={'small'} />
-                            <p css={tw`ml-2 text-sm text-red-100`}>
-                                我们在连接到你的服务器时出现错误，请等待...
-                            </p>
+                            <p css={tw`ml-2 text-sm text-red-100`}>我们在连接到你的服务器时出现错误，请等待...</p>
                         </>
                     ) : (
                         <p css={tw`ml-2 text-sm text-white`}>{error}</p>
                     )}
                 </ContentContainer>
             </div>
-        </CSSTransition>
+        </FadeTransition>
     ) : null;
-};
+}
+
+export default WebsocketHandler;

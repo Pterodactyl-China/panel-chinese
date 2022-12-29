@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ServerContext } from '@/state/server';
 import Modal from '@/components/elements/Modal';
 import tw from 'twin.macro';
@@ -18,10 +18,10 @@ const GSLTokenModalFeature = () => {
     const [visible, setVisible] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const uuid = ServerContext.useStoreState((state) => state.server.data!.uuid);
-    const status = ServerContext.useStoreState((state) => state.status.value);
+    const uuid = ServerContext.useStoreState(state => state.server.data!.uuid);
+    const status = ServerContext.useStoreState(state => state.status.value);
     const { clearFlashes, clearAndAddHttpError } = useFlash();
-    const { connected, instance } = ServerContext.useStoreState((state) => state.socket);
+    const { connected, instance } = ServerContext.useStoreState(state => state.socket);
 
     useEffect(() => {
         if (!connected || !instance || status === 'running') return;
@@ -29,7 +29,7 @@ const GSLTokenModalFeature = () => {
         const errors = ['(gsl token expired)', '(account not found)'];
 
         const listener = (line: string) => {
-            if (errors.some((p) => line.toLowerCase().includes(p))) {
+            if (errors.some(p => line.toLowerCase().includes(p))) {
                 setVisible(true);
             }
         };
@@ -54,7 +54,7 @@ const GSLTokenModalFeature = () => {
                 setLoading(false);
                 setVisible(false);
             })
-            .catch((error) => {
+            .catch(error => {
                 console.error(error);
                 clearAndAddHttpError({ key: 'feature:gslToken', error });
             })
@@ -76,12 +76,8 @@ const GSLTokenModalFeature = () => {
                 <FlashMessageRender key={'feature:gslToken'} css={tw`mb-4`} />
                 <Form>
                     <h2 css={tw`text-2xl mb-4 text-neutral-100`}>无效的 GSL 令牌！</h2>
-                    <p css={tw`mt-4`}>
-                        您的 Gameserver 登录令牌（GSL 令牌）似乎无效或已过期。
-                    </p>
-                    <p css={tw`mt-4`}>
-                        您可以生成一个新的并在下面输入，也可以将该字段留空以完全删除它。
-                    </p>
+                    <p css={tw`mt-4`}>您的 Gameserver 登录令牌（GSL 令牌）似乎无效或已过期。</p>
+                    <p css={tw`mt-4`}>您可以生成一个新的并在下面输入，也可以将该字段留空以完全删除它。</p>
                     <div css={tw`sm:flex items-center mt-4`}>
                         <Field
                             name={'gslToken'}

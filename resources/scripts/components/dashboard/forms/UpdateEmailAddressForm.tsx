@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { Actions, State, useStoreActions, useStoreState } from 'easy-peasy';
 import { Form, Formik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
@@ -34,15 +34,15 @@ export default () => {
                     type: 'success',
                     key: 'account:email',
                     message: '您的首选电子邮箱地址已更新。',
-                })
+                }),
             )
-            .catch((error) =>
+            .catch(error =>
                 addFlash({
                     type: 'error',
                     key: 'account:email',
                     title: '错误',
                     message: httpErrorToHuman(error),
-                })
+                }),
             )
             .then(() => {
                 resetForm();
@@ -53,23 +53,18 @@ export default () => {
     return (
         <Formik onSubmit={submit} validationSchema={schema} initialValues={{ email: user!.email, password: '' }}>
             {({ isSubmitting, isValid }) => (
-                <React.Fragment>
+                <Fragment>
                     <SpinnerOverlay size={'large'} visible={isSubmitting} />
                     <Form css={tw`m-0`}>
                         <Field id={'current_email'} type={'email'} name={'email'} label={'邮箱'} />
                         <div css={tw`mt-6`}>
-                            <Field
-                                id={'confirm_password'}
-                                type={'password'}
-                                name={'password'}
-                                label={'确认密码'}
-                            />
+                            <Field id={'confirm_password'} type={'password'} name={'password'} label={'确认密码'} />
                         </div>
                         <div css={tw`mt-6`}>
                             <Button disabled={isSubmitting || !isValid}>更新邮箱地址</Button>
                         </div>
                     </Form>
-                </React.Fragment>
+                </Fragment>
             )}
         </Formik>
     );

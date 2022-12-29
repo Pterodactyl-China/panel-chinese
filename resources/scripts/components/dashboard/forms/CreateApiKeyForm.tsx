@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Field, Form, Formik, FormikHelpers } from 'formik';
 import { object, string } from 'yup';
 import FormikFieldWrapper from '@/components/elements/FormikFieldWrapper';
@@ -11,7 +11,7 @@ import { ApiKey } from '@/api/account/getApiKeys';
 import tw from 'twin.macro';
 import Button from '@/components/elements/Button';
 import Input, { Textarea } from '@/components/elements/Input';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import ApiKeyModal from '@/components/dashboard/ApiKeyModal';
 
 interface Values {
@@ -36,7 +36,7 @@ export default ({ onKeyCreated }: { onKeyCreated: (key: ApiKey) => void }) => {
                 setApiKey(`${key.identifier}${secretToken}`);
                 onKeyCreated(key);
             })
-            .catch((error) => {
+            .catch(error => {
                 console.error(error);
 
                 addError({ key: 'account', message: httpErrorToHuman(error) });
@@ -69,9 +69,7 @@ export default ({ onKeyCreated }: { onKeyCreated: (key: ApiKey) => void }) => {
                         <FormikFieldWrapper
                             label={'IP 白名单'}
                             name={'allowedIps'}
-                            description={
-                                '留空以允许任何 IP 地址使用此 API 密钥，否则在每一行中提供每个 IP 地址。'
-                            }
+                            description={'留空以允许任何 IP 地址使用此 API 密钥，否则在每一行中提供每个 IP 地址。'}
                         >
                             <Field name={'allowedIps'} as={CustomTextarea} />
                         </FormikFieldWrapper>

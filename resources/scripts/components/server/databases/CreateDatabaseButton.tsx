@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Modal from '@/components/elements/Modal';
 import { Form, Formik, FormikHelpers } from 'formik';
 import Field from '@/components/elements/Field';
@@ -21,19 +21,16 @@ const schema = object().shape({
         .required('必须提供数据库名称。')
         .min(3, '数据库名称必须至少为 3 个字符。')
         .max(48, '数据库名称不得超过 48 个字符。')
-        .matches(
-            /^[\w\-.]{3,48}$/,
-            '数据库名称应仅包含字母数字字符 下划线_ 破折号和 / 或半拼句号。'
-        ),
+        .matches(/^[\w\-.]{3,48}$/, '数据库名称应仅包含字母数字字符 下划线_ 破折号和 / 或半拼句号。'),
     connectionsFrom: string().matches(/^[\w\-/.%:]+$/, '必须提供有效的连接地址。'),
 });
 
 export default () => {
-    const uuid = ServerContext.useStoreState((state) => state.server.data!.uuid);
+    const uuid = ServerContext.useStoreState(state => state.server.data!.uuid);
     const { addError, clearFlashes } = useFlash();
     const [visible, setVisible] = useState(false);
 
-    const appendDatabase = ServerContext.useStoreActions((actions) => actions.databases.appendDatabase);
+    const appendDatabase = ServerContext.useStoreActions(actions => actions.databases.appendDatabase);
 
     const submit = (values: Values, { setSubmitting }: FormikHelpers<Values>) => {
         clearFlashes('database:create');
@@ -41,11 +38,11 @@ export default () => {
             databaseName: values.databaseName,
             connectionsFrom: values.connectionsFrom || '%',
         })
-            .then((database) => {
+            .then(database => {
                 appendDatabase(database);
                 setVisible(false);
             })
-            .catch((error) => {
+            .catch(error => {
                 addError({ key: 'database:create', message: httpErrorToHuman(error) });
                 setSubmitting(false);
             });
