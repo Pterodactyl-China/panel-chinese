@@ -18,7 +18,10 @@ class AssetComposer
                 'enabled' => config('recaptcha.enabled', false),
                 'siteKey' => config('recaptcha.website_key') ?? '',
             ],
-            'icp_record' => config('app.icp_record') ?? '',
+            'icp' => [
+                'enabled' => config('icp.enabled', false),
+                'record' => config('icp.record') ?? '',
+            ],
         ]);
     }
 }

@@ -136,19 +136,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | ICP License Configuration
-    |--------------------------------------------------------------------------
-    |
-    | Web services in China require ICP license, a permit issued by the Chinese government
-    | to permit China-based websites to operate in China. In order to fulfill the
-    | conditions, you should apply for ICP license from your service provider.
-    |
-    */
-
-    'icp_record' => env('ICP_RECORD'),
-
-    /*
-    |--------------------------------------------------------------------------
     | Maintenance Mode Driver
     |--------------------------------------------------------------------------
     |
