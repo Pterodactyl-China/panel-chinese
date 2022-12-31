@@ -62,16 +62,30 @@ export default forwardRef<HTMLFormElement, Props>(({ title, ...props }, ref) => 
             </a>
         </p>
         {useStoreState((state) => state.settings.data?.icp.enabled) && (
-        <p css={tw`text-center text-neutral-500 text-xs mt-4`}>
-            <a
-                rel={'noopener nofollow noreferrer'}
-                href={'http://beian.miit.gov.cn'}
-                target={'_blank'}
-                css={tw`no-underline text-neutral-500 hover:text-neutral-300`}
-            >
-                {useStoreState((state) => state.settings.data?.icp.record)}
-            </a>
-        </p>
+            <p css={tw`text-center text-neutral-500 text-xs mt-4`}>
+                <img src={'http://www.beian.gov.cn/img/new/gongan.png'}/>
+                &nbsp;
+                <a
+                    rel={'noopener nofollow noreferrer'}
+                    href={
+                        'https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=' +
+                        '苏公网安备10000000000000号'.match(/\d+/g)
+                    }
+                    target={'_blank'}
+                    css={tw`no-underline text-neutral-500 hover:text-neutral-300`}
+                >
+                    {useStoreState((state) => state.settings.data?.icp.security_record)}
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a
+                    rel={'noopener nofollow noreferrer'}
+                    href={'https://beian.miit.gov.cn'}
+                    target={'_blank'}
+                    css={tw`no-underline text-neutral-500 hover:text-neutral-300`}
+                >
+                    {useStoreState((state) => state.settings.data?.icp.record)}
+                </a>
+            </p>
         )}
     </Container>
 ));

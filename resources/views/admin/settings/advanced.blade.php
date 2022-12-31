@@ -65,7 +65,7 @@
                     </div>
                     <div class="box-body">
                         <div class="row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-4">
                                 <label class="control-label">状态</label>
                                 <div>
                                     <select class="form-control" name="icp:enabled">
@@ -75,11 +75,18 @@
                                     <p class="text-muted small">如果启用，会在登录页显示备案号以便在中国运营站点.</p>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label class="control-label">备案号</label>
+                            <div class="form-group col-md-4">
+                                <label class="control-label">ICP备案号</label>
                                 <div>
                                     <input type="text" required class="form-control" name="icp:record" value="{{ old('icp:record', config('icp.record')) }}">
                                     <p class="text-muted small">中国网络服务需要的网站经营许可证，如果您的站点架设在中国，您应向服务提供商申请 ICP 许可证并填写此参数.</p>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="control-label">公安备案号</label>
+                                <div>
+                                    <input type="text" required class="form-control" name="icp:security_record" value="{{ old('icp:security_record', config('icp.security_record')) }}">
+                                    <p class="text-muted small">网站只要是放在中国境内（大陆地区），您就应该公安备案并填写此参数.</p>
                                 </div>
                             </div>
                         </div>
