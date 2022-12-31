@@ -156,7 +156,7 @@
                                 <p class="no-margin small text-muted">' + item.description + '</p> \
                             </div> \
                             <div class="box-footer"> \
-                                <p class="no-margin text-muted small"><strong>启动命令变量:</strong> <code>' + item.env_variable + '</code></p> \
+                                <p class="no-margin text-muted small"><strong>变量:</strong> <code>' + item.env_variable + '</code></p> \
                                 <p class="no-margin text-muted small"><strong>字符限制:</strong> <code>' + item.rules + '</code></p> \
                             </div> \
                         </div> \
