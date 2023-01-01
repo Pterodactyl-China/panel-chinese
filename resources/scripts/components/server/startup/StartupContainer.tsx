@@ -122,7 +122,7 @@ const StartupContainer = () => {
                     )}
                 </TitledGreyBox>
             </div>
-            <h3 css={tw`mt-8 mb-2 text-2xl`}>启动命令变量</h3>
+            <h3 css={tw`mt-8 mb-2 text-2xl`}>变量</h3>
             <div css={tw`grid gap-8 md:grid-cols-2`}>
                 {data.variables.map((variable) => (
                     <VariableBox key={variable.envVariable} variable={variable} />

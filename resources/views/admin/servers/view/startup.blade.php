@@ -136,7 +136,7 @@
             }
 
             if (!_.get(objectChain, 'startup', false)) {
-                $('#pDefaultStartupCommand').val(_.get(parentChain, 'startup', 'ERROR: Startup Not Defined!'));
+                $('#pDefaultStartupCommand').val(_.get(parentChain, 'startup', '错误：未定义启动项！'));
             } else {
                 $('#pDefaultStartupCommand').val(_.get(objectChain, 'startup'));
             }
@@ -157,7 +157,7 @@
                             </div> \
                             <div class="box-footer"> \
                                 <p class="no-margin text-muted small"><strong>启动命令变量:</strong> <code>' + item.env_variable + '</code></p> \
-                                <p class="no-margin text-muted small"><strong>字符限制:</strong> <code>' + item.rules + '</code></p> \
+                                <p class="no-margin text-muted small"><strong>输入规则:</strong> <code>' + item.rules + '</code></p> \
                             </div> \
                         </div> \
                     </div>';
