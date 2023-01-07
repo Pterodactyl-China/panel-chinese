@@ -69,7 +69,7 @@ export default forwardRef<HTMLFormElement, Props>(({ title, ...props }, ref) => 
                     rel={'noopener nofollow noreferrer'}
                     href={
                         'https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=' +
-                        '苏公网安备10000000000000号'.match(/\d+/g)
+                        useStoreState((state) => state.settings.data?.icp.security_record)?.match(/\d+/g)
                     }
                     target={'_blank'}
                     css={tw`no-underline text-neutral-500 hover:text-neutral-300`}
