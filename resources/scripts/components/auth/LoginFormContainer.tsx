@@ -62,7 +62,7 @@ export default forwardRef<HTMLFormElement, Props>(({ title, ...props }, ref) => 
             </a>
         </p>
         {useStoreState((state) => state.settings.data?.icp.enabled) && (
-            <p css={tw`text-center text-neutral-500 text-xs mt-4 md:flex`}>
+            <p css={tw`text-center text-neutral-500 text-xs mt-4`}>
                 {useStoreState((state) => state.settings.data?.icp.security_record) && (
                     <a
                         rel={'noopener nofollow noreferrer'}
@@ -71,9 +71,9 @@ export default forwardRef<HTMLFormElement, Props>(({ title, ...props }, ref) => 
                             useStoreState((state) => state.settings.data?.icp.security_record)?.match(/\d+/g)
                         }
                         target={'_blank'}
-                        css={tw`no-underline text-neutral-500 hover:text-neutral-300 md:flex`}
+                        css={tw`no-underline text-neutral-500 hover:text-neutral-300`}
                     >
-                        <img src={'/assets/gongan.png'} />&nbsp;
+                        <img src={'/assets/gongan.png'} css={tw`display: inline`} />&nbsp;
                         {useStoreState((state) => state.settings.data?.icp.security_record)}
                     </a>
                 )}
