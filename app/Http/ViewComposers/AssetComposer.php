@@ -30,6 +30,7 @@ class AssetComposer
             'icp' => [
                 'enabled' => config('icp.enabled', false),
                 'record' => config('icp.record') ?? '',
+                'security_record' => config('icp.security_record') ?? '',
             ],
         ]);
     }

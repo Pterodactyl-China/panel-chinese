@@ -21,6 +21,7 @@ class SettingsServiceProvider extends ServiceProvider
         'app:locale',
         'icp:enabled',
         'icp:record',
+        'icp:security_record',
         'recaptcha:enabled',
         'recaptcha:secret_key',
         'recaptcha:website_key',

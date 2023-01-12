@@ -20,4 +20,9 @@ return [
      * ICP record
      */
     'record' => env('ICP_RECORD'),
+
+    /*
+     * Public security record
+     */
+    'security_record' => env('ICP_SECURITY_RECORD'),
 ];

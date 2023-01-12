@@ -10,6 +10,7 @@ export interface SiteSettings {
     icp: {
         enabled: boolean;
         record: string;
+        security_record: string;
     };
 }
 
