@@ -73,7 +73,7 @@ export default forwardRef<HTMLFormElement, Props>(({ title, ...props }, ref) => 
                         target={'_blank'}
                         css={tw`no-underline text-neutral-500 hover:text-neutral-300`}
                     >
-                        <img src={'/assets/gongan.png'} css={tw`display: inline`} />&nbsp;
+                        <img src={'/assets/images/gongan.png'} css={tw`display: inline`} />&nbsp;
                         {useStoreState((state) => state.settings.data?.icp.security_record)}
                     </a>
                 )}
