@@ -85,8 +85,8 @@
                             <div class="form-group col-md-4">
                                 <label class="control-label">公安备案号</label>
                                 <div>
-                                    <input type="text" required class="form-control" name="icp:security_record" value="{{ old('icp:security_record', config('icp.security_record')) }}">
-                                    <p class="text-muted small">网站只要是放在中国境内（大陆地区），您就应该公安备案并填写此参数.</p>
+                                    <input type="text" class="form-control" name="icp:security_record" value="{{ old('icp:security_record', config('icp.security_record')) }}">
+                                    <p class="text-muted small">该参数可不填，但网站只要是放在中国境内（大陆地区），您就应该公安备案并填写此参数.</p>
                                 </div>
                             </div>
                         </div>
