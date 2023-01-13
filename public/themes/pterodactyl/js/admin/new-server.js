@@ -120,8 +120,8 @@ $('#pEggId').on('change', function (event) {
                 <label for="var_ref_' + item.id + '" class="control-label">' + isRequired + item.name + '</label> \
                 <input type="text" id="var_ref_' + item.id + '" autocomplete="off" name="environment[' + item.env_variable + ']" class="form-control" value="' + item.default_value + '" /> \
                 <p class="text-muted small">' + item.description + '<br /> \
-                <strong>启动命令变量:</strong> <code>{{' + item.env_variable + '}}</code><br /> \
-                <strong>字符限制:</strong> <code>' + item.rules + '</code></small></p> \
+                <strong>启动时访问:</strong> <code>{{' + item.env_variable + '}}</code><br /> \
+                <strong>验证规则:</strong> <code>' + item.rules + '</code></small></p> \
             </div> \
         ';
         $('#appendVariablesTo').append(dataAppend);
