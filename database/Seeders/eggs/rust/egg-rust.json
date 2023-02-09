@@ -1,21 +1,21 @@
 {
     "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
     "meta": {
-        "version": "PTDL_v1",
+        "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2022-01-18T11:44:55-05:00",
+    "exported_at": "2023-02-04T14:45:12-05:00",
     "name": "Rust",
     "author": "support@pterodactyl.io",
     "description": "Rust(腐蚀) 一款尽一切努力生存的游戏。为此，您需要克服饥饿、干渴和寒冷等风险。建立庇护所。杀死动物以获取肉。保护自己免受其他玩家的攻击，甚至是朋友的背叛。与其他玩家建立联盟并组建城镇。尽一切努力生存吧。",
     "features": [
         "steam_disk_space"
     ],
-    "images": [
-        "registry.cn-shanghai.aliyuncs.com\/pterodactyl-china\/games:rust"
-    ],
+    "docker_images": {
+        "registry.cn-shanghai.aliyuncs.com\/pterodactyl-china\/games:rust": "registry.cn-shanghai.aliyuncs.com\/pterodactyl-china\/games:rust"
+    },
     "file_denylist": [],
-    "startup": ".\/RustDedicated -batchmode +server.port {{SERVER_PORT}} +server.identity \"rust\" +rcon.port {{RCON_PORT}} +rcon.web true +server.hostname \\\"{{HOSTNAME}}\\\" +server.level \\\"{{LEVEL}}\\\" +server.description \\\"{{DESCRIPTION}}\\\" +server.url \\\"{{SERVER_URL}}\\\" +server.headerimage \\\"{{SERVER_IMG}}\\\" +server.logoimage \\\"{{SERVER_LOGO}}\\\" +server.maxplayers {{MAX_PLAYERS}} +rcon.password \\\"{{RCON_PASS}}\\\" +server.saveinterval {{SAVEINTERVAL}} +app.port {{APP_PORT}}  $( [ -z ${MAP_URL} ] && printf %s \"+server.worldsize \\\"{{WORLD_SIZE}}\\\" +server.seed \\\"{{WORLD_SEED}}\\\"\" || printf %s \"+server.levelurl {{MAP_URL}}\" ) {{ADDITIONAL_ARGS}}",
+    "startup": ".\/RustDedicated -batchmode +server.port {{SERVER_PORT}} +server.queryport {{QUERY_PORT}} +server.identity \"rust\" +rcon.port {{RCON_PORT}} +rcon.web true +server.hostname \\\"{{HOSTNAME}}\\\" +server.level \\\"{{LEVEL}}\\\" +server.description \\\"{{DESCRIPTION}}\\\" +server.url \\\"{{SERVER_URL}}\\\" +server.headerimage \\\"{{SERVER_IMG}}\\\" +server.logoimage \\\"{{SERVER_LOGO}}\\\" +server.maxplayers {{MAX_PLAYERS}} +rcon.password \\\"{{RCON_PASS}}\\\" +server.saveinterval {{SAVEINTERVAL}} +app.port {{APP_PORT}}  $( [ -z ${MAP_URL} ] && printf %s \"+server.worldsize \\\"{{WORLD_SIZE}}\\\" +server.seed \\\"{{WORLD_SEED}}\\\"\" || printf %s \"+server.levelurl {{MAP_URL}}\" ) {{ADDITIONAL_ARGS}}",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"Server startup complete\"\r\n}",
@@ -37,7 +37,8 @@
             "default_value": "A Rust Server",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|string|max:60"
+            "rules": "required|string|max:60",
+            "field_type": "text"
         },
         {
             "name": "OxideMod",
@@ -46,7 +47,8 @@
             "default_value": "0",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|boolean"
+            "rules": "required|boolean",
+            "field_type": "text"
         },
         {
             "name": "Level",
@@ -55,7 +57,8 @@
             "default_value": "Procedural Map",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|string|max:20"
+            "rules": "required|string|max:20",
+            "field_type": "text"
         },
         {
             "name": "描述",
@@ -64,7 +67,8 @@
             "default_value": "Powered by Pterodactyl",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|string"
+            "rules": "required|string",
+            "field_type": "text"
         },
         {
             "name": "URL",
@@ -73,7 +77,8 @@
             "default_value": "http:\/\/pterodactyl.io",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "nullable|url"
+            "rules": "nullable|url",
+            "field_type": "text"
         },
         {
             "name": "世界规模",
@@ -82,7 +87,8 @@
             "default_value": "3000",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|integer"
+            "rules": "required|integer",
+            "field_type": "text"
         },
         {
             "name": "世界种子",
@@ -91,7 +97,8 @@
             "default_value": "",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "nullable|string"
+            "rules": "nullable|string",
+            "field_type": "text"
         },
         {
             "name": "最大玩家数",
@@ -100,7 +107,8 @@
             "default_value": "40",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|integer"
+            "rules": "required|integer",
+            "field_type": "text"
         },
         {
             "name": "服务器图片",
@@ -109,7 +117,8 @@
             "default_value": "",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "nullable|url"
+            "rules": "nullable|url",
+            "field_type": "text"
         },
         {
             "name": "RCON 端口",
@@ -118,16 +127,18 @@
             "default_value": "28016",
             "user_viewable": true,
             "user_editable": false,
-            "rules": "required|integer"
+            "rules": "required|integer",
+            "field_type": "text"
         },
         {
             "name": "RCON 密码",
             "description": "RCON 访问密码。",
             "env_variable": "RCON_PASS",
-            "default_value": "CHANGEME",
+            "default_value": "",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|regex:\/^[\\w.-]*$\/|max:64"
+            "rules": "required|regex:\/^[\\w.-]*$\/|max:64",
+            "field_type": "text"
         },
         {
             "name": "保存时间间隔",
@@ -136,7 +147,8 @@
             "default_value": "60",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|integer"
+            "rules": "required|integer",
+            "field_type": "text"
         },
         {
             "name": "附加参数",
@@ -145,7 +157,8 @@
             "default_value": "",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "nullable|string"
+            "rules": "nullable|string",
+            "field_type": "text"
         },
         {
             "name": "应用程序端口",
@@ -154,7 +167,8 @@
             "default_value": "28082",
             "user_viewable": true,
             "user_editable": false,
-            "rules": "required|integer"
+            "rules": "required|integer",
+            "field_type": "text"
         },
         {
             "name": "服务器 Logo",
@@ -163,7 +177,8 @@
             "default_value": "",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "nullable|url"
+            "rules": "nullable|url",
+            "field_type": "text"
         },
         {
             "name": "自定义地图 URL",
@@ -172,7 +187,18 @@
             "default_value": "",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "nullable|url"
+            "rules": "nullable|url",
+            "field_type": "text"
+        },
+        {
+            "name": "查询端口",
+            "description": "服务器查询端口。不能与游戏的主端口相同。",
+            "env_variable": "QUERY_PORT",
+            "default_value": "27017",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|integer",
+            "field_type": "text"
         }
     ]
 }
