@@ -155,7 +155,7 @@ class CreateServerSubuserTest extends ClientApiIntegrationTestCase
         $response->assertJsonPath('errors.0.detail', '具有该电子邮箱地址的用户已被指定为该服务器的子用户。');
     }
 
-    public function permissionsDataProvider(): array
+    public static function permissionsDataProvider(): array
     {
         return [[[]], [[Permission::ACTION_USER_CREATE]]];
     }

@@ -2,7 +2,6 @@
 
 namespace Pterodactyl\Console\Commands\Environment;
 
-use PDOException;
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Database\DatabaseManager;
@@ -72,7 +71,7 @@ class DatabaseSettingsCommand extends Command
 
         try {
             $this->testMySQLConnection();
-        } catch (PDOException $exception) {
+        } catch (\PDOException $exception) {
             $this->output->error(sprintf('无法使用提供的凭证连接到 MySQL 服务器。返回的错误是 "%s".', $exception->getMessage()));
             $this->output->error('您的连接凭证尚未保存。在继续之前，您需要提供有效的连接信息.');
 
