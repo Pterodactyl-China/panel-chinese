@@ -139,7 +139,7 @@ export default ({ backup }: Props) => {
                 <p>
                     该服务器将停止以恢复备份。备份开始后，您将无法控制服务器电源状态、访问文件管理器或创建其他备份直到它完成。
                 </p>
-                <p css={tw`mt-4 -mb-2 bg-gray-700 p-3 rounded`}>
+                <p css={tw`mt-4 -mb-2 bg-slate-700 p-3 rounded`}>
                     <label htmlFor={'restore_truncate'} css={tw`text-base flex items-center cursor-pointer`}>
                         <Input
                             type={'checkbox'}
@@ -168,7 +168,7 @@ export default ({ backup }: Props) => {
                     renderToggle={onClick => (
                         <button
                             onClick={onClick}
-                            css={tw`text-gray-200 transition-colors duration-150 hover:text-gray-100 p-2`}
+                            css={tw`text-slate-200 transition-colors duration-150 hover:text-slate-100 p-2`}
                         >
                             <FontAwesomeIcon icon={faEllipsisH} />
                         </button>
@@ -210,7 +210,7 @@ export default ({ backup }: Props) => {
             ) : (
                 <button
                     onClick={() => setModal('delete')}
-                    css={tw`text-gray-200 transition-colors duration-150 hover:text-gray-100 p-2`}
+                    css={tw`text-slate-200 transition-colors duration-150 hover:text-slate-100 p-2`}
                 >
                     <FontAwesomeIcon icon={faTrashAlt} />
                 </button>

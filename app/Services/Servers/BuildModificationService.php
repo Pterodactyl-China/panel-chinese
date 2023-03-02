@@ -46,12 +46,12 @@ class BuildModificationService
 
             // If any of these values are passed through in the data array go ahead and set
             // them correctly on the server model.
-            $merge = Arr::only($data, ['oom_disabled', 'memory', 'swap', 'io', 'cpu', 'threads', 'disk', 'allocation_id']);
+            $merge = Arr::only($data, ['oom_killer', 'memory', 'swap', 'io', 'cpu', 'threads', 'disk', 'allocation_id']);
 
             $server->forceFill(array_merge($merge, [
-                'database_limit' => Arr::get($data, 'database_limit', 0) ?? null,
                 'allocation_limit' => Arr::get($data, 'allocation_limit', 0) ?? null,
                 'backup_limit' => Arr::get($data, 'backup_limit', 0) ?? 0,
+                'database_limit' => Arr::get($data, 'database_limit', 0) ?? null,
             ]))->saveOrFail();
 
             return $server->refresh();

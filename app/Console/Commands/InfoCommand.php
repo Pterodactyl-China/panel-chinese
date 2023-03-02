@@ -15,7 +15,7 @@ class InfoCommand extends Command
     /**
      * VersionCommand constructor.
      */
-    public function __construct(private ConfigRepository $config, private SoftwareVersionService $versionService)
+    public function __construct(private ConfigRepository $config, private SoftwareVersionService $softwareVersionService)
     {
         parent::__construct();
     }
@@ -27,9 +27,9 @@ class InfoCommand extends Command
     {
         $this->output->title('版本信息');
         $this->table([], [
-            ['面板版本', $this->config->get('app.version')],
-            ['最新版本', $this->versionService->getPanel()],
-            ['是否为最新版', $this->versionService->isLatestPanel() ? '是' : $this->formatText('否', 'bg=red')],
+            ['面板版本', $this->softwareVersionService->getCurrentVersion()],
+            ['最新版本', $this->softwareVersionService->getLatestPanel()],
+            ['是否为最新版', $this->softwareVersionService->isLatestPanel() ? '是' : $this->formatText('否', 'bg=red')],
             ['服务作者', $this->config->get('pterodactyl.service.author')],
         ], 'compact');
 

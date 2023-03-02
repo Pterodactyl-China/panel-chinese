@@ -50,8 +50,8 @@ const CopyOnClick = ({ text, showInNotification = true, children }: CopyOnClickP
             {copied && (
                 <Portal>
                     <FadeTransition show duration="duration-250" key={copied ? 'visible' : 'invisible'}>
-                        <div className="fixed z-50 bottom-0 right-0 m-4">
-                            <div className="rounded-md py-3 px-4 text-gray-200 bg-neutral-600/95 shadow">
+                        <div className="fixed bottom-0 right-0 z-50 m-4">
+                            <div className="rounded-md bg-neutral-600/95 py-3 px-4 text-slate-200 shadow">
                                 <p>
                                     {showInNotification ? `已复制 "${String(text)}" 到剪切板.` : '已将文本复制到剪贴板'}
                                 </p>

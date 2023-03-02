@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCogs, faLayerGroup, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faLayerGroup, faScrewdriverWrench, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { useStoreState } from 'easy-peasy';
 import { ApplicationStore } from '@/state';
 import SearchContainer from '@/components/dashboard/search/SearchContainer';
@@ -46,17 +46,18 @@ export default () => {
     };
 
     return (
-        <div className="w-full bg-neutral-900 shadow-md overflow-x-auto">
+        <div className="w-full overflow-x-auto bg-neutral-900 shadow-md">
             <SpinnerOverlay visible={isLoggingOut} />
-            <div className="mx-auto w-full flex items-center h-[3.5rem] max-w-[1200px]">
+            <div className="mx-auto flex h-[3.5rem] w-full max-w-[1200px] items-center">
                 <div id="logo" className="flex-1">
                     <Link
                         to="/"
-                        className="text-2xl font-header px-4 no-underline text-neutral-200 hover:text-neutral-100 transition-colors duration-150"
+                        className="px-4 font-header text-2xl text-neutral-200 no-underline transition-colors duration-150 hover:text-neutral-100"
                     >
                         {name}
                     </Link>
                 </div>
+
                 <RightNavigation className="flex h-full items-center justify-center">
                     <SearchContainer />
 
@@ -66,21 +67,21 @@ export default () => {
                         </NavLink>
                     </Tooltip>
 
-                    {rootAdmin && (
-                        <Tooltip placement="bottom" content="管理员后台">
-                            <a href="/admin" rel="noreferrer">
-                                <FontAwesomeIcon icon={faCogs} />
-                            </a>
-                        </Tooltip>
-                    )}
-
                     <Tooltip placement="bottom" content="账号设置">
                         <NavLink to="/account">
-                            <span className="flex items-center w-5 h-5">
+                            <span className="flex h-5 w-5 items-center">
                                 <Avatar.User />
                             </span>
                         </NavLink>
                     </Tooltip>
+
+                    {rootAdmin && (
+                        <Tooltip placement="bottom" content="管理员后台">
+                            <a href="/admin" rel="noreferrer">
+                                <FontAwesomeIcon icon={faScrewdriverWrench} />
+                            </a>
+                        </Tooltip>
+                    )}
 
                     <Tooltip placement="bottom" content="登出">
                         <button onClick={onTriggerLogout}>

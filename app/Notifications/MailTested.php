@@ -21,7 +21,7 @@ class MailTested extends Notification
     {
         return (new MailMessage())
             ->subject('翼龙面板邮件测试信息')
-            ->greeting('你好 ' . $this->user->name . '!')
+            ->greeting('你好 ' . $this->user->username . '!')
             ->line('这里是翼龙面板邮件系统，如果你收到这份邮件，说明邮件系统可以正常运行了!');
     }
 }

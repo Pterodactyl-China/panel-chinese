@@ -62,7 +62,7 @@ const MassActionsBar = () => {
 
     return (
         <>
-            <div className="pointer-events-none fixed bottom-0 z-20 left-0 right-0 flex justify-center">
+            <div className="pointer-events-none fixed bottom-0 left-0 right-0 z-20 flex justify-center">
                 <SpinnerOverlay visible={loading} size={'large'} fixed>
                     {loadingMessage}
                 </SpinnerOverlay>
@@ -75,7 +75,7 @@ const MassActionsBar = () => {
                 >
                     <p className="mb-2">
                         你确定删除这些共计&nbsp;
-                        <span className="font-semibold text-gray-50">{selectedFiles.length} 个文件/目录</span>吗?
+                        <span className="font-semibold text-slate-50">{selectedFiles.length} 个文件/目录</span>吗?
                         这是不可逆转的操作，你将没有回头路！
                     </p>
                     {selectedFiles.slice(0, 15).map(file => (
@@ -93,9 +93,9 @@ const MassActionsBar = () => {
                     />
                 )}
                 <Portal>
-                    <div className="fixed bottom-0 mb-6 flex justify-center w-full z-50">
+                    <div className="fixed bottom-0 z-50 mb-6 flex w-full justify-center">
                         <FadeTransition duration="duration-75" show={selectedFiles.length > 0} appear unmount>
-                            <div className="flex items-center space-x-4 pointer-events-auto rounded p-4 bg-black/50">
+                            <div className="pointer-events-auto flex items-center space-x-4 rounded bg-black/50 p-4">
                                 <Button onClick={() => setShowMove(true)}>移动</Button>
                                 <Button onClick={onClickCompress}>压缩</Button>
                                 <Button.Danger variant={Button.Variants.Secondary} onClick={() => setShowConfirm(true)}>
