@@ -133,7 +133,7 @@ export const EggProcessContainer = forwardRef<any, EggProcessContainerProps>(fun
             <SpinnerOverlay visible={isSubmitting} />
 
             <div css={tw`mb-5`}>
-                <Label>Startup Configuration</Label>
+                <Label>启动识别</Label>
                 <Editor
                     childClassName={tw`h-32 rounded`}
                     initialContent={values.configStartup}
@@ -145,7 +145,7 @@ export const EggProcessContainer = forwardRef<any, EggProcessContainerProps>(fun
             </div>
 
             <div css={tw`mb-1`}>
-                <Label>Configuration Files</Label>
+                <Label>配置文件</Label>
                 <Editor
                     childClassName={tw`h-48 rounded`}
                     initialContent={values.configFiles}
