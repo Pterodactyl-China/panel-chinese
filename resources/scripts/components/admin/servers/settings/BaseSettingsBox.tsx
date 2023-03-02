@@ -15,13 +15,7 @@ export default ({ children }: { children?: ReactNode }) => {
     return (
         <AdminBox icon={faCogs} title={'Settings'} isLoading={isSubmitting}>
             <div css={tw`grid grid-cols-1 xl:grid-cols-2 gap-4 lg:gap-6`}>
-                <Field
-                    id={'name'}
-                    name={'name'}
-                    label={'服务器名称'}
-                    type={'text'}
-                    placeholder={'我的服务器'}
-                />
+                <Field id={'name'} name={'name'} label={'服务器名称'} type={'text'} placeholder={'我的服务器'} />
                 <Field id={'externalId'} name={'externalId'} label={'外部 ID'} type={'text'} />
                 <OwnerSelect selected={server?.relationships.user} />
                 {children}

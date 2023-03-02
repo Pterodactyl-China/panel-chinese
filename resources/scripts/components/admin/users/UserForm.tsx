@@ -94,14 +94,14 @@ export default function UserForm({ title, initialValues, children, onSubmit, uui
                                     name={'username'}
                                     label={'用户名'}
                                     type={'text'}
-                                    description={"除了用户的用户名还有什么可以放在这里呢？"}
+                                    description={'除了用户的用户名还有什么可以放在这里呢？'}
                                 />
                                 <Field
                                     id={'email'}
                                     name={'email'}
                                     label={'邮箱地址'}
                                     type={'email'}
-                                    description={"除了用户的电子邮件地址还有什么可以放在这里呢？"}
+                                    description={'除了用户的电子邮件地址还有什么可以放在这里呢？'}
                                 />
                                 <Field
                                     id={'password'}

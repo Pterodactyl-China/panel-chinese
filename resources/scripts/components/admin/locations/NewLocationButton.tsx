@@ -19,9 +19,7 @@ interface Values {
 }
 
 const schema = object().shape({
-    short: string()
-        .required('必须提供地域简称。')
-        .max(32, '地域简称不能超过 32 个字符。'),
+    short: string().required('必须提供地域简称。').max(32, '地域简称不能超过 32 个字符。'),
     long: string().max(255, '地域长名称不得超过 255 个字符。'),
 });
 

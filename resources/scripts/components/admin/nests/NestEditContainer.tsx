@@ -104,7 +104,10 @@ const EditInformationContainer = () => {
         >
             {({ isSubmitting, isValid }) => (
                 <>
-                    <AdminBox title={'编辑预设组'} css={tw`flex-1 self-start w-full relative mb-8 lg:mb-0 mr-0 lg:mr-4`}>
+                    <AdminBox
+                        title={'编辑预设组'}
+                        css={tw`flex-1 self-start w-full relative mb-8 lg:mb-0 mr-0 lg:mr-4`}
+                    >
                         <SpinnerOverlay visible={isSubmitting} />
 
                         <Form>

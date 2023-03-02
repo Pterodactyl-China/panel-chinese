@@ -91,9 +91,7 @@ export default function EggInstallContainer() {
                                         name={'scriptEntry'}
                                         label={'安装入口命令'}
                                         type={'text'}
-                                        description={
-                                            '应该用于在安装容器内运行此脚本的命令。'
-                                        }
+                                        description={'应该用于在安装容器内运行此脚本的命令。'}
                                     />
                                 </div>
                             </div>

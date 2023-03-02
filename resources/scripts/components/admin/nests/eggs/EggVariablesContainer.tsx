@@ -51,12 +51,7 @@ export function EggVariableForm({ prefix }: { prefix: string }) {
                     type={'text'}
                 />
 
-                <Field
-                    id={`${prefix}defaultValue`}
-                    name={`${prefix}defaultValue`}
-                    label={'默认值'}
-                    type={'text'}
-                />
+                <Field id={`${prefix}defaultValue`} name={`${prefix}defaultValue`} label={'默认值'} type={'text'} />
             </FieldRow>
 
             <div css={tw`flex flex-row mb-6`}>
@@ -79,13 +74,7 @@ export function EggVariableForm({ prefix }: { prefix: string }) {
                 </div>
             </div>
 
-            <Field
-                id={`${prefix}rules`}
-                name={`${prefix}rules`}
-                label={'验证规则'}
-                type={'text'}
-                css={tw`mb-2`}
-            />
+            <Field id={`${prefix}rules`} name={`${prefix}rules`} label={'验证规则'} type={'text'} css={tw`mb-2`} />
         </>
     );
 }
