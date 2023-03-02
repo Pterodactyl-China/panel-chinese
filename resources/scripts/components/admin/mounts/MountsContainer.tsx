@@ -84,19 +84,19 @@ const MountsContainer = () => {
     }, [page]);
 
     return (
-        <AdminContentBlock title={'Mounts'}>
+        <AdminContentBlock title={'挂载'}>
             <div css={tw`w-full flex flex-row items-center mb-8`}>
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
-                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>Mounts</h2>
+                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>挂载</h2>
                     <p css={tw`text-base text-neutral-400 whitespace-nowrap overflow-ellipsis overflow-hidden`}>
-                        Configure and manage additional mount points for servers.
+                        配置和管理服务器的附加挂载点。
                     </p>
                 </div>
 
                 <div css={tw`flex ml-auto pl-4`}>
                     <NavLink to={`/admin/mounts/new`}>
                         <Button type={'button'} size={Size.Large} css={tw`h-10 px-4 py-0 whitespace-nowrap`}>
-                            New Mount
+                            新建挂载
                         </Button>
                     </NavLink>
                 </div>
@@ -120,17 +120,17 @@ const MountsContainer = () => {
                                         onClick={() => setSort('id')}
                                     />
                                     <TableHeader
-                                        name={'Name'}
+                                        name={'原始路径'}
                                         direction={sort === 'name' ? (sortDirection ? 1 : 2) : null}
                                         onClick={() => setSort('name')}
                                     />
                                     <TableHeader
-                                        name={'Source Path'}
+                                        name={'来源路径'}
                                         direction={sort === 'source' ? (sortDirection ? 1 : 2) : null}
                                         onClick={() => setSort('source')}
                                     />
                                     <TableHeader
-                                        name={'Target Path'}
+                                        name={'目标路径'}
                                         direction={sort === 'target' ? (sortDirection ? 1 : 2) : null}
                                         onClick={() => setSort('target')}
                                     />
@@ -187,13 +187,13 @@ const MountsContainer = () => {
                                                         <span
                                                             css={tw`px-2 inline-flex text-xs leading-5 font-medium rounded-full bg-green-100 text-green-800`}
                                                         >
-                                                            Read Only
+                                                            只读
                                                         </span>
                                                     ) : (
                                                         <span
                                                             css={tw`px-2 inline-flex text-xs leading-5 font-medium rounded-full bg-yellow-200 text-yellow-800`}
                                                         >
-                                                            Writable
+                                                            可写
                                                         </span>
                                                     )}
                                                 </td>
@@ -203,13 +203,13 @@ const MountsContainer = () => {
                                                         <span
                                                             css={tw`px-2 inline-flex text-xs leading-5 font-medium rounded-full bg-green-100 text-green-800`}
                                                         >
-                                                            Mountable
+                                                            可安装
                                                         </span>
                                                     ) : (
                                                         <span
                                                             css={tw`px-2 inline-flex text-xs leading-5 font-medium rounded-full bg-yellow-200 text-yellow-800`}
                                                         >
-                                                            Admin Only
+                                                            仅限管理员
                                                         </span>
                                                     )}
                                                 </td>

@@ -17,7 +17,7 @@ export default () => {
                 </div>
 
                 <div css={tw`w-full flex col-span-4`}>
-                    <AdminBox icon={faNetworkWired} title={'Allocations'} css={tw`h-auto w-full`}>
+                    <AdminBox icon={faNetworkWired} title={'分配'} css={tw`h-auto w-full`}>
                         <CreateAllocationForm nodeId={Number(params.id)} />
                     </AdminBox>
                 </div>

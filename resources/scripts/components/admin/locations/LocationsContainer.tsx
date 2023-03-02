@@ -83,12 +83,12 @@ function LocationsContainer() {
     }, [page]);
 
     return (
-        <AdminContentBlock title={'Locations'}>
+        <AdminContentBlock title={'地域'}>
             <div css={tw`w-full flex flex-row items-center mb-8`}>
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
-                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>Locations</h2>
+                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>地域</h2>
                     <p css={tw`text-base text-neutral-400 whitespace-nowrap overflow-ellipsis overflow-hidden`}>
-                        All locations that nodes can be assigned to for easier categorization.
+                        可以将节点分配到的所有地域以便于分类。
                     </p>
                 </div>
 
@@ -115,12 +115,12 @@ function LocationsContainer() {
                                         onClick={() => setSort('id')}
                                     />
                                     <TableHeader
-                                        name={'Short Name'}
+                                        name={'简称'}
                                         direction={sort === 'short' ? (sortDirection ? 1 : 2) : null}
                                         onClick={() => setSort('short')}
                                     />
                                     <TableHeader
-                                        name={'Long Name'}
+                                        name={'长名称'}
                                         direction={sort === 'long' ? (sortDirection ? 1 : 2) : null}
                                         onClick={() => setSort('long')}
                                     />

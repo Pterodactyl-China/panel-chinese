@@ -43,17 +43,17 @@ export default () => {
         <>
             <ConfirmationModal
                 visible={visible}
-                title={'Delete server?'}
-                buttonText={'Yes, delete server'}
+                title={'删除服务器?'}
+                buttonText={'是的,删除服务器'}
                 onConfirmed={onDelete}
                 showSpinnerOverlay={loading}
                 onModalDismissed={() => setVisible(false)}
             >
-                Are you sure you want to delete this server?
+                您确定要删除此服务器吗？
             </ConfirmationModal>
 
             <Button.Danger type="button" onClick={() => setVisible(true)} className="flex items-center justify-center">
-                <TrashIcon className="mr-2 h-5 w-5" /> Delete Server
+                <TrashIcon className="mr-2 h-5 w-5" /> 删除服务器
             </Button.Danger>
         </>
     );

@@ -31,19 +31,19 @@ export default () => {
     };
 
     return (
-        <AdminContentBlock title={'New User'}>
+        <AdminContentBlock title={'新建用户'}>
             <div css={tw`w-full flex flex-row items-center mb-8`}>
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
-                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>New User</h2>
+                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>新建用户</h2>
                     <p css={tw`text-base text-neutral-400 whitespace-nowrap overflow-ellipsis overflow-hidden`}>
-                        Add a new user to the panel.
+                        添加新用户到面板。
                     </p>
                 </div>
             </div>
 
             <FlashMessageRender byKey={'user:create'} css={tw`mb-4`} />
 
-            <UserForm title={'Create User'} onSubmit={submit} role={null} />
+            <UserForm title={'创建用户'} onSubmit={submit} role={null} />
         </AdminContentBlock>
     );
 };

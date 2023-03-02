@@ -69,8 +69,8 @@ function CreateAllocationForm({ nodeId }: { nodeId: number }) {
                 alias: '',
             }}
             validationSchema={object().shape({
-                ips: array(string()).min(1, 'You must select at least one ip address.'),
-                ports: array(number()).min(1, 'You must select at least one port.'),
+                ips: array(string()).min(1, '您必须至少选择一个 IP 地址。'),
+                ports: array(number()).min(1, '您必须至少选择一个端口。'),
             })}
         >
             {({ isSubmitting, isValid }) => (
@@ -78,7 +78,7 @@ function CreateAllocationForm({ nodeId }: { nodeId: number }) {
                     <SelectField
                         id={'ips'}
                         name={'ips'}
-                        label={'IPs and CIDRs'}
+                        label={'IPs 和 CIDRs (无类别域间路由)'}
                         options={ips}
                         isValidNewOption={isValidIP}
                         isMulti
@@ -90,7 +90,7 @@ function CreateAllocationForm({ nodeId }: { nodeId: number }) {
                     <SelectField
                         id={'ports'}
                         name={'ports'}
-                        label={'Ports'}
+                        label={'端口'}
                         options={ports}
                         isValidNewOption={isValidPort}
                         isMulti
@@ -99,13 +99,13 @@ function CreateAllocationForm({ nodeId }: { nodeId: number }) {
                     />
 
                     <div css={tw`mt-6`}>
-                        <Field id={'alias'} name={'alias'} label={'Alias'} type={'text'} />
+                        <Field id={'alias'} name={'alias'} label={'别名'} type={'text'} />
                     </div>
 
                     <div css={tw`w-full flex flex-row items-center mt-6`}>
                         <div css={tw`flex ml-auto`}>
                             <Button type={'submit'} disabled={isSubmitting || !isValid}>
-                                Create Allocations
+                                创建分配
                             </Button>
                         </div>
                     </div>

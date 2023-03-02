@@ -36,7 +36,7 @@ const EggRouter = () => {
     }
 
     return (
-        <AdminContentBlock title={'Egg - ' + egg.name}>
+        <AdminContentBlock title={'预设 - ' + egg.name}>
             <div css={tw`w-full flex flex-row items-center mb-4`}>
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
                     <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>{egg.name}</h2>
@@ -49,7 +49,7 @@ const EggRouter = () => {
             <FlashMessageRender byKey={'egg'} css={tw`mb-4`} />
 
             <SubNavigation>
-                <SubNavigationLink to={`/admin/nests/${nestId ?? ''}/eggs/${id ?? ''}`} name={'About'}>
+                <SubNavigationLink to={`/admin/nests/${nestId ?? ''}/eggs/${id ?? ''}`} name={'关于'}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path
                             clipRule="evenodd"
@@ -59,13 +59,13 @@ const EggRouter = () => {
                     </svg>
                 </SubNavigationLink>
 
-                <SubNavigationLink to={`/admin/nests/${nestId ?? ''}/eggs/${id ?? ''}/variables`} name={'Variables'}>
+                <SubNavigationLink to={`/admin/nests/${nestId ?? ''}/eggs/${id ?? ''}/variables`} name={'变量'}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
                     </svg>
                 </SubNavigationLink>
 
-                <SubNavigationLink to={`/admin/nests/${nestId ?? ''}/eggs/${id ?? ''}/install`} name={'Install Script'}>
+                <SubNavigationLink to={`/admin/nests/${nestId ?? ''}/eggs/${id ?? ''}/install`} name={'安装脚本'}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path
                             clipRule="evenodd"

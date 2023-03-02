@@ -26,8 +26,8 @@ export default ({ selected }: { selected?: User }) => {
         <SearchableSelect
             id={'ownerId'}
             name={'ownerId'}
-            label={'Owner'}
-            placeholder={'Select a user...'}
+            label={'所有者'}
+            placeholder={'选择一个用户...'}
             items={users}
             selected={user}
             setSelected={setUser}

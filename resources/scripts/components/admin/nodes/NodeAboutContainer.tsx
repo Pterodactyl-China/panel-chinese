@@ -47,42 +47,42 @@ export default () => {
 
     if (loading) {
         return (
-            <AdminBox title={'Node Information'} css={tw`relative`}>
+            <AdminBox title={'节点信息'} css={tw`relative`}>
                 <SpinnerOverlay visible={loading} />
             </AdminBox>
         );
     }
 
     return (
-        <AdminBox title={'Node Information'}>
+        <AdminBox title={'节点信息'}>
             <table>
                 <tbody>
                     <tr>
-                        <td css={tw`py-1 pr-6`}>Wings Version</td>
+                        <td css={tw`py-1 pr-6`}>Wings 版本</td>
                         <td css={tw`py-1`}>
                             <Code css={tw`ml-auto`}>{info?.version}</Code>
                         </td>
                     </tr>
                     <tr>
-                        <td css={tw`py-1 pr-6`}>Operating System</td>
+                        <td css={tw`py-1 pr-6`}>操作系统</td>
                         <td css={tw`py-1`}>
                             <Code css={tw`ml-auto`}>{info?.system.type}</Code>
                         </td>
                     </tr>
                     <tr>
-                        <td css={tw`py-1 pr-6`}>Architecture</td>
+                        <td css={tw`py-1 pr-6`}>架构</td>
                         <td css={tw`py-1`}>
                             <Code css={tw`ml-auto`}>{info?.system.arch}</Code>
                         </td>
                     </tr>
                     <tr>
-                        <td css={tw`py-1 pr-6`}>Kernel</td>
+                        <td css={tw`py-1 pr-6`}>核心</td>
                         <td css={tw`py-1`}>
                             <Code css={tw`ml-auto`}>{info?.system.release}</Code>
                         </td>
                     </tr>
                     <tr>
-                        <td css={tw`py-1 pr-6`}>CPU Threads</td>
+                        <td css={tw`py-1 pr-6`}>CPU 线程</td>
                         <td css={tw`py-1`}>
                             <Code css={tw`ml-auto`}>{info?.system.cpus}</Code>
                         </td>

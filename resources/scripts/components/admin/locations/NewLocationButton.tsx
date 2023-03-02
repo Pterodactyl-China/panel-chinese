@@ -20,9 +20,9 @@ interface Values {
 
 const schema = object().shape({
     short: string()
-        .required('A location short name must be provided.')
-        .max(32, 'Location short name must not exceed 32 characters.'),
-    long: string().max(255, 'Location long name must not exceed 255 characters.'),
+        .required('必须提供地域简称。')
+        .max(32, '地域简称不能超过 32 个字符。'),
+    long: string().max(255, '地域长名称不得超过 255 个字符。'),
 });
 
 export default () => {
@@ -60,15 +60,15 @@ export default () => {
                     >
                         <FlashMessageRender byKey={'location:create'} css={tw`mb-6`} />
 
-                        <h2 css={tw`mb-6 text-2xl text-neutral-100`}>New Location</h2>
+                        <h2 css={tw`mb-6 text-2xl text-neutral-100`}>新建地域</h2>
 
                         <Form css={tw`m-0`}>
                             <Field
                                 type={'text'}
                                 id={'short'}
                                 name={'short'}
-                                label={'Short'}
-                                description={'A short name used to identify this location.'}
+                                label={'短'}
+                                description={'用于标识此地域的简称。'}
                                 autoFocus
                             />
 
@@ -77,8 +77,8 @@ export default () => {
                                     type={'text'}
                                     id={'long'}
                                     name={'long'}
-                                    label={'Long'}
-                                    description={'A long name for this location.'}
+                                    label={'长'}
+                                    description={'此地域的长名称。'}
                                 />
                             </div>
 
@@ -89,10 +89,10 @@ export default () => {
                                     css={tw`w-full sm:w-auto sm:mr-2`}
                                     onClick={() => setVisible(false)}
                                 >
-                                    Cancel
+                                    取消
                                 </Button.Text>
                                 <Button css={tw`w-full mt-4 sm:w-auto sm:mt-0`} type={'submit'}>
-                                    Create Location
+                                    创建地域
                                 </Button>
                             </div>
                         </Form>
@@ -106,7 +106,7 @@ export default () => {
                 css={tw`h-10 px-4 py-0 whitespace-nowrap`}
                 onClick={() => setVisible(true)}
             >
-                New Location
+                新建地域
             </Button>
         </>
     );

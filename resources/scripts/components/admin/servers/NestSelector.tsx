@@ -30,7 +30,7 @@ export default ({ selectedNestId, onNestSelect }: Props) => {
             <Label>Nest</Label>
             <Select value={selectedNestId} onChange={e => onNestSelect(Number(e.currentTarget.value))}>
                 {!nests ? (
-                    <option disabled>Loading...</option>
+                    <option disabled>加载中...</option>
                 ) : (
                     nests?.map(v => (
                         <option key={v.uuid} value={v.id.toString()}>

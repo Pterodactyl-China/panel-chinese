@@ -66,7 +66,7 @@ const NodeRouter = () => {
     }
 
     return (
-        <AdminContentBlock title={'Node - ' + node.name}>
+        <AdminContentBlock title={'节点 - ' + node.name}>
             <div css={tw`w-full flex flex-row items-center mb-4`}>
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
                     <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>{node.name}</h2>
@@ -79,7 +79,7 @@ const NodeRouter = () => {
             <FlashMessageRender byKey={'node'} css={tw`mb-4`} />
 
             <SubNavigation>
-                <SubNavigationLink to={`/admin/nodes/${node.id}`} name={'About'}>
+                <SubNavigationLink to={`/admin/nodes/${node.id}`} name={'关于'}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path
                             clipRule="evenodd"
@@ -89,7 +89,7 @@ const NodeRouter = () => {
                     </svg>
                 </SubNavigationLink>
 
-                <SubNavigationLink to={`/admin/nodes/${node.id}/settings`} name={'Settings'}>
+                <SubNavigationLink to={`/admin/nodes/${node.id}/settings`} name={'设置'}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path
                             clipRule="evenodd"
@@ -99,7 +99,7 @@ const NodeRouter = () => {
                     </svg>
                 </SubNavigationLink>
 
-                <SubNavigationLink to={`/admin/nodes/${node.id}/configuration`} name={'Configuration'}>
+                <SubNavigationLink to={`/admin/nodes/${node.id}/configuration`} name={'配置'}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path
                             clipRule="evenodd"
@@ -109,13 +109,13 @@ const NodeRouter = () => {
                     </svg>
                 </SubNavigationLink>
 
-                <SubNavigationLink to={`/admin/nodes/${node.id}/allocations`} name={'Allocations'}>
+                <SubNavigationLink to={`/admin/nodes/${node.id}/allocations`} name={'分配'}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z" />
                     </svg>
                 </SubNavigationLink>
 
-                <SubNavigationLink to={`/admin/nodes/${node.id}/servers`} name={'Servers'}>
+                <SubNavigationLink to={`/admin/nodes/${node.id}/servers`} name={'服务器'}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path
                             clipRule="evenodd"

@@ -70,53 +70,53 @@ function AdminRouter() {
                     )}
                 </div>
                 <Sidebar.Wrapper>
-                    <Sidebar.Section>Administration</Sidebar.Section>
+                    <Sidebar.Section>基础管理</Sidebar.Section>
                     <NavLink to="/admin" end>
                         <OfficeBuildingIcon />
-                        <span>Overview</span>
+                        <span>概况</span>
                     </NavLink>
                     <NavLink to="/admin/settings">
                         <CogIcon />
-                        <span>Settings</span>
+                        <span>设置</span>
                     </NavLink>
-                    <Sidebar.Section>Management</Sidebar.Section>
+                    <Sidebar.Section>经营管理</Sidebar.Section>
                     <NavLink to="/admin/databases">
                         <DatabaseIcon />
-                        <span>Databases</span>
+                        <span>数据库</span>
                     </NavLink>
                     <NavLink to="/admin/locations">
                         <GlobeIcon />
-                        <span>Locations</span>
+                        <span>地域</span>
                     </NavLink>
                     <NavLink to="/admin/nodes">
                         <ServerIcon />
-                        <span>Nodes</span>
+                        <span>节点</span>
                     </NavLink>
                     <NavLink to="/admin/servers">
                         <TerminalIcon />
-                        <span>Servers</span>
+                        <span>服务器</span>
                     </NavLink>
                     <NavLink to="/admin/users">
                         <UsersIcon />
-                        <span>Users</span>
+                        <span>用户</span>
                     </NavLink>
                     <NavLink to="/admin/roles">
                         <UserGroupIcon />
-                        <span>Roles</span>
+                        <span>角色</span>
                     </NavLink>
-                    <Sidebar.Section>Service Management</Sidebar.Section>
+                    <Sidebar.Section>服务管理</Sidebar.Section>
                     <NavLink to="/admin/nests">
                         <ViewGridIcon />
-                        <span>Nests</span>
+                        <span>预设组</span>
                     </NavLink>
                     <NavLink to="/admin/mounts">
                         <FolderIcon />
-                        <span>Mounts</span>
+                        <span>挂载</span>
                     </NavLink>
                 </Sidebar.Wrapper>
                 <NavLink to="/" css={tw`mt-auto mb-3`}>
                     <ReplyIcon />
-                    <span>Return</span>
+                    <span>返回</span>
                 </NavLink>
                 <Sidebar.User>
                     {avatarURL && (

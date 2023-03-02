@@ -63,7 +63,7 @@ const UserRouter = () => {
     }
 
     return (
-        <AdminContentBlock title={'User - ' + user.id}>
+        <AdminContentBlock title={'用户 - ' + user.id}>
             <div css={tw`w-full flex flex-row items-center mb-4`}>
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
                     <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>{user.email}</h2>
@@ -76,7 +76,7 @@ const UserRouter = () => {
             <FlashMessageRender byKey={'user'} css={tw`mb-4`} />
 
             <SubNavigation>
-                <SubNavigationLink to={`/admin/users/${params.id}`} name={'About'}>
+                <SubNavigationLink to={`/admin/users/${params.id}`} name={'关于'}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path
                             clipRule="evenodd"
@@ -86,7 +86,7 @@ const UserRouter = () => {
                     </svg>
                 </SubNavigationLink>
 
-                <SubNavigationLink to={`/admin/users/${params.id}/servers`} name={'Servers'}>
+                <SubNavigationLink to={`/admin/users/${params.id}/servers`} name={'服务器'}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path
                             clipRule="evenodd"

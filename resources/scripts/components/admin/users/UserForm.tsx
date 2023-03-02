@@ -85,37 +85,33 @@ export default function UserForm({ title, initialValues, children, onSubmit, uui
                                 <Field
                                     id={'externalId'}
                                     name={'externalId'}
-                                    label={'External ID'}
+                                    label={'外部 ID'}
                                     type={'text'}
-                                    description={
-                                        'Used by external integrations, this field should not be modified unless you know what you are doing.'
-                                    }
+                                    description={'由外部集成使用，不应修改此字段，除非您知道自己在做什么。'}
                                 />
                                 <Field
                                     id={'username'}
                                     name={'username'}
-                                    label={'Username'}
+                                    label={'用户名'}
                                     type={'text'}
-                                    description={"The user's username, what else would go here?"}
+                                    description={"除了用户的用户名还有什么可以放在这里呢？"}
                                 />
                                 <Field
                                     id={'email'}
                                     name={'email'}
-                                    label={'Email Address'}
+                                    label={'邮箱地址'}
                                     type={'email'}
-                                    description={"The user's email address, what else would go here?"}
+                                    description={"除了用户的电子邮件地址还有什么可以放在这里呢？"}
                                 />
                                 <Field
                                     id={'password'}
                                     name={'password'}
-                                    label={'Password'}
+                                    label={'密码'}
                                     type={'password'}
                                     placeholder={'••••••••'}
                                     autoComplete={'new-password'}
                                     /* TODO: Change description depending on if user is being created or updated. */
-                                    description={
-                                        'Leave empty to email the user a link where they will be required to set a password.'
-                                    }
+                                    description={'留空以通过电子邮件向用户发送一个链接，要求他们在该链接中设置密码。'}
                                 />
                                 <RoleSelect selected={role} />
                             </FieldRow>
@@ -125,8 +121,8 @@ export default function UserForm({ title, initialValues, children, onSubmit, uui
                                 <div css={tw`w-full bg-neutral-800 border border-neutral-900 shadow-inner p-4 rounded`}>
                                     <FormikSwitch
                                         name={'rootAdmin'}
-                                        label={'Root Admin'}
-                                        description={'Should this user be a root administrator?'}
+                                        label={'Root 管理员'}
+                                        description={'这个用户应该是 root 管理员吗？'}
                                     />
                                 </div>
                             </div>
@@ -135,7 +131,7 @@ export default function UserForm({ title, initialValues, children, onSubmit, uui
                                 {children}
                                 <div css={tw`flex ml-auto`}>
                                     <Button type={'submit'} disabled={isSubmitting || !isValid}>
-                                        Save Changes
+                                        保存更改
                                     </Button>
                                 </div>
                             </div>

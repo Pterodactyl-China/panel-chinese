@@ -64,52 +64,52 @@ function MountForm({ action, title, initialValues, children, onSubmit }: Props) 
 
                     <Form css={tw`mb-0`}>
                         <div>
-                            <Field id={'name'} name={'name'} label={'Name'} type={'text'} />
+                            <Field id={'name'} name={'name'} label={'名称'} type={'text'} />
                         </div>
 
                         <div css={tw`mt-6`}>
-                            <Field id={'description'} name={'description'} label={'Description'} type={'text'} />
+                            <Field id={'description'} name={'description'} label={'描述'} type={'text'} />
                         </div>
 
                         <div css={tw`md:w-full md:flex md:flex-row mt-6`}>
                             <div css={tw`md:w-full md:flex md:flex-col md:mr-4 mt-6 md:mt-0`}>
-                                <Field id={'source'} name={'source'} label={'Source'} type={'text'} />
+                                <Field id={'source'} name={'source'} label={'来源'} type={'text'} />
                             </div>
 
                             <div css={tw`md:w-full md:flex md:flex-col md:ml-4 mt-6 md:mt-0`}>
-                                <Field id={'target'} name={'target'} label={'Target'} type={'text'} />
+                                <Field id={'target'} name={'target'} label={'目标'} type={'text'} />
                             </div>
                         </div>
 
                         <div css={tw`md:w-full md:flex md:flex-row mt-6`}>
                             <div css={tw`md:w-full md:flex md:flex-col md:mr-4 mt-6 md:mt-0`}>
-                                <Label htmlFor={'readOnly'}>Permissions</Label>
+                                <Label htmlFor={'readOnly'}>权限</Label>
 
                                 <div>
                                     <label css={tw`inline-flex items-center mr-2`}>
                                         <FormikField name={'readOnly'} type={'radio'} value={'0'} />
-                                        <span css={tw`ml-2`}>Writable</span>
+                                        <span css={tw`ml-2`}>可写</span>
                                     </label>
 
                                     <label css={tw`inline-flex items-center ml-2`}>
                                         <FormikField name={'readOnly'} type={'radio'} value={'1'} />
-                                        <span css={tw`ml-2`}>Read Only</span>
+                                        <span css={tw`ml-2`}>只读</span>
                                     </label>
                                 </div>
                             </div>
 
                             <div css={tw`md:w-full md:flex md:flex-col md:ml-4 mt-6 md:mt-0`}>
-                                <Label htmlFor={'userMountable'}>User Mountable</Label>
+                                <Label htmlFor={'userMountable'}>用户可安装</Label>
 
                                 <div>
                                     <label css={tw`inline-flex items-center mr-2`}>
                                         <FormikField name={'userMountable'} type={'radio'} value={'0'} />
-                                        <span css={tw`ml-2`}>Admin Only</span>
+                                        <span css={tw`ml-2`}>仅限管理员</span>
                                     </label>
 
                                     <label css={tw`inline-flex items-center ml-2`}>
                                         <FormikField name={'userMountable'} type={'radio'} value={'1'} />
-                                        <span css={tw`ml-2`}>Users</span>
+                                        <span css={tw`ml-2`}>用户</span>
                                     </label>
                                 </div>
                             </div>

@@ -83,19 +83,19 @@ const DatabasesContainer = () => {
     }, [page]);
 
     return (
-        <AdminContentBlock title={'Databases'}>
+        <AdminContentBlock title={'数据库'}>
             <div css={tw`w-full flex flex-row items-center mb-8`}>
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
-                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>Database Hosts</h2>
+                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>数据库主机</h2>
                     <p css={tw`text-base text-neutral-400 whitespace-nowrap overflow-ellipsis overflow-hidden`}>
-                        Database hosts that servers can have databases created on.
+                        服务器可以在其上创建数据库的数据库主机。
                     </p>
                 </div>
 
                 <div css={tw`flex ml-auto pl-4`}>
                     <NavLink to="/admin/databases/new">
                         <Button type="button" size={Size.Large} css={tw`h-10 px-4 py-0 whitespace-nowrap`}>
-                            New Database Host
+                            新建数据库主机
                         </Button>
                     </NavLink>
                 </div>
@@ -119,12 +119,12 @@ const DatabasesContainer = () => {
                                         onClick={() => setSort('id')}
                                     />
                                     <TableHeader
-                                        name={'Name'}
+                                        name={'名称'}
                                         direction={sort === 'name' ? (sortDirection ? 1 : 2) : null}
                                         onClick={() => setSort('name')}
                                     />
-                                    <TableHeader name={'Address'} />
-                                    <TableHeader name={'Username'} />
+                                    <TableHeader name={'地址'} />
+                                    <TableHeader name={'用户名'} />
                                 </TableHead>
 
                                 <TableBody>

@@ -27,45 +27,39 @@ export default () => {
         >
             {({ isSubmitting, isValid }) => (
                 <Form>
-                    <AdminBox title="Mail">
+                    <AdminBox title="邮件">
                         <FieldRow css={tw`lg:grid-cols-3`}>
                             <Field
                                 id={'smtpHost'}
                                 name={'smtpHost'}
                                 type={'text'}
-                                label={'SMTP Host'}
+                                label={'SMTP 主机'}
                                 description={''}
                             />
                             <Field
                                 id={'smtpPort'}
                                 name={'smtpPort'}
                                 type={'number'}
-                                label={'SMTP Port'}
+                                label={'SMTP 端口'}
                                 description={''}
                             />
                             <div>
-                                <Label>Encryption</Label>
+                                <Label>加密方式</Label>
                                 <Select id={'smtpEncryption'} name={'smtpEncryption'} defaultValue={'tls'}>
-                                    <option value="">None</option>
-                                    <option value="ssl">Secure Sockets Layer (SSL)</option>
-                                    <option value="tls">Transport Layer Security (TLS)</option>
+                                    <option value="">无</option>
+                                    <option value="ssl">安全链路层 (SSL)</option>
+                                    <option value="tls">传输层安全 (TLS)</option>
                                 </Select>
                             </div>
                         </FieldRow>
 
                         <FieldRow>
-                            <Field
-                                id={'username'}
-                                name={'username'}
-                                type={'text'}
-                                label={'Username'}
-                                description={''}
-                            />
+                            <Field id={'username'} name={'username'} type={'text'} label={'用户名'} description={''} />
                             <Field
                                 id={'password'}
                                 name={'password'}
                                 type={'password'}
-                                label={'Password'}
+                                label={'密码'}
                                 description={''}
                             />
                         </FieldRow>
@@ -75,14 +69,14 @@ export default () => {
                                 id={'mailFrom'}
                                 name={'mailFrom'}
                                 type={'text'}
-                                label={'Mail From'}
+                                label={'邮件发件人'}
                                 description={''}
                             />
                             <Field
                                 id={'mailFromName'}
                                 name={'mailFromName'}
                                 type={'text'}
-                                label={'Mail From Name'}
+                                label={'发件人名称'}
                                 description={''}
                             />
                         </FieldRow>
@@ -91,7 +85,7 @@ export default () => {
                     <div css={tw`bg-neutral-700 rounded shadow-md px-4 xl:px-5 py-4 mt-6`}>
                         <div css={tw`flex flex-row`}>
                             <Button type="submit" size="small" css={tw`ml-auto`} disabled={isSubmitting || !isValid}>
-                                Save Changes
+                                保存更改
                             </Button>
                         </div>
                     </div>

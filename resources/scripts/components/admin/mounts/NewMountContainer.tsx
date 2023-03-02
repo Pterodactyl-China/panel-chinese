@@ -33,19 +33,19 @@ export default () => {
     };
 
     return (
-        <AdminContentBlock title={'New Mount'}>
+        <AdminContentBlock title={'新建挂载'}>
             <div css={tw`w-full flex flex-row items-center mb-8`}>
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
-                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>New Mount</h2>
+                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>新建挂载</h2>
                     <p css={tw`text-base text-neutral-400 whitespace-nowrap overflow-ellipsis overflow-hidden`}>
-                        Add a new mount to the panel.
+                        向面板添加一个新的挂载点。
                     </p>
                 </div>
             </div>
 
             <FlashMessageRender byKey={'mount:create'} css={tw`mb-4`} />
 
-            <MountForm action={'Create'} title={'Create Mount'} onSubmit={submit} />
+            <MountForm action={'创建'} title={'创建挂载'} onSubmit={submit} />
         </AdminContentBlock>
     );
 };

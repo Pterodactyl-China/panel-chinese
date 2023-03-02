@@ -77,16 +77,16 @@ const EditInformationContainer = () => {
         >
             {({ isSubmitting, isValid }) => (
                 <>
-                    <AdminBox title={'Edit Role'} css={tw`relative`}>
+                    <AdminBox title={'编辑角色'} css={tw`relative`}>
                         <SpinnerOverlay visible={isSubmitting} />
 
                         <Form css={tw`mb-0`}>
                             <div>
-                                <Field id={'name'} name={'name'} label={'Name'} type={'text'} />
+                                <Field id={'name'} name={'name'} label={'名称'} type={'text'} />
                             </div>
 
                             <div css={tw`mt-6`}>
-                                <Field id={'description'} name={'description'} label={'description'} type={'text'} />
+                                <Field id={'description'} name={'description'} label={'描述'} type={'text'} />
                             </div>
 
                             <div css={tw`w-full flex flex-row items-center mt-6`}>
@@ -96,7 +96,7 @@ const EditInformationContainer = () => {
 
                                 <div css={tw`flex ml-auto`}>
                                     <Button type={'submit'} disabled={isSubmitting || !isValid}>
-                                        Save Changes
+                                        保存更改
                                     </Button>
                                 </div>
                             </div>
@@ -144,13 +144,13 @@ const RoleEditContainer = () => {
     }
 
     return (
-        <AdminContentBlock title={'Role - ' + role.name}>
+        <AdminContentBlock title={'角色 - ' + role.name}>
             <div css={tw`w-full flex flex-row items-center mb-8`}>
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
                     <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>{role.name}</h2>
                     {(role.description || '').length < 1 ? (
                         <p css={tw`text-base text-neutral-400`}>
-                            <span css={tw`italic`}>No description</span>
+                            <span css={tw`italic`}>无描述</span>
                         </p>
                     ) : (
                         <p css={tw`text-base text-neutral-400 whitespace-nowrap overflow-ellipsis overflow-hidden`}>

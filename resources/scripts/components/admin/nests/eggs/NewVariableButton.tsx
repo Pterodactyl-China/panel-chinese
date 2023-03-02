@@ -69,7 +69,7 @@ export default function NewVariableButton() {
                     >
                         <FlashMessageRender byKey={'variable:create'} css={tw`mb-6`} />
 
-                        <h2 css={tw`mb-6 text-2xl text-neutral-100`}>New Variable</h2>
+                        <h2 css={tw`mb-6 text-2xl text-neutral-100`}>新建变量</h2>
 
                         <Form css={tw`m-0`}>
                             <EggVariableForm prefix={''} />
@@ -81,14 +81,14 @@ export default function NewVariableButton() {
                                     css={tw`w-full sm:w-auto sm:mr-2`}
                                     onClick={() => setVisible(false)}
                                 >
-                                    Cancel
+                                    取消
                                 </Button>
                                 <Button
                                     type="submit"
                                     css={tw`w-full mt-4 sm:w-auto sm:mt-0`}
                                     disabled={isSubmitting || !isValid}
                                 >
-                                    Create Variable
+                                    创建变量
                                 </Button>
                             </div>
                         </Form>
@@ -98,7 +98,7 @@ export default function NewVariableButton() {
 
             {/* TODO: make button green */}
             <Button type="button" onClick={() => setVisible(true)}>
-                New Variable
+                新建变量
             </Button>
         </>
     );

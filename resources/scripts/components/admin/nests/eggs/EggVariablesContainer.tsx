@@ -33,12 +33,12 @@ export const validationSchema = object().shape({
 export function EggVariableForm({ prefix }: { prefix: string }) {
     return (
         <>
-            <Field id={`${prefix}name`} name={`${prefix}name`} label={'Name'} type={'text'} css={tw`mb-6`} />
+            <Field id={`${prefix}name`} name={`${prefix}name`} label={'名称'} type={'text'} css={tw`mb-6`} />
 
             <TextareaField
                 id={`${prefix}description`}
                 name={`${prefix}description`}
-                label={'Description'}
+                label={'描述'}
                 rows={3}
                 css={tw`mb-4`}
             />
@@ -47,14 +47,14 @@ export function EggVariableForm({ prefix }: { prefix: string }) {
                 <Field
                     id={`${prefix}environmentVariable`}
                     name={`${prefix}environmentVariable`}
-                    label={'Environment Variable'}
+                    label={'环境变量'}
                     type={'text'}
                 />
 
                 <Field
                     id={`${prefix}defaultValue`}
                     name={`${prefix}defaultValue`}
-                    label={'Default Value'}
+                    label={'默认值'}
                     type={'text'}
                 />
             </FieldRow>
@@ -65,7 +65,7 @@ export function EggVariableForm({ prefix }: { prefix: string }) {
                     <Checkbox id={`${prefix}isUserViewable`} name={`${prefix}isUserViewable`} />
 
                     <div css={tw`flex-1`}>
-                        <Label>User Viewable</Label>
+                        <Label>用户可见</Label>
                     </div>
                 </div>
 
@@ -74,7 +74,7 @@ export function EggVariableForm({ prefix }: { prefix: string }) {
                     <Checkbox id={`${prefix}isUserEditable`} name={`${prefix}isUserEditable`} />
 
                     <div css={tw`flex-1`}>
-                        <Label>User Editable</Label>
+                        <Label>用户可编辑</Label>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@ export function EggVariableForm({ prefix }: { prefix: string }) {
             <Field
                 id={`${prefix}rules`}
                 name={`${prefix}rules`}
-                label={'Validation Rules'}
+                label={'验证规则'}
                 type={'text'}
                 css={tw`mb-2`}
             />
@@ -106,14 +106,13 @@ function EggVariableDeleteButton({ onClick }: { onClick: (success: () => void) =
         <>
             <ConfirmationModal
                 visible={visible}
-                title={'Delete variable?'}
-                buttonText={'Yes, delete variable'}
+                title={'删除变量?'}
+                buttonText={'是的,删除变量'}
                 onConfirmed={onDelete}
                 showSpinnerOverlay={loading}
                 onModalDismissed={() => setVisible(false)}
             >
-                Are you sure you want to delete this variable? Deleting this variable will delete it from every server
-                using this egg.
+                您确定要删除此变量吗？删除此变量将导致每个使用此预设的服务器上删除，但启动命令需要手动更新。
             </ConfirmationModal>
 
             <button
@@ -211,7 +210,7 @@ export default function EggVariablesContainer() {
                                 <NewVariableButton />
 
                                 <Button type="submit" className="ml-auto" disabled={isSubmitting || !isValid}>
-                                    Save Changes
+                                    保存更改
                                 </Button>
                             </div>
                         </div>

@@ -47,13 +47,13 @@ export default ({ nodeId, allocationId, onDeleted }: Props) => {
         <>
             <ConfirmationModal
                 visible={visible}
-                title={'Delete allocation?'}
-                buttonText={'Yes, delete allocation'}
+                title={'删除分配?'}
+                buttonText={'是的,删除分配'}
                 onConfirmed={onDelete}
                 showSpinnerOverlay={loading}
                 onModalDismissed={() => setVisible(false)}
             >
-                Are you sure you want to delete this allocation?
+                您确定要删除此分配吗？
             </ConfirmationModal>
 
             <Button type={'button'} size={'inline'} color={'red'} onClick={() => setVisible(true)}>

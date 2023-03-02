@@ -8,19 +8,19 @@ import Button from '@/components/elements/Button';
 
 function ServersContainer() {
     return (
-        <AdminContentBlock title={'Servers'}>
+        <AdminContentBlock title={'服务器'}>
             <div css={tw`w-full flex flex-row items-center mb-8`}>
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
-                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>Servers</h2>
+                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>服务器</h2>
                     <p css={tw`text-base text-neutral-400 whitespace-nowrap overflow-ellipsis overflow-hidden`}>
-                        All servers available on the system.
+                        系统上所有可用的服务器。
                     </p>
                 </div>
 
                 <div css={tw`flex ml-auto pl-4`}>
                     <NavLink to={`/admin/servers/new`}>
                         <Button type={'button'} size={'large'} css={tw`h-10 px-4 py-0 whitespace-nowrap`}>
-                            New Server
+                            创建服务器
                         </Button>
                     </NavLink>
                 </div>

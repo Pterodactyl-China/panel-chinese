@@ -78,16 +78,16 @@ const EditInformationContainer = () => {
         >
             {({ isSubmitting, isValid }) => (
                 <>
-                    <AdminBox title={'Edit Location'} css={tw`relative`}>
+                    <AdminBox title={'编辑地域'} css={tw`relative`}>
                         <SpinnerOverlay visible={isSubmitting} />
 
                         <Form css={tw`mb-0`}>
                             <div>
-                                <Field id={'short'} name={'short'} label={'Short Name'} type={'text'} />
+                                <Field id={'short'} name={'short'} label={'简称'} type={'text'} />
                             </div>
 
                             <div css={tw`mt-6`}>
-                                <Field id={'long'} name={'long'} label={'Long Name'} type={'text'} />
+                                <Field id={'long'} name={'long'} label={'长名称'} type={'text'} />
                             </div>
 
                             <div css={tw`w-full flex flex-row items-center mt-6`}>
@@ -100,7 +100,7 @@ const EditInformationContainer = () => {
 
                                 <div css={tw`flex ml-auto`}>
                                     <Button type="submit" disabled={isSubmitting || !isValid}>
-                                        Save Changes
+                                        保存更改
                                     </Button>
                                 </div>
                             </div>
@@ -148,13 +148,13 @@ const LocationEditContainer = () => {
     }
 
     return (
-        <AdminContentBlock title={'Location - ' + location.short}>
+        <AdminContentBlock title={'地域 - ' + location.short}>
             <div css={tw`w-full flex flex-row items-center mb-8`}>
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
                     <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>{location.short}</h2>
                     {(location.long || '').length < 1 ? (
                         <p css={tw`text-base text-neutral-400`}>
-                            <span css={tw`italic`}>No long name</span>
+                            <span css={tw`italic`}>没有长名字</span>
                         </p>
                     ) : (
                         <p css={tw`text-base text-neutral-400 whitespace-nowrap overflow-ellipsis overflow-hidden`}>

@@ -13,13 +13,13 @@ export default () => {
         <Formik onSubmit={submit} initialValues={{}}>
             <Form>
                 <div css={tw`grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6`}>
-                    <AdminBox title="Branding">
+                    <AdminBox title="品牌化">
                         <FieldRow>
-                            <Field id={'appName'} name={'appName'} type={'text'} label={'App Name'} description={''} />
+                            <Field id={'appName'} name={'appName'} type={'text'} label={'应用名称'} description={''} />
                         </FieldRow>
                     </AdminBox>
 
-                    <AdminBox title="Analytics">
+                    <AdminBox title="数据分析">
                         <FieldRow>
                             <Field
                                 id={'googleAnalytics'}

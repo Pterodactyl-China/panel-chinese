@@ -30,10 +30,10 @@ export default () => {
     };
 
     return (
-        <AdminBox icon={faNetworkWired} title={'Networking'} isLoading={isSubmitting}>
+        <AdminBox icon={faNetworkWired} title={'网络连接'} isLoading={isSubmitting}>
             <div css={tw`grid grid-cols-1 gap-4 lg:gap-6`}>
                 <div>
-                    <Label htmlFor={'allocationId'}>Primary Allocation</Label>
+                    <Label htmlFor={'allocationId'}>初级配置</Label>
                     <Select id={'allocationId'} name={'allocationId'}>
                         {server?.relationships.allocations?.map(a => (
                             <option key={a.id} value={a.id}>
@@ -45,14 +45,14 @@ export default () => {
                 <AsyncSelectField
                     id={'addAllocations'}
                     name={'addAllocations'}
-                    label={'Add Allocations'}
+                    label={'添加分配'}
                     loadOptions={loadOptions}
                     isMulti
                 />
                 <SelectField
                     id={'removeAllocations'}
                     name={'removeAllocations'}
-                    label={'Remove Allocations'}
+                    label={'删除分配'}
                     options={
                         server?.relationships.allocations?.map(a => {
                             return { value: a.id.toString(), label: a.getDisplayText() };

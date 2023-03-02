@@ -83,12 +83,12 @@ const NestsContainer = () => {
     }, [page]);
 
     return (
-        <AdminContentBlock title={'Nests'}>
+        <AdminContentBlock title={'预设组'}>
             <div css={tw`w-full flex flex-row items-center mb-8`}>
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
-                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>Nests</h2>
+                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>预设组</h2>
                     <p css={tw`text-base text-neutral-400 whitespace-nowrap overflow-ellipsis overflow-hidden`}>
-                        All nests currently available on this system.
+                        于此系统上的所有预设组.
                     </p>
                 </div>
 

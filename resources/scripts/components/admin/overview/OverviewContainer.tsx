@@ -35,12 +35,12 @@ export default () => {
     }, []);
 
     return (
-        <AdminContentBlock title={'Overview'}>
+        <AdminContentBlock title={'概况'}>
             <div css={tw`w-full flex flex-row items-center mb-8`}>
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
-                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>Overview</h2>
+                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>概况</h2>
                     <p css={tw`text-base text-neutral-400 whitespace-nowrap overflow-ellipsis overflow-hidden`}>
-                        A quick glance at your system.
+                        快速浏览一下您的系统。
                     </p>
                 </div>
             </div>
@@ -71,27 +71,27 @@ export default () => {
                                         d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
                                     />
                                 </svg>
-                                System Information
+                                系统信息
                             </p>
                         </div>
 
                         <div css={tw`px-4 py-4`}>
                             {versionData?.panel.current === 'canary' ? (
                                 <p css={tw`text-neutral-200`}>
-                                    I hope you enjoy living on the edge because you are running a{' '}
-                                    <Code>{versionData?.panel.current}</Code> version of Pterodactyl.
+                                    我们不太推荐你使用该版本，因为您正在使用 <Code>{versionData?.panel.current}</Code>
+                                    版本的 Pterodactyl。
                                 </p>
                             ) : versionData?.panel.latest === versionData?.panel.current ? (
                                 <p css={tw`text-neutral-200`}>
-                                    Your panel is <span css={tw`text-neutral-100`}>up-to-date</span>. The latest version
-                                    is <Code>{versionData?.panel.latest}</Code> and you are running version{' '}
-                                    <Code>{versionData?.panel.current}</Code>.
+                                    您的面板是<span css={tw`text-neutral-100`}>是最新的</span>。最新版本是
+                                    <Code>{versionData?.panel.latest}</Code>并且您正在运行
+                                    <Code>{versionData?.panel.current}</Code>版本。
                                 </p>
                             ) : (
                                 <p css={tw`text-neutral-200`}>
-                                    Your panel is <span css={tw`text-neutral-100`}>not up-to-date</span>. The latest
-                                    version is <Code>{versionData?.panel.latest}</Code> and you are running version{' '}
-                                    <Code>{versionData?.panel.current}</Code>.
+                                    您的面板<span css={tw`text-neutral-100`}>不是最新的</span>。最新版本是
+                                    <Code>{versionData?.panel.latest}</Code>并且您正在运行
+                                    <Code>{versionData?.panel.current}</Code>版本。
                                 </p>
                             )}
                         </div>

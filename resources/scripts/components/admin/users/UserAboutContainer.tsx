@@ -39,7 +39,7 @@ const UserAboutContainer = () => {
 
     return (
         <UserForm
-            title={'Edit User'}
+            title={'编辑用户'}
             initialValues={{
                 externalId: user.externalId,
                 username: user.username,

@@ -10,61 +10,55 @@ export default () => {
     const { isSubmitting } = useFormikContext();
 
     return (
-        <AdminBox icon={faBalanceScale} title={'Resources'} isLoading={isSubmitting}>
+        <AdminBox icon={faBalanceScale} title={'资源'} isLoading={isSubmitting}>
             <div css={tw`grid grid-cols-1 xl:grid-cols-2 gap-4 lg:gap-6`}>
                 <Field
                     id={'limits.cpu'}
                     name={'limits.cpu'}
-                    label={'CPU Limit'}
+                    label={'CPU 限制'}
                     type={'text'}
                     description={
-                        'Each thread on the system is considered to be 100%. Setting this value to 0 will allow the server to use CPU time without restriction.'
+                        '系统上的每个线程都被认为是 100%。将此值设置为 0 将允许服务器不受限制地使用 CPU 线程。'
                     }
                 />
                 <Field
                     id={'limits.threads'}
                     name={'limits.threads'}
-                    label={'CPU Pinning'}
+                    label={'CPU 核心'}
                     type={'text'}
                     description={
-                        'Advanced: Enter the specific CPU cores that this server can run on, or leave blank to allow all cores. This can be a single number, and or a comma seperated list, and or a dashed range. Example: 0, 0-1,3, or 0,1,3,4.  It is recommended to leave this value blank and let the CPU handle balancing the load.'
+                        '高级: 输入此进程可以运行的特定 CPU 线程，或留空以允许所有线程。这可以是单个数字，也可以是逗号分隔的列表. 例如: 0, 0-1,3, 或 0,1,3,4。建议将该值留空，让 CPU 处理负载均衡。'
                     }
                 />
                 <Field
                     id={'limits.memory'}
                     name={'limits.memory'}
-                    label={'Memory Limit'}
+                    label={'内存限制'}
                     type={'number'}
-                    description={
-                        'The maximum amount of memory allowed for this container. Setting this to 0 will allow unlimited memory in a container.'
-                    }
+                    description={'此容器允许的最大内存量。将此设置为 0 将允许此服务器无限制使用内存。'}
                 />
-                <Field id={'limits.swap'} name={'limits.swap'} label={'Swap Limit'} type={'number'} />
+                <Field id={'limits.swap'} name={'limits.swap'} label={'虚拟内存限制'} type={'number'} />
                 <Field
                     id={'limits.disk'}
                     name={'limits.disk'}
-                    label={'Disk Limit'}
+                    label={'存储限制'}
                     type={'number'}
                     description={
-                        'This server will not be allowed to boot if it is using more than this amount of space. If a server goes over this limit while running it will be safely stopped and locked until enough space is available. Set to 0 to allow unlimited disk usage.'
+                        '如果此服务器使用的空间超过此数量，则将不允许它启动。如果服务器在运行时超过此限制，它将安全停止并锁定，直到有足够的可用空间。调成 0 将允许此服务器使用无限存储空间。'
                     }
                 />
                 <Field
                     id={'limits.io'}
                     name={'limits.io'}
-                    label={'Block IO Proportion'}
+                    label={'IO 优先级'}
                     type={'number'}
-                    description={
-                        'Advanced: The IO performance of this server relative to other running containers on the system. Value should be between 10 and 1000.'
-                    }
+                    description={'高级: 此服务器相对于其他 运行中 服务器的 IO 性能。此值应介于 10 至 1000。'}
                 />
                 <div css={tw`xl:col-span-2 bg-neutral-800 border border-neutral-900 shadow-inner p-4 rounded`}>
                     <FormikSwitch
                         name={'limits.oomKiller'}
-                        label={'Out of Memory Killer'}
-                        description={
-                            'Enabling the Out of Memory Killer may cause server processes to exit unexpectedly.'
-                        }
+                        label={'内存溢出杀手'}
+                        description={'启用 内存溢出杀手 可能会导致服务器进程意外退出。'}
                     />
                 </div>
             </div>

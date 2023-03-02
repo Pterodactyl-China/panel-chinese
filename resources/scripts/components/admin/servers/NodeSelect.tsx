@@ -25,8 +25,8 @@ export default ({ node, setNode }: { node: Node | null; setNode: (_: Node | null
         <SearchableSelect
             id={'nodeId'}
             name={'nodeId'}
-            label={'Node'}
-            placeholder={'Select a node...'}
+            label={'节点'}
+            placeholder={'选择一个节点...'}
             items={nodes}
             selected={node}
             setSelected={setNode}

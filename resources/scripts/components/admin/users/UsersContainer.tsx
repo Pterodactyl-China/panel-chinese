@@ -28,7 +28,7 @@ function UsersContainer() {
     );
 
     useEffect(() => {
-        document.title = 'Admin | Users';
+        document.title = '管理员 | 用户';
     }, []);
 
     const onRowChange = (user: User, checked: boolean) => {
@@ -46,7 +46,7 @@ function UsersContainer() {
             <div className="mb-4 flex justify-end">
                 <NavLink to="/admin/users/new">
                     <Button className="shadow focus:ring-offset-2 focus:ring-offset-neutral-800">
-                        Add User <PlusIcon className="ml-2 h-5 w-5" />
+                        添加用户 <PlusIcon className="ml-2 h-5 w-5" />
                     </Button>
                 </NavLink>
             </div>
@@ -63,8 +63,8 @@ function UsersContainer() {
                 <div className="flex-1">
                     <InputField
                         type="text"
-                        name="filter"
-                        placeholder="Begin typing to filter..."
+                        name="筛选"
+                        placeholder="开始输入以筛选..."
                         className="w-56 focus:w-96"
                         onChange={e => setSearch(e.currentTarget.value)}
                     />
@@ -95,7 +95,7 @@ function UsersContainer() {
                     <tr>
                         <th scope="col" className="w-8" />
                         <th scope="col" className="w-full px-6 py-2 text-left">
-                            Email
+                            邮箱
                         </th>
                         <th scope="col" />
                         <th scope="col" />

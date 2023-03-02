@@ -12,7 +12,7 @@ export default () => {
     return (
         <div css={tw`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-2 gap-y-2`}>
             <div css={tw`h-auto flex flex-col`}>
-                <AdminBox title={'Reinstall Server'} css={tw`relative w-full`}>
+                <AdminBox title={'重新安装服务器'} css={tw`relative w-full`}>
                     <div css={tw`flex flex-row text-red-500 justify-start items-center mb-4`}>
                         <div css={tw`w-12 mr-2`}>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -23,35 +23,31 @@ export default () => {
                                 />
                             </svg>
                         </div>
-                        <p css={tw`text-sm`}>Danger! This could overwrite server data.</p>
+                        <p css={tw`text-sm`}>危险！这可能会覆盖服务器数据。</p>
                     </div>
                     <Button size={'large'} color={'red'} css={tw`w-full`}>
-                        Reinstall Server
+                        重新安装服务器
+                    </Button>
+                    <p css={tw`text-xs text-neutral-400 mt-2`}>此操作将使用预设的安装脚本重新安装服务器。</p>
+                </AdminBox>
+            </div>
+            <div css={tw`h-auto flex flex-col`}>
+                <AdminBox title={'安装状态'} css={tw`relative w-full`}>
+                    <Button size={'large'} color={'primary'} css={tw`w-full`}>
+                        将服务器设置为正在安装
                     </Button>
                     <p css={tw`text-xs text-neutral-400 mt-2`}>
-                        This will reinstall the server with the assigned service scripts.
+                        如果您需要将安装状态从已卸载更改为已安装，反之亦然，您可以使用下面的按钮进行操作。
                     </p>
                 </AdminBox>
             </div>
             <div css={tw`h-auto flex flex-col`}>
-                <AdminBox title={'Install Status'} css={tw`relative w-full`}>
+                <AdminBox title={'冻结服务器'} css={tw`relative w-full`}>
                     <Button size={'large'} color={'primary'} css={tw`w-full`}>
-                        Set Server as Installing
+                        冻结服务器
                     </Button>
                     <p css={tw`text-xs text-neutral-400 mt-2`}>
-                        If you need to change the install status from uninstalled to installed, or vice versa, you may
-                        do so with the button below.
-                    </p>
-                </AdminBox>
-            </div>
-            <div css={tw`h-auto flex flex-col`}>
-                <AdminBox title={'Suspend Server '} css={tw`relative w-full`}>
-                    <Button size={'large'} color={'primary'} css={tw`w-full`}>
-                        Suspend Server
-                    </Button>
-                    <p css={tw`text-xs text-neutral-400 mt-2`}>
-                        This will suspend the server, stop any running processes, and immediately block the user from
-                        being able to access their files or otherwise manage the server through the panel or API.
+                        这将暂停服务器，停止任何正在运行的进程，并立即阻止用户访问他们的文件或通过面板或 API 管理服务器。
                     </p>
                 </AdminBox>
             </div>

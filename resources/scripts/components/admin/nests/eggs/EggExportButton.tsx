@@ -45,7 +45,7 @@ export default ({ className }: { className?: string }) => {
                 css={tw`relative`}
             >
                 <SpinnerOverlay visible={loading} />
-                <h2 css={tw`mb-6 text-2xl text-neutral-100`}>Export Egg</h2>
+                <h2 css={tw`mb-6 text-2xl text-neutral-100`}>导出预设</h2>
                 <FlashMessageRender byKey={'egg:export'} css={tw`mb-6`} />
 
                 <Editor
@@ -61,7 +61,7 @@ export default ({ className }: { className?: string }) => {
                         css={tw`w-full sm:w-auto sm:mr-2`}
                         onClick={() => setVisible(false)}
                     >
-                        Close
+                        关闭
                     </Button.Text>
 
                     <Button
@@ -69,7 +69,7 @@ export default ({ className }: { className?: string }) => {
                         // onClick={submit}
                         // TODO: When clicked, save as a JSON file.
                     >
-                        Save
+                        保存
                     </Button>
                 </div>
             </Modal>
@@ -80,7 +80,7 @@ export default ({ className }: { className?: string }) => {
                 className={className}
                 onClick={() => setVisible(true)}
             >
-                Export
+                导出
             </Button.Text>
         </>
     );

@@ -9,28 +9,28 @@ export default () => {
     const { isSubmitting } = useFormikContext();
 
     return (
-        <AdminBox icon={faConciergeBell} title={'Feature Limits'} isLoading={isSubmitting}>
+        <AdminBox icon={faConciergeBell} title={'功能限制'} isLoading={isSubmitting}>
             <div css={tw`grid grid-cols-1 xl:grid-cols-2 gap-4 lg:gap-6`}>
                 <Field
                     id={'featureLimits.allocations'}
                     name={'featureLimits.allocations'}
-                    label={'Allocation Limit'}
+                    label={'分配限制'}
                     type={'number'}
-                    description={'The total number of allocations a user is allowed to create for this server.'}
+                    description={'允许用户为此服务器创建的分配总数。'}
                 />
                 <Field
                     id={'featureLimits.backups'}
                     name={'featureLimits.backups'}
-                    label={'Backup Limit'}
+                    label={'备份限制'}
                     type={'number'}
-                    description={'The total number of backups that can be created for this server.'}
+                    description={'可以为此服务器创建的备份总数。'}
                 />
                 <Field
                     id={'featureLimits.databases'}
                     name={'featureLimits.databases'}
-                    label={'Database Limit'}
+                    label={'数据库限制'}
                     type={'number'}
-                    description={'The total number of databases a user is allowed to create for this server.'}
+                    description={'允许用户为此服务器创建的数据库总数。'}
                 />
             </div>
         </AdminBox>

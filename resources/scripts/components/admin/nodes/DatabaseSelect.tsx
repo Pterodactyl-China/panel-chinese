@@ -35,8 +35,8 @@ export default ({ selected }: { selected: Database | null }) => {
         <SearchableSelect
             id={'databaseId'}
             name={'databaseId'}
-            label={'Database Host'}
-            placeholder={'Select a database host...'}
+            label={'数据库主机'}
+            placeholder={'选择数据库主机...'}
             items={databases}
             selected={database}
             setSelected={setDatabase}

@@ -95,27 +95,27 @@ function ServersTable({ filters }: Props) {
                         <table css={tw`w-full table-auto`}>
                             <TableHead>
                                 <TableHeader
-                                    name={'Identifier'}
+                                    name={'标识符'}
                                     direction={sort === 'uuidShort' ? (sortDirection ? 1 : 2) : null}
                                     onClick={() => setSort('uuidShort')}
                                 />
                                 <TableHeader
-                                    name={'Name'}
+                                    name={'名称'}
                                     direction={sort === 'name' ? (sortDirection ? 1 : 2) : null}
                                     onClick={() => setSort('name')}
                                 />
                                 <TableHeader
-                                    name={'Owner'}
+                                    name={'所有者'}
                                     direction={sort === 'owner_id' ? (sortDirection ? 1 : 2) : null}
                                     onClick={() => setSort('owner_id')}
                                 />
                                 <TableHeader
-                                    name={'Node'}
+                                    name={'节点'}
                                     direction={sort === 'node_id' ? (sortDirection ? 1 : 2) : null}
                                     onClick={() => setSort('node_id')}
                                 />
                                 <TableHeader
-                                    name={'Status'}
+                                    name={'状态'}
                                     direction={sort === 'status' ? (sortDirection ? 1 : 2) : null}
                                     onClick={() => setSort('status')}
                                 />
@@ -186,25 +186,25 @@ function ServersTable({ filters }: Props) {
                                                     <span
                                                         css={tw`px-2 inline-flex text-xs leading-5 font-medium rounded-full bg-yellow-200 text-yellow-800`}
                                                     >
-                                                        Installing
+                                                        安装中
                                                     </span>
                                                 ) : server.status === 'transferring' ? (
                                                     <span
                                                         css={tw`px-2 inline-flex text-xs leading-5 font-medium rounded-full bg-yellow-200 text-yellow-800`}
                                                     >
-                                                        Transferring
+                                                        转移中
                                                     </span>
                                                 ) : server.status === 'suspended' ? (
                                                     <span
                                                         css={tw`px-2 inline-flex text-xs leading-5 font-medium rounded-full bg-red-200 text-red-800`}
                                                     >
-                                                        Suspended
+                                                        冻结中
                                                     </span>
                                                 ) : (
                                                     <span
                                                         css={tw`px-2 inline-flex text-xs leading-5 font-medium rounded-full bg-green-100 text-green-800`}
                                                     >
-                                                        Active
+                                                        正常
                                                     </span>
                                                 )}
                                             </td>

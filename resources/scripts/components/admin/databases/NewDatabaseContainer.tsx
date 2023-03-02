@@ -33,9 +33,9 @@ export default () => {
         <AdminContentBlock title={'New Database'}>
             <div css={tw`w-full flex flex-row items-center mb-8`}>
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
-                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>New Database Host</h2>
+                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>新建数据库主机</h2>
                     <p css={tw`text-base text-neutral-400 whitespace-nowrap overflow-ellipsis overflow-hidden`}>
-                        Add a new database host to the panel.
+                        为面板添加一个新的数据库主机。
                     </p>
                 </div>
             </div>

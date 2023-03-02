@@ -83,29 +83,29 @@ export const InformationContainer = ({ title, initialValues, children, onSubmit 
 
                         <Form css={tw`mb-0`}>
                             <div>
-                                <Field id={'name'} name={'name'} label={'Name'} type={'text'} />
+                                <Field id={'name'} name={'name'} label={'名称'} type={'text'} />
                             </div>
 
                             <div css={tw`md:w-full md:flex md:flex-row mt-6`}>
                                 <div css={tw`md:w-full md:flex md:flex-col md:mr-4 mt-6 md:mt-0`}>
-                                    <Field id={'host'} name={'host'} label={'Host'} type={'text'} />
+                                    <Field id={'host'} name={'host'} label={'地址'} type={'text'} />
                                 </div>
 
                                 <div css={tw`md:w-full md:flex md:flex-col md:ml-4 mt-6 md:mt-0`}>
-                                    <Field id={'port'} name={'port'} label={'Port'} type={'text'} />
+                                    <Field id={'port'} name={'port'} label={'端口'} type={'text'} />
                                 </div>
                             </div>
 
                             <div css={tw`md:w-full md:flex md:flex-row mt-6`}>
                                 <div css={tw`md:w-full md:flex md:flex-col md:mr-4 mt-6 md:mt-0`}>
-                                    <Field id={'username'} name={'username'} label={'Username'} type={'text'} />
+                                    <Field id={'username'} name={'username'} label={'用户名'} type={'text'} />
                                 </div>
 
                                 <div css={tw`md:w-full md:flex md:flex-col md:ml-4 mt-6 md:mt-0`}>
                                     <Field
                                         id={'password'}
                                         name={'password'}
-                                        label={'Password'}
+                                        label={'密码'}
                                         type={'password'}
                                         placeholder={'••••••••'}
                                     />
@@ -116,7 +116,7 @@ export const InformationContainer = ({ title, initialValues, children, onSubmit 
                                 {children}
                                 <div css={tw`flex ml-auto`}>
                                     <Button type="submit" disabled={isSubmitting || !isValid}>
-                                        Save Changes
+                                        保存更改
                                     </Button>
                                 </div>
                             </div>
@@ -156,7 +156,7 @@ const EditInformationContainer = () => {
 
     return (
         <InformationContainer
-            title={'Edit Database'}
+            title={'编辑数据库'}
             initialValues={{
                 name: database.name,
                 host: database.host,
@@ -209,7 +209,7 @@ const DatabaseEditContainer = () => {
     }
 
     return (
-        <AdminContentBlock title={'Database - ' + database.name}>
+        <AdminContentBlock title={'数据库 - ' + database.name}>
             <div css={tw`w-full flex flex-row items-center mb-8`}>
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
                     <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>{database.name}</h2>

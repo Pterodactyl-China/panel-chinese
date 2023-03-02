@@ -19,8 +19,8 @@ interface Values {
 }
 
 const schema = object().shape({
-    name: string().required('A nest name must be provided.').max(32, 'Nest name must not exceed 32 characters.'),
-    description: string().max(255, 'Nest description must not exceed 255 characters.'),
+    name: string().required('必须提供预设组名。').max(32, '预设组名称不得超过32个字符。'),
+    description: string().max(255, '预设组描述不得超过255个字符。'),
 });
 
 export default () => {
@@ -58,15 +58,15 @@ export default () => {
                     >
                         <FlashMessageRender byKey={'nest:create'} css={tw`mb-6`} />
 
-                        <h2 css={tw`mb-6 text-2xl text-neutral-100`}>New Nest</h2>
+                        <h2 css={tw`mb-6 text-2xl text-neutral-100`}>新建预设组</h2>
 
                         <Form css={tw`m-0`}>
                             <Field
                                 type={'text'}
                                 id={'name'}
                                 name={'name'}
-                                label={'Name'}
-                                description={'A short name used to identify this nest.'}
+                                label={'名称'}
+                                description={'一个用来识别此预设组的简短名称。'}
                                 autoFocus
                             />
 
@@ -75,8 +75,8 @@ export default () => {
                                     type={'text'}
                                     id={'description'}
                                     name={'description'}
-                                    label={'Description'}
-                                    description={'A description for this nest.'}
+                                    label={'描述'}
+                                    description={'预设组的描述。'}
                                 />
                             </div>
 
@@ -87,11 +87,11 @@ export default () => {
                                     className="w-full sm:mr-2 sm:w-auto"
                                     onClick={() => setVisible(false)}
                                 >
-                                    Cancel
+                                    取消
                                 </Button.Text>
 
                                 <Button type="submit" className="mt-4 w-full sm:mt-0 sm:w-auto">
-                                    Create Nest
+                                    创建预设组
                                 </Button>
                             </div>
                         </Form>
@@ -105,7 +105,7 @@ export default () => {
                 className="h-10 whitespace-nowrap px-4 py-0"
                 onClick={() => setVisible(true)}
             >
-                New Nest
+                新建预设组
             </Button>
         </>
     );

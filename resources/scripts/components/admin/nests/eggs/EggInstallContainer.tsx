@@ -58,7 +58,7 @@ export default function EggInstallContainer() {
             }}
         >
             {({ isSubmitting, isValid }) => (
-                <AdminBox icon={faScroll} title={'Install Script'} noPadding>
+                <AdminBox icon={faScroll} title={'安装脚本'} noPadding>
                     <div css={tw`relative pb-4`}>
                         <SpinnerOverlay visible={isSubmitting} />
 
@@ -81,18 +81,18 @@ export default function EggInstallContainer() {
                                     <Field
                                         id={'scriptContainer'}
                                         name={'scriptContainer'}
-                                        label={'Install Container'}
+                                        label={'安装容器'}
                                         type={'text'}
-                                        description={'The Docker image to use for running this installation script.'}
+                                        description={'用于运行此安装脚本的 Docker 镜像。'}
                                     />
 
                                     <Field
                                         id={'scriptEntry'}
                                         name={'scriptEntry'}
-                                        label={'Install Entrypoint'}
+                                        label={'安装入口命令'}
                                         type={'text'}
                                         description={
-                                            'The command that should be used to run this script inside of the installation container.'
+                                            '应该用于在安装容器内运行此脚本的命令。'
                                         }
                                     />
                                 </div>
@@ -100,7 +100,7 @@ export default function EggInstallContainer() {
 
                             <div css={tw`flex flex-row border-t border-neutral-600`}>
                                 <Button type="submit" css={tw`ml-auto mr-6 mt-4`} disabled={isSubmitting || !isValid}>
-                                    Save Changes
+                                    保存更改
                                 </Button>
                             </div>
                         </Form>

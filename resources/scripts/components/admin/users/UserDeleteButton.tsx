@@ -43,13 +43,13 @@ export default ({ userId, onDeleted }: Props) => {
         <>
             <ConfirmationModal
                 visible={visible}
-                title={'Delete user?'}
-                buttonText={'Yes, delete user'}
+                title={'删除用户?'}
+                buttonText={'是的,删除用户'}
                 onConfirmed={onDelete}
                 showSpinnerOverlay={loading}
                 onModalDismissed={() => setVisible(false)}
             >
-                Are you sure you want to delete this user?
+                您确定要删除该用户吗？
             </ConfirmationModal>
 
             <Button type={'button'} size={'xsmall'} color={'red'} onClick={() => setVisible(true)}>

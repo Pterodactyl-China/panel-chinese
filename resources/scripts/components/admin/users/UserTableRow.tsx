@@ -18,14 +18,14 @@ function UserTableRow({ user, selected, onRowChange }: Props) {
     return (
         <>
             <Dialog.Confirm
-                title={'Delete account'}
+                title={'删除帐户'}
                 open={visible}
                 onClose={() => setVisible(false)}
                 onConfirmed={() => {
                     console.log('yeet');
                 }}
             >
-                This account will be permanently deleted.
+                该帐号将被永久删除。
             </Dialog.Confirm>
 
             <tr>
@@ -37,7 +37,7 @@ function UserTableRow({ user, selected, onRowChange }: Props) {
                 <td className={'whitespace-nowrap py-4 pl-6'}>
                     <div className={'flex items-center'}>
                         <div className={'h-10 w-10'}>
-                            <img src={user.avatarUrl} className={'h-10 w-10 rounded-full'} alt={'User avatar'} />
+                            <img src={user.avatarUrl} className={'h-10 w-10 rounded-full'} alt={'用户头像'} />
                         </div>
                         <div className={'ml-4'}>
                             <p className={'font-medium'}>{user.email}</p>
@@ -52,7 +52,7 @@ function UserTableRow({ user, selected, onRowChange }: Props) {
                                 'rounded bg-green-100 px-2 py-0.5 text-xs font-semibold uppercase text-green-700'
                             }
                         >
-                            2-FA Enabled
+                            启用 动态口令认证
                         </span>
                     )}
                 </td>
@@ -62,16 +62,16 @@ function UserTableRow({ user, selected, onRowChange }: Props) {
                             <DotsVerticalIcon />
                         </Dropdown.Button>
                         <Dropdown.Item to={`/admin/users/${user.id}`} icon={<PencilIcon />}>
-                            Edit
+                            编辑
                         </Dropdown.Item>
-                        <Dropdown.Item icon={<SupportIcon />}>Reset Password</Dropdown.Item>
+                        <Dropdown.Item icon={<SupportIcon />}>重置密码</Dropdown.Item>
                         <Dropdown.Item icon={<LockOpenIcon />} disabled={!user.isUsingTwoFactor}>
-                            Disable 2-FA
+                            禁用 动态口令认证
                         </Dropdown.Item>
-                        <Dropdown.Item icon={<BanIcon />}>Suspend</Dropdown.Item>
+                        <Dropdown.Item icon={<BanIcon />}>冻结</Dropdown.Item>
                         <Dropdown.Gap />
                         <Dropdown.Item icon={<TrashIcon />} onClick={() => setVisible(true)} danger>
-                            Delete Account
+                            删除帐户
                         </Dropdown.Item>
                     </Dropdown>
                 </td>

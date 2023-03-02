@@ -44,14 +44,13 @@ export default ({ locationId, onDeleted }: Props) => {
         <>
             <ConfirmationModal
                 visible={visible}
-                title={'Delete location?'}
-                buttonText={'Yes, delete location'}
+                title={'删除地域？?'}
+                buttonText={'是的，删除地域'}
                 onConfirmed={onDelete}
                 showSpinnerOverlay={loading}
                 onModalDismissed={() => setVisible(false)}
             >
-                Are you sure you want to delete this location? You may only delete a location if no nodes are assigned
-                to it.
+                您确定要删除此地域吗？只有在没有节点分配给该地域时才可以删除。
             </ConfirmationModal>
 
             <Button.Danger type="button" shape={Shape.IconSquare} onClick={() => setVisible(true)}>

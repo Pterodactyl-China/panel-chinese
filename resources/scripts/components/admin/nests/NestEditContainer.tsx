@@ -104,13 +104,13 @@ const EditInformationContainer = () => {
         >
             {({ isSubmitting, isValid }) => (
                 <>
-                    <AdminBox title={'Edit Nest'} css={tw`flex-1 self-start w-full relative mb-8 lg:mb-0 mr-0 lg:mr-4`}>
+                    <AdminBox title={'编辑预设组'} css={tw`flex-1 self-start w-full relative mb-8 lg:mb-0 mr-0 lg:mr-4`}>
                         <SpinnerOverlay visible={isSubmitting} />
 
                         <Form>
-                            <Field id={'name'} name={'name'} label={'Name'} type={'text'} css={tw`mb-6`} />
+                            <Field id={'name'} name={'name'} label={'名称'} type={'text'} css={tw`mb-6`} />
 
-                            <Field id={'description'} name={'description'} label={'Description'} type={'text'} />
+                            <Field id={'description'} name={'description'} label={'描述'} type={'text'} />
 
                             <div css={tw`w-full flex flex-row items-center mt-6`}>
                                 <div css={tw`flex`}>
@@ -119,7 +119,7 @@ const EditInformationContainer = () => {
 
                                 <div css={tw`flex ml-auto`}>
                                     <Button type="submit" disabled={isSubmitting || !isValid}>
-                                        Save Changes
+                                        保存更改
                                     </Button>
                                 </div>
                             </div>
@@ -157,7 +157,7 @@ const ViewDetailsContainer = () => {
                     </div>
 
                     <div css={tw`mt-6 mb-2`}>
-                        <Label>Author</Label>
+                        <Label>作者</Label>
                         <CopyOnClick text={nest.author}>
                             <Input type={'text'} value={nest.author} readOnly />
                         </CopyOnClick>
@@ -204,7 +204,7 @@ const NestEditContainer = () => {
     }
 
     return (
-        <AdminContentBlock title={'Nests - ' + nest.name}>
+        <AdminContentBlock title={'预设组 - ' + nest.name}>
             <div css={tw`w-full flex flex-row items-center mb-8`}>
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
                     <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>{nest.name}</h2>
@@ -224,7 +224,7 @@ const NestEditContainer = () => {
 
                     <NavLink to={`/admin/nests/${params.nestId}/new`}>
                         <Button type={'button'} size={Size.Large} css={tw`h-10 px-4 py-0 whitespace-nowrap`}>
-                            New Egg
+                            新建预设
                         </Button>
                     </NavLink>
                 </div>

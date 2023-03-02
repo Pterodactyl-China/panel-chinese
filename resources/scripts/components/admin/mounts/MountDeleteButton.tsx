@@ -43,13 +43,13 @@ export default ({ mountId, onDeleted }: Props) => {
         <>
             <ConfirmationModal
                 visible={visible}
-                title={'Delete mount?'}
-                buttonText={'Yes, delete mount'}
+                title={'删除挂载?'}
+                buttonText={'是的，删除挂载'}
                 onConfirmed={onDelete}
                 showSpinnerOverlay={loading}
                 onModalDismissed={() => setVisible(false)}
             >
-                Are you sure you want to delete this mount? Deleting a mount will not delete files on any nodes.
+                您确定要删除此挂载吗？删除挂载并不会删除节点上的文件哦。
             </ConfirmationModal>
 
             <Button.Danger type="button" onClick={() => setVisible(true)}>

@@ -26,12 +26,12 @@ export function EggInformationContainer() {
     const { isSubmitting } = useFormikContext();
 
     return (
-        <AdminBox icon={faEgg} title={'Egg Information'} css={tw`relative`}>
+        <AdminBox icon={faEgg} title={'预设信息'} css={tw`relative`}>
             <SpinnerOverlay visible={isSubmitting} />
 
-            <Field id={'name'} name={'name'} label={'Name'} type={'text'} css={tw`mb-6`} />
+            <Field id={'name'} name={'name'} label={'名称'} type={'text'} css={tw`mb-6`} />
 
-            <Field id={'description'} name={'description'} label={'Description'} type={'text'} css={tw`mb-2`} />
+            <Field id={'description'} name={'description'} label={'描述'} type={'text'} css={tw`mb-2`} />
         </AdminBox>
     );
 }
@@ -44,14 +44,14 @@ function EggDetailsContainer() {
     }
 
     return (
-        <AdminBox icon={faEgg} title={'Egg Details'} css={tw`relative`}>
+        <AdminBox icon={faEgg} title={'预设详细信息'} css={tw`relative`}>
             <div css={tw`mb-6`}>
                 <Label>UUID</Label>
                 <Input id={'uuid'} name={'uuid'} type={'text'} value={egg.uuid} readOnly />
             </div>
 
             <div css={tw`mb-2`}>
-                <Label>Author</Label>
+                <Label>作者</Label>
                 <Input id={'author'} name={'author'} type={'text'} value={egg.author} readOnly />
             </div>
         </AdminBox>
@@ -62,10 +62,10 @@ export function EggStartupContainer({ className }: { className?: string }) {
     const { isSubmitting } = useFormikContext();
 
     return (
-        <AdminBox icon={faTerminal} title={'Startup Command'} css={tw`relative`} className={className}>
+        <AdminBox icon={faTerminal} title={'启动命令'} css={tw`relative`} className={className}>
             <SpinnerOverlay visible={isSubmitting} />
 
-            <Field id={'startup'} name={'startup'} label={'Startup Command'} type={'text'} css={tw`mb-1`} />
+            <Field id={'startup'} name={'startup'} label={'启动命令'} type={'text'} css={tw`mb-1`} />
         </AdminBox>
     );
 }
@@ -77,7 +77,7 @@ export function EggImageContainer() {
         <AdminBox icon={faDocker} title={'Docker'} css={tw`relative`}>
             <SpinnerOverlay visible={isSubmitting} />
 
-            <TextareaField id={'dockerImages'} name={'dockerImages'} label={'Docker Images'} rows={5} />
+            <TextareaField id={'dockerImages'} name={'dockerImages'} label={'Docker 镜像'} rows={5} />
         </AdminBox>
     );
 }
@@ -86,10 +86,10 @@ export function EggLifecycleContainer() {
     const { isSubmitting } = useFormikContext();
 
     return (
-        <AdminBox icon={faFireAlt} title={'Lifecycle'} css={tw`relative`}>
+        <AdminBox icon={faFireAlt} title={'生命周期'} css={tw`relative`}>
             <SpinnerOverlay visible={isSubmitting} />
 
-            <Field id={'configStop'} name={'configStop'} label={'Stop Command'} type={'text'} css={tw`mb-1`} />
+            <Field id={'configStop'} name={'configStop'} label={'停止命令'} type={'text'} css={tw`mb-1`} />
         </AdminBox>
     );
 }
@@ -129,7 +129,7 @@ export const EggProcessContainer = forwardRef<any, EggProcessContainerProps>(fun
     }));
 
     return (
-        <AdminBox icon={faMicrochip} title={'Process Configuration'} css={tw`relative`} className={className}>
+        <AdminBox icon={faMicrochip} title={'流程配置'} css={tw`relative`} className={className}>
             <SpinnerOverlay visible={isSubmitting} />
 
             <div css={tw`mb-5`}>
@@ -247,7 +247,7 @@ export default function EggSettingsContainer() {
                             <EggDeleteButton eggId={egg.id} onDeleted={() => navigate('/admin/nests')} />
                             <EggExportButton css={tw`ml-auto mr-4`} />
                             <Button type="submit" disabled={isSubmitting || !isValid}>
-                                Save Changes
+                                保存更改
                             </Button>
                         </div>
                     </div>

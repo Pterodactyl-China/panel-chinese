@@ -45,7 +45,7 @@ export default ({ className }: { className?: string }) => {
             >
                 <FlashMessageRender byKey={'egg:import'} css={tw`mb-6`} />
 
-                <h2 css={tw`mb-6 text-2xl text-neutral-100`}>Import Egg</h2>
+                <h2 css={tw`mb-6 text-2xl text-neutral-100`}>导入预设</h2>
 
                 <Editor
                     childClassName={tw`h-64 rounded`}
@@ -63,10 +63,10 @@ export default ({ className }: { className?: string }) => {
                         css={tw`w-full sm:w-auto sm:mr-2`}
                         onClick={() => setVisible(false)}
                     >
-                        Cancel
+                        取消
                     </Button.Text>
                     <Button css={tw`w-full sm:w-auto mt-4 sm:mt-0`} onClick={submit}>
-                        Import Egg
+                        导入预设
                     </Button>
                 </div>
             </Modal>
@@ -79,7 +79,7 @@ export default ({ className }: { className?: string }) => {
                 className={className}
                 onClick={() => setVisible(true)}
             >
-                Import
+                导入
             </Button>
         </>
     );

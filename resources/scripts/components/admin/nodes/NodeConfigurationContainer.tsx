@@ -36,7 +36,7 @@ export default () => {
 
     return (
         <>
-            <AdminBox title={'Configuration'} icon={faCode} css={tw`mb-4`}>
+            <AdminBox title={'配置'} icon={faCode} css={tw`mb-4`}>
                 <div css={tw`relative`}>
                     <div css={tw`absolute top-0 right-0`}>
                         <CopyOnClick text={configuration} showInNotification={false}>
@@ -62,8 +62,8 @@ export default () => {
                 </div>
             </AdminBox>
 
-            <AdminBox title={'Auto Deploy'} icon={faDragon}>
-                Never&trade;
+            <AdminBox title={'自动部署'} icon={faDragon}>
+                从不&trade;
             </AdminBox>
         </>
     );

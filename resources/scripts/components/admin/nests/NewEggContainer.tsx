@@ -64,12 +64,12 @@ export default () => {
     };
 
     return (
-        <AdminContentBlock title={'New Egg'}>
+        <AdminContentBlock title={'新建预设'}>
             <div css={tw`w-full flex flex-row items-center mb-8`}>
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
-                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>New Egg</h2>
+                    <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>新建预设</h2>
                     <p css={tw`text-base text-neutral-400 whitespace-nowrap overflow-ellipsis overflow-hidden`}>
-                        Add a new egg to the panel.
+                        配置一个新的预设部署到所有节点.
                     </p>
                 </div>
             </div>
@@ -107,7 +107,7 @@ export default () => {
                         <div css={tw`bg-neutral-700 rounded shadow-md py-2 px-6 mb-16`}>
                             <div css={tw`flex flex-row`}>
                                 <Button type="submit" css={tw`ml-auto`} disabled={isSubmitting || !isValid}>
-                                    Create
+                                    创建
                                 </Button>
                             </div>
                         </div>

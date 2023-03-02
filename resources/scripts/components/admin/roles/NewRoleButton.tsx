@@ -17,8 +17,8 @@ interface Values {
 }
 
 const schema = object().shape({
-    name: string().required('A role name must be provided.').max(32, 'Role name must not exceed 32 characters.'),
-    description: string().max(255, 'Role description must not exceed 255 characters.'),
+    name: string().required('必须提供角色名称。').max(32, '角色名称不得超过 32 个字符。'),
+    description: string().max(255, '角色描述不得超过 255 个字符。'),
 });
 
 export default () => {
@@ -55,14 +55,14 @@ export default () => {
                         }}
                     >
                         <FlashMessageRender byKey={'role:create'} css={tw`mb-6`} />
-                        <h2 css={tw`mb-6 text-2xl text-neutral-100`}>New Role</h2>
+                        <h2 css={tw`mb-6 text-2xl text-neutral-100`}>新建角色</h2>
                         <Form css={tw`m-0`}>
                             <Field
                                 type={'text'}
                                 id={'name'}
                                 name={'name'}
-                                label={'Name'}
-                                description={'A short name used to identify this role.'}
+                                label={'名称'}
+                                description={'用于标识此角色的短名称。'}
                                 autoFocus
                             />
 
@@ -71,8 +71,8 @@ export default () => {
                                     type={'text'}
                                     id={'description'}
                                     name={'description'}
-                                    label={'Description'}
-                                    description={'A description for this role.'}
+                                    label={'描述'}
+                                    description={'此角色的说明。'}
                                 />
                             </div>
 
@@ -83,10 +83,10 @@ export default () => {
                                     css={tw`w-full sm:w-auto sm:mr-2`}
                                     onClick={() => setVisible(false)}
                                 >
-                                    Cancel
+                                    取消
                                 </Button>
                                 <Button css={tw`w-full mt-4 sm:w-auto sm:mt-0`} type={'submit'}>
-                                    Create Role
+                                    创建角色
                                 </Button>
                             </div>
                         </Form>
@@ -100,7 +100,7 @@ export default () => {
                 css={tw`h-10 px-4 py-0 whitespace-nowrap`}
                 onClick={() => setVisible(true)}
             >
-                New Role
+                新建角色
             </Button>
         </>
     );

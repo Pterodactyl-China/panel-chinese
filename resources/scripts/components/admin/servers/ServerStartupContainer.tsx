@@ -44,17 +44,17 @@ function ServerStartupLineContainer({ egg, server }: { egg: Egg | null; server: 
     }, [egg]);
 
     return (
-        <AdminBox title={'Startup Command'} css={tw`relative w-full`}>
+        <AdminBox title={'启动命令'} css={tw`relative w-full`}>
             <SpinnerOverlay visible={isSubmitting} />
 
             <div css={tw`mb-6`}>
                 <Field
                     id={'startup'}
                     name={'startup'}
-                    label={'Startup Command'}
+                    label={'启动命令'}
                     type={'text'}
                     description={
-                        "Edit your server's startup command here. The following variables are available by default: {{SERVER_MEMORY}}, {{SERVER_IP}}, and {{SERVER_PORT}}."
+                        '在此处编辑服务器的启动命令。以下变量默认可用：{{SERVER_MEMORY}}、{{SERVER_IP}} 和 {{SERVER_PORT}}。'
                     }
                     placeholder={egg?.startup || ''}
                 />
@@ -82,7 +82,7 @@ export function ServerServiceContainer({
     const [nestId, setNestId] = useState<number>(_nestId);
 
     return (
-        <AdminBox title={'Service Configuration'} isLoading={isSubmitting} css={tw`w-full`}>
+        <AdminBox title={'服务配置'} isLoading={isSubmitting} css={tw`w-full`}>
             <div css={tw`mb-6`}>
                 <NestSelector selectedNestId={nestId} onNestSelect={setNestId} />
             </div>
@@ -90,7 +90,7 @@ export function ServerServiceContainer({
                 <EggSelect nestId={nestId} selectedEggId={egg?.id} onEggSelect={setEgg} />
             </div>
             <div css={tw`bg-neutral-800 border border-neutral-900 shadow-inner p-4 rounded`}>
-                <FormikSwitch name={'skipScripts'} label={'Skip Egg Install Script'} description={'Soon™'} />
+                <FormikSwitch name={'skipScripts'} label={'跳过预设安装脚本'} description={'Soon™'} />
             </div>
         </AdminBox>
     );
@@ -100,13 +100,13 @@ export function ServerImageContainer() {
     const { isSubmitting } = useFormikContext();
 
     return (
-        <AdminBox title={'Image Configuration'} css={tw`relative w-full`}>
+        <AdminBox title={'镜像配置'} css={tw`relative w-full`}>
             <SpinnerOverlay visible={isSubmitting} />
 
             <div css={tw`md:w-full md:flex md:flex-col`}>
                 <div>
                     {/* TODO: make this a proper select but allow a custom image to be specified if needed. */}
-                    <Field id={'image'} name={'image'} label={'Docker Image'} type={'text'} />
+                    <Field id={'image'} name={'image'} label={'Docker 镜像'} type={'text'} />
                 </div>
             </div>
         </AdminBox>

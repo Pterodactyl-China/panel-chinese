@@ -37,7 +37,7 @@ export default () => {
     }
 
     return (
-        <AdminContentBlock title={'Server - ' + server.name}>
+        <AdminContentBlock title={'服务器 - ' + server.name}>
             <FlashMessageRender byKey={'backups'} css={tw`mb-4`} />
             <div css={tw`w-full flex flex-row items-center mb-4`}>
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
@@ -51,17 +51,13 @@ export default () => {
             <FlashMessageRender byKey={'server'} css={tw`mb-4`} />
 
             <SubNavigation>
-                <SubNavigationLink to={`/admin/servers/${params.id}`} name={'Settings'} icon={CogIcon} />
-                <SubNavigationLink to={`/admin/servers/${params.id}/startup`} name={'Startup'} icon={AdjustmentsIcon} />
-                <SubNavigationLink
-                    to={`/admin/servers/${params.id}/databases`}
-                    name={'Databases'}
-                    icon={DatabaseIcon}
-                />
+                <SubNavigationLink to={`/admin/servers/${params.id}`} name={'设置'} icon={CogIcon} />
+                <SubNavigationLink to={`/admin/servers/${params.id}/startup`} name={'启动'} icon={AdjustmentsIcon} />
+                <SubNavigationLink to={`/admin/servers/${params.id}/databases`} name={'数据库'} icon={DatabaseIcon} />
                 <SubNavigationLink to={`/admin/servers/${params.id}/mounts`} name={'Mounts'} icon={FolderIcon} />
                 <SubNavigationLink
                     to={`/admin/servers/${params.id}/manage`}
-                    name={'Manage'}
+                    name={'管理'}
                     icon={ShieldExclamationIcon}
                 />
             </SubNavigation>

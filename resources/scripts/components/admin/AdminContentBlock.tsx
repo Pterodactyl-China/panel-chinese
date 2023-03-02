@@ -15,7 +15,7 @@ const AdminContentBlock: React.FC<{
             return;
         }
 
-        document.title = `Admin | ${title}`;
+        document.title = `管理 | ${title}`;
     }, [title]);
 
     return (
@@ -32,6 +32,15 @@ const AdminContentBlock: React.FC<{
                     css={tw`no-underline text-neutral-500 hover:text-neutral-300`}
                 >
                     Pterodactyl Software
+                </a>
+                &nbsp;| Sinicizated by&nbsp;
+                <a
+                    rel={'noopener nofollow noreferrer'}
+                    href={'https://pterodactyl.top'}
+                    target={'_blank'}
+                    css={tw`no-underline text-neutral-500 hover:text-neutral-300`}
+                >
+                    翼龙中国
                 </a>
             </p> */}
         </>

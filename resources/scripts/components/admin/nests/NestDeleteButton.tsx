@@ -44,13 +44,13 @@ export default ({ nestId, onDeleted }: Props) => {
         <>
             <ConfirmationModal
                 visible={visible}
-                title={'Delete nest?'}
-                buttonText={'Yes, delete nest'}
+                title={'删除预设组?'}
+                buttonText={'是的,删除预设组'}
                 onConfirmed={onDelete}
                 showSpinnerOverlay={loading}
                 onModalDismissed={() => setVisible(false)}
             >
-                Are you sure you want to delete this nest? Deleting a nest will delete all eggs assigned to it.
+                您确定要删除此预设组吗？删除预设组将导致该组里面的所有预设一起被删除。
             </ConfirmationModal>
 
             <Button.Danger type="button" shape={Shape.IconSquare} onClick={() => setVisible(true)}>

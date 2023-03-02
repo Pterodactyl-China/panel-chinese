@@ -222,7 +222,7 @@ class User extends Model implements
     public function avatarUrl(): Attribute
     {
         return Attribute::make(
-            get: fn () => 'https://www.gravatar.com/avatar/' . $this->md5 . '.jpg',
+            get: fn () => 'https://cravatar.cn/avatar/' . $this->md5 . '.jpg',
         );
     }
 

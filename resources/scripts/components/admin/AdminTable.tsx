@@ -179,15 +179,15 @@ export function Pagination<T>({ data, onPageSelect, children }: Props<T>) {
 
             <div css={tw`h-12 flex flex-row items-center w-full px-6 py-3 border-t border-neutral-500`}>
                 <p css={tw`text-sm leading-5 text-neutral-400`}>
-                    Showing{' '}
+                    显示第{' '}
                     <span css={tw`text-neutral-300`}>
                         {(pagination.currentPage - 1) * pagination.perPage + (pagination.total > 0 ? 1 : 0)}
                     </span>{' '}
-                    to{' '}
+                    到{' '}
                     <span css={tw`text-neutral-300`}>
                         {(pagination.currentPage - 1) * pagination.perPage + pagination.count}
                     </span>{' '}
-                    of <span css={tw`text-neutral-300`}>{pagination.total}</span> results
+                    个结果，共 <span css={tw`text-neutral-300`}>{pagination.total}</span> 个结果，共
                 </p>
 
                 {isFirstPage && isLastPage ? null : (
@@ -196,7 +196,7 @@ export function Pagination<T>({ data, onPageSelect, children }: Props<T>) {
                             <PaginationArrow
                                 type="button"
                                 css={tw`rounded-l-md`}
-                                aria-label="Previous"
+                                aria-label="上一页"
                                 disabled={pagination.currentPage === 1}
                                 onClick={() => setPage(pagination.currentPage - 1)}
                             >
@@ -228,7 +228,7 @@ export function Pagination<T>({ data, onPageSelect, children }: Props<T>) {
                             <PaginationArrow
                                 type="button"
                                 css={tw`-ml-px rounded-r-md`}
-                                aria-label="Next"
+                                aria-label="下一页"
                                 disabled={pagination.currentPage === pagination.totalPages}
                                 onClick={() => setPage(pagination.currentPage + 1)}
                             >
@@ -269,7 +269,7 @@ export const NoItems = ({ className }: { className?: string }) => {
             </div>
 
             <p css={tw`text-lg text-neutral-300 text-center font-normal sm:mt-8`}>
-                No items could be found, it&apos;s almost like they are hiding.
+                找不到任何物品，它们就像藏起来了一样。
             </p>
         </div>
     );
@@ -324,7 +324,7 @@ export const ContentWrapper = ({ checked, onSelectAllClick, onSearch, children }
                         <Input
                             value={inputText}
                             css={tw`h-8`}
-                            placeholder="Search..."
+                            placeholder="搜索..."
                             onChange={e => {
                                 setInputText(e.currentTarget.value);
                                 search(e.currentTarget.value);

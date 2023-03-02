@@ -35,8 +35,8 @@ export default ({ selected }: { selected: Location | null }) => {
         <SearchableSelect
             id={'locationId'}
             name={'locationId'}
-            label={'Location'}
-            placeholder={'Select a location...'}
+            label={'地域'}
+            placeholder={'选择一个地域...'}
             items={locations}
             selected={location}
             setSelected={setLocation}
