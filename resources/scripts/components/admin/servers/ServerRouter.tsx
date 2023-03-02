@@ -54,7 +54,7 @@ export default () => {
                 <SubNavigationLink to={`/admin/servers/${params.id}`} name={'设置'} icon={CogIcon} />
                 <SubNavigationLink to={`/admin/servers/${params.id}/startup`} name={'启动'} icon={AdjustmentsIcon} />
                 <SubNavigationLink to={`/admin/servers/${params.id}/databases`} name={'数据库'} icon={DatabaseIcon} />
-                <SubNavigationLink to={`/admin/servers/${params.id}/mounts`} name={'Mounts'} icon={FolderIcon} />
+                <SubNavigationLink to={`/admin/servers/${params.id}/mounts`} name={'挂载'} icon={FolderIcon} />
                 <SubNavigationLink
                     to={`/admin/servers/${params.id}/manage`}
                     name={'管理'}

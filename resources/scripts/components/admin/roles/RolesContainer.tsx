@@ -88,7 +88,7 @@ const RolesContainer = () => {
                 <div css={tw`flex flex-col flex-shrink`} style={{ minWidth: '0' }}>
                     <h2 css={tw`text-2xl text-neutral-50 font-header font-medium`}>角色</h2>
                     <p css={tw`text-base text-neutral-400 whitespace-nowrap overflow-ellipsis overflow-hidden`}>
-                        很快&trade;
+                        Soon&trade;
                     </p>
                 </div>
 

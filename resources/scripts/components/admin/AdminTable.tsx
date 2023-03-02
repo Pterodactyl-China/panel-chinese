@@ -187,7 +187,7 @@ export function Pagination<T>({ data, onPageSelect, children }: Props<T>) {
                     <span css={tw`text-neutral-300`}>
                         {(pagination.currentPage - 1) * pagination.perPage + pagination.count}
                     </span>{' '}
-                    个结果，共 <span css={tw`text-neutral-300`}>{pagination.total}</span> 个结果，共
+                    个结果，共 <span css={tw`text-neutral-300`}>{pagination.total}</span> 个结果。
                 </p>
 
                 {isFirstPage && isLastPage ? null : (

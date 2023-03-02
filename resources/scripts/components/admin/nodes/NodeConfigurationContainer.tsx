@@ -63,7 +63,7 @@ export default () => {
             </AdminBox>
 
             <AdminBox title={'自动部署'} icon={faDragon}>
-                从不&trade;
+                Never&trade;
             </AdminBox>
         </>
     );

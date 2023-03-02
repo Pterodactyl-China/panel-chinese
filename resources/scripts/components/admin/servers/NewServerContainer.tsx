@@ -83,7 +83,7 @@ function InternalForm() {
                     <AdminBox icon={faNetworkWired} title={'网络连接'} isLoading={isSubmitting}>
                         <div css={tw`grid grid-cols-1 gap-4 lg:gap-6`}>
                             <div>
-                                <Label htmlFor={'allocation.default'}>主要分配</Label>
+                                <Label htmlFor={'allocation.default'}>首选分配</Label>
                                 <Select
                                     id={'allocation.default'}
                                     name={'allocation.default'}

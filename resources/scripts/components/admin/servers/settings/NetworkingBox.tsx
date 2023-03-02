@@ -33,7 +33,7 @@ export default () => {
         <AdminBox icon={faNetworkWired} title={'网络连接'} isLoading={isSubmitting}>
             <div css={tw`grid grid-cols-1 gap-4 lg:gap-6`}>
                 <div>
-                    <Label htmlFor={'allocationId'}>初级配置</Label>
+                    <Label htmlFor={'allocationId'}>首选配置</Label>
                     <Select id={'allocationId'} name={'allocationId'}>
                         {server?.relationships.allocations?.map(a => (
                             <option key={a.id} value={a.id}>
@@ -45,14 +45,14 @@ export default () => {
                 <AsyncSelectField
                     id={'addAllocations'}
                     name={'addAllocations'}
-                    label={'添加分配'}
+                    label={'添加网络分配'}
                     loadOptions={loadOptions}
                     isMulti
                 />
                 <SelectField
                     id={'removeAllocations'}
                     name={'removeAllocations'}
-                    label={'删除分配'}
+                    label={'删除网络分配'}
                     options={
                         server?.relationships.allocations?.map(a => {
                             return { value: a.id.toString(), label: a.getDisplayText() };

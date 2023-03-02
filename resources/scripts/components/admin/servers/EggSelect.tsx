@@ -58,7 +58,7 @@ export default ({ nestId, selectedEggId, onEggSelect }: Props) => {
 
     return (
         <>
-            <Label>Egg</Label>
+            <Label>预设</Label>
             <Select id={'eggId'} name={'eggId'} defaultValue={selectedEggId} onChange={onSelectChange}>
                 {!eggs ? (
                     <option disabled>Loading...</option>

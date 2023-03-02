@@ -61,7 +61,7 @@ function ServerStartupLineContainer({ egg, server }: { egg: Egg | null; server: 
             </div>
 
             <div>
-                <Label>Default Startup Command</Label>
+                <Label>默认启动命令</Label>
                 <Input value={egg?.startup || ''} readOnly />
             </div>
         </AdminBox>
@@ -196,7 +196,7 @@ function ServerStartupForm({
                 <div css={tw`bg-neutral-700 rounded shadow-md py-2 pr-6 mt-6`}>
                     <div css={tw`flex flex-row`}>
                         <Button type="submit" size="small" css={tw`ml-auto`} disabled={isSubmitting || !isValid}>
-                            Save Changes
+                            保存更改
                         </Button>
                     </div>
                 </div>

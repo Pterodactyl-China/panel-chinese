@@ -129,7 +129,7 @@ const NodesContainer = () => {
                                         onClick={() => setSort('location_id')}
                                     />
                                     <TableHeader
-                                        name={'FQDN(域名)'}
+                                        name={'域名'}
                                         direction={sort === 'fqdn' ? (sortDirection ? 1 : 2) : null}
                                         onClick={() => setSort('fqdn')}
                                     />

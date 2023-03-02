@@ -9,7 +9,7 @@
 
 return [
     'validation' => [
-        'fqdn_not_resolvable' => '提供的 域名(FQDN) 或 IP 地址无法解析为有效的 IP 地址。',
+        'fqdn_not_resolvable' => '提供的 域名 或 IP 地址无法解析为有效的 IP 地址。',
         'fqdn_required_for_ssl' => '需要解析为公网 IP 地址的完全限定域名才能为此节点使用 SSL。',
     ],
     'notices' => [

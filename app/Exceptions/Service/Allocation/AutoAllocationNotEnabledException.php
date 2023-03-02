@@ -12,7 +12,7 @@ class AutoAllocationNotEnabledException extends DisplayException
     public function __construct()
     {
         parent::__construct(
-            '此实例未启用服务器自动分配功能。'
+            '此实例未启用服务器网络自动分配功能。'
         );
     }
 }

@@ -14,9 +14,9 @@ export default () => {
                 <Field
                     id={'featureLimits.allocations'}
                     name={'featureLimits.allocations'}
-                    label={'分配限制'}
+                    label={'网络分配限制'}
                     type={'number'}
-                    description={'允许用户为此服务器创建的分配总数。'}
+                    description={'允许用户为此服务器创建的网络分配总数。'}
                 />
                 <Field
                     id={'featureLimits.backups'}

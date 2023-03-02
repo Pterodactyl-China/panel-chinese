@@ -107,7 +107,7 @@ function AllocationsTable({ nodeId, filters }: Props) {
                                     direction={sort === 'ip' ? (sortDirection ? 1 : 2) : null}
                                     onClick={() => setSort('ip')}
                                 />
-                                <TableHeader name={'Alias'} />
+                                <TableHeader name={'别名'} />
                                 <TableHeader
                                     name={'端口'}
                                     direction={sort === 'port' ? (sortDirection ? 1 : 2) : null}

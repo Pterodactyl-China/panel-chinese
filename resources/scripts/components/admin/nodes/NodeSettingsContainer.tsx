@@ -30,7 +30,7 @@ export default function NodeSettingsContainer({ node }: { node?: Node }) {
             </div>
 
             <div css={tw`mb-6`}>
-                <Field id={'fqdn'} name={'fqdn'} label={'FQDN(域名)'} type={'text'} />
+                <Field id={'fqdn'} name={'fqdn'} label={'域名'} type={'text'} />
             </div>
 
             <div css={tw`mb-6`}>

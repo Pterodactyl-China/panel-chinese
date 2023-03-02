@@ -52,7 +52,7 @@ class MakeNodeCommand extends Command
         );
         $data['fqdn'] = $this->option('fqdn') ?? $this->ask('请输入用于连接守护程序的域名 (例如 node.example.com). 仅当您没有为此节点使用 SSL 时才可以使用 IP 地址.');
         $data['public'] = $this->option('public') ?? $this->confirm('该节点是否应该公开？ 请注意，将节点设置为私有将拒绝自动部署到此节点的能力。', true);
-        $data['behind_proxy'] = $this->option('proxy') ?? $this->confirm('您的 FQDN(域名) 是否使用了代理？');
+        $data['behind_proxy'] = $this->option('proxy') ?? $this->confirm('您的 域名 是否使用了代理？');
         $data['maintenance_mode'] = $this->option('maintenance') ?? $this->confirm('是否应该启用维护模式？');
         $data['memory'] = $this->option('maxMemory') ?? $this->ask('输入最大内存容量');
         $data['memory_overallocate'] = $this->option('overallocateMemory') ?? $this->ask('输入要过度分配的内存容量，-1 将禁用检查，0 将阻止创建新服务器');

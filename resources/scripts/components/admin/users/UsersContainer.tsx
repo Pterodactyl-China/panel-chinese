@@ -28,7 +28,7 @@ function UsersContainer() {
     );
 
     useEffect(() => {
-        document.title = '管理员 | 用户';
+        document.title = '管理 | 用户';
     }, []);
 
     const onRowChange = (user: User, checked: boolean) => {
@@ -63,8 +63,8 @@ function UsersContainer() {
                 <div className="flex-1">
                     <InputField
                         type="text"
-                        name="筛选"
-                        placeholder="开始输入以筛选..."
+                        name="filter"
+                        placeholder="输入筛选内容..."
                         className="w-56 focus:w-96"
                         onChange={e => setSearch(e.currentTarget.value)}
                     />

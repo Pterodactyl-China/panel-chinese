@@ -115,11 +115,11 @@ const NestsContainer = () => {
                                         onClick={() => setSort('id')}
                                     />
                                     <TableHeader
-                                        name={'Name'}
+                                        name={'名称'}
                                         direction={sort === 'name' ? (sortDirection ? 1 : 2) : null}
                                         onClick={() => setSort('name')}
                                     />
-                                    <TableHeader name={'Description'} />
+                                    <TableHeader name={'描述'} />
                                 </TableHead>
 
                                 <TableBody>

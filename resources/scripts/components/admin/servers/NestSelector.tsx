@@ -27,7 +27,7 @@ export default ({ selectedNestId, onNestSelect }: Props) => {
 
     return (
         <>
-            <Label>Nest</Label>
+            <Label>预设组</Label>
             <Select value={selectedNestId} onChange={e => onNestSelect(Number(e.currentTarget.value))}>
                 {!nests ? (
                     <option disabled>加载中...</option>

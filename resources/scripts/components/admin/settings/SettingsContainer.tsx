@@ -23,19 +23,19 @@ export default () => {
             <FlashMessageRender byKey={'admin:settings'} css={tw`mb-4`} />
 
             <SubNavigation>
-                <SubNavigationLink to="/admin/settings" name="基础">
+                <SubNavigationLink to="/admin/settings" name="General">
                     <ChipIcon />
                 </SubNavigationLink>
-                <SubNavigationLink to="/admin/settings/mail" name="邮件">
+                <SubNavigationLink to="/admin/settings/mail" name="Mail">
                     <MailIcon />
                 </SubNavigationLink>
-                <SubNavigationLink to="/admin/settings/security" name="安全">
+                <SubNavigationLink to="/admin/settings/security" name="Security">
                     <ShieldCheckIcon />
                 </SubNavigationLink>
-                <SubNavigationLink to="/admin/settings/features" name="功能">
+                <SubNavigationLink to="/admin/settings/features" name="Features">
                     <AdjustmentsIcon />
                 </SubNavigationLink>
-                <SubNavigationLink to="/admin/settings/advanced" name="高级">
+                <SubNavigationLink to="/admin/settings/advanced" name="Advanced">
                     <CodeIcon />
                 </SubNavigationLink>
             </SubNavigation>
