@@ -65,7 +65,7 @@ export default () => {
                                 type={'text'}
                                 id={'short'}
                                 name={'short'}
-                                label={'短'}
+                                label={'简称'}
                                 description={'用于标识此地域的简称。'}
                                 autoFocus
                             />
@@ -75,7 +75,7 @@ export default () => {
                                     type={'text'}
                                     id={'long'}
                                     name={'long'}
-                                    label={'长'}
+                                    label={'长名称'}
                                     description={'此地域的长名称。'}
                                 />
                             </div>

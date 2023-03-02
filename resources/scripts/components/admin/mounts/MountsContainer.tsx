@@ -120,7 +120,7 @@ const MountsContainer = () => {
                                         onClick={() => setSort('id')}
                                     />
                                     <TableHeader
-                                        name={'原始路径'}
+                                        name={'名称'}
                                         direction={sort === 'name' ? (sortDirection ? 1 : 2) : null}
                                         onClick={() => setSort('name')}
                                     />

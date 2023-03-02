@@ -73,11 +73,11 @@ function MountForm({ action, title, initialValues, children, onSubmit }: Props) 
 
                         <div css={tw`md:w-full md:flex md:flex-row mt-6`}>
                             <div css={tw`md:w-full md:flex md:flex-col md:mr-4 mt-6 md:mt-0`}>
-                                <Field id={'source'} name={'source'} label={'来源'} type={'text'} />
+                                <Field id={'source'} name={'source'} label={'来源路径'} type={'text'} />
                             </div>
 
                             <div css={tw`md:w-full md:flex md:flex-col md:ml-4 mt-6 md:mt-0`}>
-                                <Field id={'target'} name={'target'} label={'目标'} type={'text'} />
+                                <Field id={'target'} name={'target'} label={'目标路径'} type={'text'} />
                             </div>
                         </div>
 
