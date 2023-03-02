@@ -269,7 +269,7 @@ export const NoItems = ({ className }: { className?: string }) => {
             </div>
 
             <p css={tw`text-lg text-neutral-300 text-center font-normal sm:mt-8`}>
-                找不到任何物品，它们就像藏起来了一样。
+                找不到任何东西，它们就像藏起来了一样。
             </p>
         </div>
     );
