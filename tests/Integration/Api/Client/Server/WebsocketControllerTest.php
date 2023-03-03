@@ -24,7 +24,7 @@ class WebsocketControllerTest extends ClientApiIntegrationTestCase
         $this->actingAs($user)->getJson("/api/client/servers/$server->uuid/websocket")
             ->assertStatus(Response::HTTP_FORBIDDEN)
             ->assertJsonPath('errors.0.code', 'HttpForbiddenException')
-            ->assertJsonPath('errors.0.detail', 'You do not have permission to connect to this server\'s websocket.');
+            ->assertJsonPath('errors.0.detail', '您无权连接到此服务器的 websocket。');
     }
 
     /**
