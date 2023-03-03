@@ -110,7 +110,7 @@ class CreateServerScheduleTaskTest extends ClientApiIntegrationTestCase
             'time_offset' => 0,
         ])
             ->assertStatus(Response::HTTP_FORBIDDEN)
-            ->assertJsonPath('errors.0.detail', '当服务器的备份限制设置为0时，则不能创建备份任务。');
+            ->assertJsonPath('errors.0.detail', '当服务器的备份限制设置为 0 时，则不能创建备份任务。');
     }
 
     /**
