@@ -95,7 +95,7 @@ function UsersContainer() {
                     <tr>
                         <th scope="col" className="w-8" />
                         <th scope="col" className="w-full px-6 py-2 text-left">
-                            邮箱
+                            电子邮箱
                         </th>
                         <th scope="col" />
                         <th scope="col" />
