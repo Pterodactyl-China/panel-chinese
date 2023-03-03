@@ -29,7 +29,7 @@
                         <tr>
                             <th>ID</th>
                             <th>名称</th>
-                            <th>原始路径</th>
+                            <th>来源路径</th>
                             <th>挂载路径</th>
                             <th>状态</th>
                             <th></th>

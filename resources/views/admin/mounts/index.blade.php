@@ -31,7 +31,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>名称</th>
-                                <th>原始路径</th>
+                                <th>来源路径</th>
                                 <th>挂载路径</th>
                                 <th class="text-center">预设</th>
                                 <th class="text-center">节点</th>
@@ -83,7 +83,7 @@
                             </div>
 
                             <div class="col-md-6">
-                                <label for="pSource" class="form-label">原始路径</label>
+                                <label for="pSource" class="form-label">来源路径</label>
                                 <input type="text" id="pSource" name="source" class="form-control" />
                                 <p class="text-muted small">主机系统上要挂载到容器的文件路径.</p>
                             </div>

@@ -47,7 +47,7 @@
 
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="pSource" class="form-label">原始路径</label>
+                                <label for="pSource" class="form-label">来源路径</label>
                                 <input type="text" id="pSource" name="source" class="form-control" value="{{ $mount->source }}" />
                             </div>
 
