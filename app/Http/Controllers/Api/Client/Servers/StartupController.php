@@ -56,9 +56,9 @@ class StartupController extends ClientApiController
         $original = $variable->server_value;
 
         if (is_null($variable) || !$variable->user_viewable) {
-            throw new BadRequestHttpException('The environment variable you are trying to edit does not exist.');
+            throw new BadRequestHttpException('您试图编辑不存在的环境变量。');
         } elseif (!$variable->user_editable) {
-            throw new BadRequestHttpException('The environment variable you are trying to edit is read-only.');
+            throw new BadRequestHttpException('您试图编辑的环境变量是只读的。');
         }
 
         /* @var \Pterodactyl\Models\EggVariable $variable */

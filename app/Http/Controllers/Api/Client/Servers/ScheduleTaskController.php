@@ -45,7 +45,7 @@ class ScheduleTaskController extends ClientApiController
         }
 
         if ($server->backup_limit === 0 && $request->action === 'backup') {
-            throw new HttpForbiddenException("A backup task cannot be created when the server's backup limit is set to 0.");
+            throw new HttpForbiddenException("当服务器的备份限制设置为0时，则不能创建备份任务。");
         }
 
         /** @var \Pterodactyl\Models\Task|null $lastTask */
@@ -105,7 +105,7 @@ class ScheduleTaskController extends ClientApiController
         }
 
         if ($server->backup_limit === 0 && $request->action === 'backup') {
-            throw new HttpForbiddenException("A backup task cannot be created when the server's backup limit is set to 0.");
+            throw new HttpForbiddenException("当服务器的备份限制设置为0时，则不能创建备份任务。");
         }
 
         $this->connection->transaction(function () use ($request, $schedule, $task) {
@@ -160,7 +160,7 @@ class ScheduleTaskController extends ClientApiController
         }
 
         if (!$request->user()->can(Permission::ACTION_SCHEDULE_UPDATE, $server)) {
-            throw new HttpForbiddenException('You do not have permission to perform this action.');
+            throw new HttpForbiddenException('您无权执行此操作。');
         }
 
         $schedule->tasks()

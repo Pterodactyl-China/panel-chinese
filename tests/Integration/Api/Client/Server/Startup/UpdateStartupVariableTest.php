@@ -69,7 +69,7 @@ class UpdateStartupVariableTest extends ClientApiIntegrationTestCase
 
         $response->assertStatus(Response::HTTP_BAD_REQUEST);
         $response->assertJsonPath('errors.0.code', 'BadRequestHttpException');
-        $response->assertJsonPath('errors.0.detail', 'The environment variable you are trying to edit does not exist.');
+        $response->assertJsonPath('errors.0.detail', '您试图编辑不存在的环境变量。');
 
         $response = $this->actingAs($user)->putJson($this->link($server) . '/startup/variable', [
             'key' => 'SERVER_JARFILE',
@@ -78,7 +78,7 @@ class UpdateStartupVariableTest extends ClientApiIntegrationTestCase
 
         $response->assertStatus(Response::HTTP_BAD_REQUEST);
         $response->assertJsonPath('errors.0.code', 'BadRequestHttpException');
-        $response->assertJsonPath('errors.0.detail', 'The environment variable you are trying to edit is read-only.');
+        $response->assertJsonPath('errors.0.detail', '您试图编辑的环境变量是只读的。');
     }
 
     /**
