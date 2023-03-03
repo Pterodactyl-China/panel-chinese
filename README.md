@@ -13,7 +13,7 @@ Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP�
 
 不要再安于现状了。让游戏服务器成为您平台上的一等公民。
 
-**此仓库将实时同步上游进行汉化 , 发布的 Releases 均通过 Github Actions 的构建测试，并在发布前会经过本地环境测试，所以！基本不会出现BUG，RC版会第一时间修复/更新内容。**
+**此仓库将实时同步上游进行汉化 , 发布的 Releases 均通过 Github Actions 的构建测试，并在发布前会经过本地环境测试。**
 
 ![Image](https://cdn.pterodactyl.io/site-assets/pterodactyl_v1_demo.gif)
 
