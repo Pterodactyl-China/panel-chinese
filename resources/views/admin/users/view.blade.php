@@ -5,7 +5,7 @@
 @endsection
 
 @section('content-header')
-    <h1>{{ $user->name_first }} {{ $user->name_last}}<small>{{ $user->username }}</small></h1>
+    <h1>{{ $user->name_last}} {{ $user->name_first }}<small>{{ $user->username }}</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li><a href="{{ route('admin.users') }}">用户</a></li>
@@ -37,13 +37,13 @@
                     <div class="form-group">
                         <label for="registered" class="control-label">姓</label>
                         <div>
-                            <input type="text" name="name_first" value="{{ $user->name_first }}" class="form-control form-autocomplete-stop">
+                            <input type="text" name="name_last" value="{{ $user->name_last }}" class="form-control form-autocomplete-stop">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="registered" class="control-label">名</label>
                         <div>
-                            <input type="text" name="name_last" value="{{ $user->name_last }}" class="form-control form-autocomplete-stop">
+                            <input type="text" name="name_first" value="{{ $user->name_first }}" class="form-control form-autocomplete-stop">
                         </div>
                     </div>
                     <div class="form-group">

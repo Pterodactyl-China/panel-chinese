@@ -5,7 +5,7 @@
 @endsection
 
 @section('content-header')
-    <h1>用户<small>此系统上所有注册用户.</small></h1>
+    <h1>用户<small>此系统上所有注册用户。</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li class="active">用户</li>

@@ -35,15 +35,15 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="name_first" class="control-label">姓</label>
+                        <label for="name_last" class="control-label">姓</label>
                         <div>
-                            <input type="text" autocomplete="off" name="name_first" value="{{ old('name_first') }}" class="form-control" />
+                            <input type="text" autocomplete="off" name="name_last" value="{{ old('name_last') }}" class="form-control" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="name_last" class="control-label">名</label>
+                        <label for="name_first" class="control-label">名</label>
                         <div>
-                            <input type="text" autocomplete="off" name="name_last" value="{{ old('name_last') }}" class="form-control" />
+                            <input type="text" autocomplete="off" name="name_first" value="{{ old('name_first') }}" class="form-control" />
                         </div>
                     </div>
                     <div class="form-group">
