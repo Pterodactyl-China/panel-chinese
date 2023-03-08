@@ -39,8 +39,8 @@ class UpgradeCommand extends Command
             $this->line($this->getUrl());
         }
 
-        if (version_compare(PHP_VERSION, '7.4.0') < 0) {
-            $this->error('无法执行自动升级。所需的最低 PHP 版本是 7.4.0，而你所用的是 [' . PHP_VERSION . '].');
+        if (version_compare(PHP_VERSION, '8.1.0') < 0) {
+            $this->error('无法执行自动升级。所需的最低 PHP 版本是 8.1.0，而你所用的是 [' . PHP_VERSION . '].');
         }
 
         $user = 'www-data';

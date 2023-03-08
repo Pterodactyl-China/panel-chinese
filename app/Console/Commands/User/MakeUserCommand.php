@@ -38,7 +38,7 @@ class MakeUserCommand extends Command
         }
 
         $user = $this->creationService->handle(compact('email', 'username', 'password', 'root_admin'));
-        $this->table(['Field', 'Value'], [
+        $this->table(['字段', '值'], [
             ['UUID', $user->uuid],
             ['Email', $user->email],
             ['用户名', $user->username],
