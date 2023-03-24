@@ -70,7 +70,7 @@
                             <label class="form-label">权限</label>
                             <select name="options[]" class="pOptions form-control" multiple>
                                 <option value="user_viewable" {{ (! $variable->user_viewable) ?: 'selected' }}>用户只读</option>
-                                <option value="user_editable" {{ (! $variable->user_editable) ?: 'selected' }}>用户可读写</option>
+                                <option value="user_editable" {{ (! $variable->user_editable) ?: 'selected' }}>用户可写</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -123,7 +123,7 @@
                         <label class="control-label">权限</label>
                         <select name="options[]" class="pOptions form-control" multiple>
                             <option value="user_viewable">用户只读</option>
-                            <option value="user_editable">用户可读写</option>
+                            <option value="user_editable">用户可写</option>
                         </select>
                     </div>
                     <div class="form-group">
