@@ -60,7 +60,7 @@ class RunTaskJobTest extends IntegrationTestCase
         $job = new RunTaskJob($task);
 
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Invalid task action provided: foobar');
+        $this->expectExceptionMessage('提供的任务操作无效: foobar');
         Bus::dispatchSync($job);
     }
 
