@@ -8,7 +8,7 @@ use Pterodactyl\Services\Telemetry\TelemetryCollectionService;
 
 class TelemetryCommand extends Command
 {
-    protected $description = 'Displays all the data that would be sent to the Pterodactyl Telemetry Service if telemetry collection is enabled.';
+    protected $description = '如果启用遥测收集，则所有服务数据将通过匿名的方式发送到翼龙官方。';
 
     protected $signature = 'p:telemetry';
 
@@ -27,7 +27,7 @@ class TelemetryCommand extends Command
      */
     public function handle()
     {
-        $this->output->info('Collecting telemetry data, this may take a while...');
+        $this->output->info('正在收集遥测数据，这可能需要一段时间......');
 
         VarDumper::dump($this->telemetryCollectionService->collect());
     }
