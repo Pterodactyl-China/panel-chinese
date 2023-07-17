@@ -56,7 +56,10 @@ export default () => {
                             'text-2xl font-header px-4 no-underline text-neutral-200 hover:text-neutral-100 transition-colors duration-150'
                         }
                     >
-                        {name}
+                        {useStoreState((state) => {
+                            const logoTitle = state.settings.data?.logo.title;
+                            return logoTitle ? <img src={logoTitle} /> : name;
+                        })}
                     </Link>
                 </div>
                 <RightNavigation className={'flex h-full items-center justify-center'}>

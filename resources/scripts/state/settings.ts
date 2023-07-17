@@ -7,6 +7,11 @@ export interface SiteSettings {
         enabled: boolean;
         siteKey: string;
     };
+    logo: {
+        title: string;
+        favicon: string;
+        auth: string;
+    };
     icp: {
         enabled: boolean;
         record: string;

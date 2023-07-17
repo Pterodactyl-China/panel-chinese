@@ -62,6 +62,27 @@
                                     <p class="text-muted"><small>此功能需要面板的首位用户设置为相应的语言，返回这里并再按一次保存，即可同步</small></p>
                                 </div>
                             </div>
+                            <div class="form-group col-md-4">
+                                <label class="control-label">标题LOGO</label>
+                                <div>
+                                    <input type="text" class="form-control" name="logo:title" value="{{ old('logo:title', config('logo.title')) }}" />
+                                    <p class="text-muted"><small>这是在首页左上角文字的LOGO，如果不填则默认为"公司名称".</small></p>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="control-label">网站LOGO</label>
+                                <div>
+                                    <input type="text" class="form-control" name="logo:favicon" value="{{ old('logo:favicon', config('logo.favicon')) }}" />
+                                    <p class="text-muted"><small>这是站点的 favicon 图标，不填则为默认LOGO.</small></p>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="control-label">登录页LOGO</label>
+                                <div>
+                                    <input type="text" class="form-control" name="logo:auth" value="{{ old('logo:auth', config('logo.auth')) }}" />
+                                    <p class="text-muted"><small>这是面板登录页展示的LOGO，不填则为默认LOGO.(此功能并未完善)</small></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="box-footer">
