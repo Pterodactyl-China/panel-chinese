@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2023-02-04T14:45:12-05:00",
+    "exported_at": "2023-03-25T13:37:00+00:00",
     "name": "Rust",
     "author": "support@pterodactyl.io",
     "description": "Rust(腐蚀) 一款尽一切努力生存的游戏。为此，您需要克服饥饿、干渴和寒冷等风险。建立庇护所。杀死动物以获取肉。保护自己免受其他玩家的攻击，甚至是朋友的背叛。与其他玩家建立联盟并组建城镇。尽一切努力生存吧。",
@@ -41,13 +41,13 @@
             "field_type": "text"
         },
         {
-            "name": "OxideMod",
-            "description": "设置您是否希望服务器使用并自动更新 OxideMod。有效选项是 \"1\" 代表 true，\"0\" 代表 false。",
-            "env_variable": "OXIDE",
-            "default_value": "0",
+            "name": "模组框架",
+            "description": "可以使用的模组框架: carbon, oxide, vanilla.\r\n对于非模组的，服务器默认安装\"vanilla\"",
+            "env_variable": "FRAMEWORK",
+            "default_value": "vanilla",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|boolean",
+            "rules": "required|in:carbon,oxide,vanilla",
             "field_type": "text"
         },
         {
@@ -121,6 +121,16 @@
             "field_type": "text"
         },
         {
+            "name": "查询端口",
+            "description": "服务器查询端口。不能与游戏的主端口相同。",
+            "env_variable": "QUERY_PORT",
+            "default_value": "27017",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|integer",
+            "field_type": "text"
+        },
+        {
             "name": "RCON 端口",
             "description": "RCON 连接的端口。",
             "env_variable": "RCON_PORT",
@@ -188,16 +198,6 @@
             "user_viewable": true,
             "user_editable": true,
             "rules": "nullable|url",
-            "field_type": "text"
-        },
-        {
-            "name": "查询端口",
-            "description": "服务器查询端口。不能与游戏的主端口相同。",
-            "env_variable": "QUERY_PORT",
-            "default_value": "27017",
-            "user_viewable": true,
-            "user_editable": false,
-            "rules": "required|integer",
             "field_type": "text"
         }
     ]
