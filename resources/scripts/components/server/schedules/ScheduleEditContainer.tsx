@@ -78,7 +78,7 @@ export default () => {
     }, []);
 
     return (
-        <PageContentBlock title={'Schedules'}>
+        <PageContentBlock title={'计划表'}>
             <FlashMessageRender byKey={'schedules'} css={tw`mb-4`} />
             {!schedule || isLoading ? (
                 <Spinner size={'large'} centered />
