@@ -19,6 +19,9 @@ class SettingsServiceProvider extends ServiceProvider
     protected array $keys = [
         'app:name',
         'app:locale',
+        'logo:title',
+        'logo:favicon',
+        'logo:auth',
         'icp:enabled',
         'icp:record',
         'icp:security_record',

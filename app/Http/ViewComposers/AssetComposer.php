@@ -14,6 +14,11 @@ class AssetComposer
         $view->with('siteConfiguration', [
             'name' => config('app.name') ?? 'Pterodactyl',
             'locale' => config('app.locale') ?? 'zh',
+            'logo' => [
+                'title' => config('logo.title') ?? '',
+                'favicon' => config('logo.favicon') ?? '/favicons/favicon.ico',
+                'auth' => config('logo.auth') ?? '',
+            ],
             'recaptcha' => [
                 'enabled' => config('recaptcha.enabled', false),
                 'siteKey' => config('recaptcha.website_key') ?? '',

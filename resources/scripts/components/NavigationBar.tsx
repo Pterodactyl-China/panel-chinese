@@ -49,12 +49,15 @@ export default () => {
         <div className="w-full overflow-x-auto bg-neutral-900 shadow-md">
             <SpinnerOverlay visible={isLoggingOut} />
             <div className="mx-auto flex h-[3.5rem] w-full max-w-[1200px] items-center">
-                <div id="logo" className="flex-1">
+                <div id="logo" className="flex flex-1">
                     <Link
                         to="/"
                         className="px-4 font-header text-2xl text-neutral-200 no-underline transition-colors duration-150 hover:text-neutral-100"
                     >
-                        {name}
+                        {useStoreState((state) => {
+                            const logoTitle = state.settings.data?.logo.title;
+                            return logoTitle ? <img src={logoTitle} /> : name;
+                        })}
                     </Link>
                 </div>
 

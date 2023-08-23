@@ -44,10 +44,10 @@ class EmailSettingsCommand extends Command
             trans('command/messages.environment.mail.ask_driver'),
             [
                 'smtp' => 'SMTP 服务器',
-                'mail' => 'PHP 的内部邮件功能',
+                'sendmail' => 'sendmail 二进制文件',
                 'mailgun' => 'Mailgun 交易电子邮件',
                 'mandrill' => 'Mandrill 交易电子邮件',
-                'postmark' => 'Postmarkapp 交易电子邮件',
+                'postmark' => 'Postmark 交易电子邮件',
             ],
             $this->config->get('mail.default', 'smtp')
         );
