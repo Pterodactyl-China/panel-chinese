@@ -54,7 +54,7 @@ export default () => {
                         to="/"
                         className="px-4 font-header text-2xl text-neutral-200 no-underline transition-colors duration-150 hover:text-neutral-100"
                     >
-                        {useStoreState((state) => {
+                        {useStoreState(state => {
                             const logoTitle = state.settings.data?.logo.title;
                             return logoTitle ? <img src={logoTitle} /> : name;
                         })}
