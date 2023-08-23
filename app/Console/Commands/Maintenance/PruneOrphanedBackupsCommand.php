@@ -10,7 +10,7 @@ class PruneOrphanedBackupsCommand extends Command
 {
     protected $signature = 'p:maintenance:prune-backups {--prune-age=}';
 
-    protected $description = 'Marks all backups that have not completed in the last "n" minutes as being failed.';
+    protected $description = '将所有过去 "n" 分钟内未完成备份的标记为失败。';
 
     /**
      * PruneOrphanedBackupsCommand constructor.
@@ -38,7 +38,7 @@ class PruneOrphanedBackupsCommand extends Command
             return;
         }
 
-        $this->warn("将在过去 $since 分钟内未标记为已完成的 $count 个备份标记为失败。");
+        $this->warn("将过去 $since 分钟内未完成的 $count 个备份标记为失败。");
 
         $query->update([
             'is_successful' => false,
