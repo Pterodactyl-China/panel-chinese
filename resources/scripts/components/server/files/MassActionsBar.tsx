@@ -93,9 +93,9 @@ const MassActionsBar = () => {
                     />
                 )}
                 <Portal>
-                    <div className={'pointer-events-none fixed bottom-0 mb-6 flex justify-center w-full z-50'}>
-                        <Fade timeout={75} in={selectedFiles.length > 0} unmountOnExit>
-                            <div css={tw`flex items-center space-x-4 pointer-events-auto rounded p-4 bg-black/50`}>
+                    <div className="pointer-events-none fixed bottom-0 z-50 mb-6 flex w-full justify-center">
+                        <FadeTransition duration="duration-75" show={selectedFiles.length > 0} appear unmount>
+                            <div className="pointer-events-auto flex items-center space-x-4 rounded bg-black/50 p-4">
                                 <Button onClick={() => setShowMove(true)}>移动</Button>
                                 <Button onClick={onClickCompress}>压缩</Button>
                                 <Button.Danger variant={Button.Variants.Secondary} onClick={() => setShowConfirm(true)}>
