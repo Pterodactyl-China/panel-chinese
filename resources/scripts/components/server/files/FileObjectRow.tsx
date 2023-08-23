@@ -17,7 +17,7 @@ import { usePermissions } from '@/plugins/usePermissions';
 import { ServerContext } from '@/state/server';
 import styles from './style.module.css';
 
-const Clickable: React.FC<{ file: FileObject }> = memo(({ file, children }) => {
+function Clickable({ file, children }: { file: FileObject; children: ReactNode }) {
     const [canRead] = usePermissions(['file.read']);
     const [canReadContents] = usePermissions(['file.read-content']);
     const id = ServerContext.useStoreState(state => state.server.data!.id);
