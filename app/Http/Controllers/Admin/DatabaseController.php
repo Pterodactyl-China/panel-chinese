@@ -80,7 +80,7 @@ class DatabaseController extends Controller
             }
         }
 
-        $this->alert->success('Successfully created a new database host on the system.')->flash();
+        $this->alert->success('已成功在系统上创建新的数据库主机。')->flash();
 
         return redirect()->route('admin.databases.view', $host->id);
     }
