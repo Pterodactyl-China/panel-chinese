@@ -74,7 +74,7 @@
                             <div class="form-group">
                                 <label for="pAuthor" class="control-label">作者</label>
                                 <input type="text" id="pAuthor" readonly value="{{ $egg->author }}" class="form-control" />
-                                <p class="text-muted small">这个预设的作者。上传来自不同作者的新预设将改变此处。</p>
+                                <p class="text-muted small">该预设作者默认不可修改，仅在新建预设时才可填写。</p>
                             </div>
                             <div class="form-group">
                                 <label for="pDockerImage" class="control-label">Docker 镜像 <span class="field-required"></span></label>
