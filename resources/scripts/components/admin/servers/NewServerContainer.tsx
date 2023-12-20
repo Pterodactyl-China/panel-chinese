@@ -30,6 +30,7 @@ import SpinnerOverlay from '@/components/elements/SpinnerOverlay';
 import FlashMessageRender from '@/components/FlashMessageRender';
 import useFlash from '@/plugins/useFlash';
 import AdminContentBlock from '@/components/admin/AdminContentBlock';
+import { WithRelationships } from '@/api/admin';
 
 function InternalForm() {
     const {
@@ -39,12 +40,12 @@ function InternalForm() {
         values: { environment },
     } = useFormikContext<CreateServerRequest>();
 
-    const [egg, setEgg] = useState<Egg | null>(null);
-    const [node, setNode] = useState<Node | null>(null);
-    const [allocations, setAllocations] = useState<Allocation[] | null>(null);
+    const [egg, setEgg] = useState<WithRelationships<Egg, 'variables'> | undefined>(undefined);
+    const [node, setNode] = useState<Node | undefined>(undefined);
+    const [allocations, setAllocations] = useState<Allocation[] | undefined>(undefined);
 
     useEffect(() => {
-        if (egg === null) {
+        if (egg === undefined) {
             return;
         }
 
@@ -54,7 +55,7 @@ function InternalForm() {
     }, [egg]);
 
     useEffect(() => {
-        if (node === null) {
+        if (node === undefined) {
             return;
         }
 
@@ -64,11 +65,11 @@ function InternalForm() {
 
     return (
         <Form>
-            <div css={tw`grid grid-cols-2 gap-y-6 gap-x-8 mb-16`}>
-                <div css={tw`grid grid-cols-1 gap-y-6 col-span-2 md:col-span-1`}>
+            <div className="grid grid-cols-2 gap-y-6 gap-x-8 mb-16">
+                <div className="grid grid-cols-1 gap-y-6 col-span-2 md:col-span-1">
                     <BaseSettingsBox>
                         <NodeSelect node={node} setNode={setNode} />
-                        <div css={tw`xl:col-span-2 bg-neutral-800 border border-neutral-900 shadow-inner p-4 rounded`}>
+                        <div className="xl:col-span-2 bg-neutral-800 border border-neutral-900 shadow-inner p-4 rounded">
                             <FormikSwitch
                                 name={'startOnCompletion'}
                                 label={'安装后启动'}
@@ -77,20 +78,20 @@ function InternalForm() {
                         </div>
                     </BaseSettingsBox>
                     <FeatureLimitsBox />
-                    <ServerServiceContainer egg={egg} setEgg={setEgg} nestId={0} />
+                    <ServerServiceContainer selectedEggId={egg?.id} setEgg={setEgg} nestId={0} />
                 </div>
-                <div css={tw`grid grid-cols-1 gap-y-6 col-span-2 md:col-span-1`}>
-                    <AdminBox icon={faNetworkWired} title={'网络连接'} isLoading={isSubmitting}>
-                        <div css={tw`grid grid-cols-1 gap-4 lg:gap-6`}>
+                <div className="grid grid-cols-1 gap-y-6 col-span-2 md:col-span-1">
+                    <AdminBox icon={faNetworkWired} title="网络连接" isLoading={isSubmitting}>
+                        <div className="grid grid-cols-1 gap-4 lg:gap-6">
                             <div>
                                 <Label htmlFor={'allocation.default'}>首选分配</Label>
                                 <Select
                                     id={'allocation.default'}
                                     name={'allocation.default'}
-                                    disabled={node === null}
+                                    disabled={node === undefined}
                                     onChange={e => setFieldValue('allocation.default', Number(e.currentTarget.value))}
                                 >
-                                    {node === null ? (
+                                    {node === undefined ? (
                                         <option value="">选择一个节点...</option>
                                     ) : (
                                         <option value="">选择一个分配...</option>
@@ -116,7 +117,7 @@ function InternalForm() {
                     <ServerImageContainer />
                 </div>
 
-                <AdminBox title={'启动命令'} css={tw`relative w-full col-span-2`}>
+                <AdminBox title={'启动命令'} className="relative w-full col-span-2">
                     <SpinnerOverlay visible={isSubmitting} />
 
                     <Field
@@ -131,7 +132,7 @@ function InternalForm() {
                     />
                 </AdminBox>
 
-                <div css={tw`col-span-2 grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-8`}>
+                <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-8">
                     {/* This ensures that no variables are rendered unless the environment has a value for the variable. */}
                     {egg?.relationships.variables
                         ?.filter(v => Object.keys(environment).find(e => e === v.environmentVariable) !== undefined)
@@ -140,9 +141,9 @@ function InternalForm() {
                         ))}
                 </div>
 
-                <div css={tw`bg-neutral-700 rounded shadow-md px-4 py-3 col-span-2`}>
-                    <div css={tw`flex flex-row`}>
-                        <Button type="submit" size="small" css={tw`ml-auto`} disabled={isSubmitting || !isValid}>
+                <div className="bg-neutral-700 rounded shadow-md px-4 py-3 col-span-2">
+                    <div className="flex flex-row">
+                        <Button type="submit" size="small" className="ml-auto" disabled={isSubmitting || !isValid}>
                             创建服务器
                         </Button>
                     </div>
