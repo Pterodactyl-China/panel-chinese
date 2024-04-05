@@ -35,7 +35,7 @@ class InfoCommand extends Command
 
         $this->output->title('应用配置');
         $this->table([], [
-            ['环境', $this->formatText($this->config->get('app.env'), $this->config->get('app.env') === 'production' ?: 'bg=red')],
+            ['环境', $this->formatText($this->config->get('app.env'), $this->config->get('app.env') === '生产' ?: 'bg=red')],
             ['是否处于调试模式', $this->formatText($this->config->get('app.debug') ? '是' : '否', !$this->config->get('app.debug') ?: 'bg=red')],
             ['安装 URL', $this->config->get('app.url')],
             ['安装路径', base_path()],
