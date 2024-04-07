@@ -5,7 +5,7 @@
 FROM --platform=$TARGETOS/$TARGETARCH node:16-alpine
 WORKDIR /app
 COPY . ./
-RUN yarn install --frozen-lockfile \
+RUN yarn install --frozen-lockfile --network-timeout 200000 \
     && yarn run build:production
 
 # Stage 1:
