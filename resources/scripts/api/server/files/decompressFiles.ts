@@ -5,7 +5,7 @@ export default async (uuid: string, directory: string, file: string): Promise<vo
         `/api/client/servers/${uuid}/files/decompress`,
         { root: directory, file },
         {
-            timeout: 300000,
+            timeout: 10000,
             timeoutErrorMessage: '解压这个压缩包需要较长时间，一旦完成，您将能够看到解压后的文件。',
         },
     );
