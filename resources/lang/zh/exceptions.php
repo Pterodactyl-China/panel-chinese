@@ -15,7 +15,7 @@ return [
         'daemon_off_config_updated' => '守护程序配置<strong>已更新</strong>，但是在尝试自动更新守护程序上的配置文件时遇到错误。您需要手动更新配置文件 (config.yml) 以使守护程序应用这些更改。',
     ],
     'allocations' => [
-        'server_using' => '当前一台服务器已分配给此分配。仅当前未分配任何服务器时，才能删除分配。',
+        'server_using' => '此分配正在被一台服务器使用，只有此分配未被服务器使用时才能删除此分配。',
         'too_many_ports' => '不支持一次在单个范围内添加超过 1000 个端口。',
         'invalid_mapping' => '为 :port 提供的映射无效并且无法处理。',
         'cidr_out_of_range' => 'CIDR 表示法只允许 /25 于 /32 之间的掩码。',
