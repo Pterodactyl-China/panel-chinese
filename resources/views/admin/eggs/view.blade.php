@@ -80,7 +80,7 @@
                                 <label for="pDockerImage" class="control-label">Docker 镜像 <span class="field-required"></span></label>
                                 <textarea id="pDockerImages" name="docker_images" class="form-control" rows="4">{{ implode(PHP_EOL, $images) }}</textarea>
                                 <p class="text-muted small">
-                                    使用这个 egg 的服务器可用的 docker 镜像。每行输入一个。
+                                    使用这个预设的服务器可用的 docker 镜像。每行输入一个。
                                     如果提供了多个值，用户则可以从此列表中自行选择。
                                     也可以通过在镜像地址前面加上名称来提供显示名称
                                     后跟一个竖线字符，然后是镜像 URL. 例如: <code>镜像显示名称|ghcr.io/my/egg</code>
@@ -91,7 +91,7 @@
                                     <input id="pForceOutgoingIp" name="force_outgoing_ip" type="checkbox" value="1" @if($egg->force_outgoing_ip) checked @endif />
                                     <label for="pForceOutgoingIp" class="strong">强制传出 IP</label>
                                     <p class="text-muted small">
-                                        强制所有传出的网络流量将其源 IP地址转换(NAT) 到服务器首选IP 的 IP地址。
+                                        强制所有传出的网络流量将其源 IP地址转换（NAT）到服务器首选IP 的 IP地址。
                                         当节点具有多个公共IP地址时，某些游戏需要它才能正常运行。
                                         <br>
                                         <strong>
