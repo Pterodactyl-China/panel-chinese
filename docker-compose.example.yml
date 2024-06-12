@@ -44,7 +44,7 @@ services:
     image: redis:alpine
     restart: always
   panel:
-    image: ghcr.dockerproxy.com/pterodactyl-china/panel:latest
+    image: pterodactylchina/panel:latest
     restart: always
     ports:
       - "80:80"
