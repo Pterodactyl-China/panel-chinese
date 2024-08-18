@@ -72,11 +72,11 @@
                                 <p class="text-muted small">用于此预设创建的新服务器的默认启动命令。您可以根据需要更改每个服务器。</p>
                             </div>
                             <div class="form-group">
-                                <label for="pConfigFeatures" class="control-label">Features</label>
+                                <label for="pConfigFeatures" class="control-label">功能</label>
                                 <div>
                                     <select class="form-control" name="features[]" id="pConfigFeatures" multiple>
                                     </select>
-                                    <p class="text-muted small">Additional features belonging to the egg. Useful for configuring additional panel modifications.</p>
+                                    <p class="text-muted small">属于该预设的附加功能，用于配置面板的额外修改。</p>
                                 </div>
                             </div>
                         </div>

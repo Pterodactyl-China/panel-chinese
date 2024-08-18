@@ -89,8 +89,8 @@
             "field_type": "text"
         },
         {
-            "name": "Server Query Admin Password",
-            "description": "The password for the server query admin user.",
+            "name": "服务器查询管理员密码",
+            "description": "用于服务器查询管理员用户的密码。",
             "env_variable": "SERVERADMIN_PASSWORD",
             "default_value": "",
             "user_viewable": true,
