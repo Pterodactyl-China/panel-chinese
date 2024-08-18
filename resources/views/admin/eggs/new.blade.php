@@ -71,6 +71,14 @@
                                 <textarea id="pStartup" name="startup" class="form-control" rows="10">{{ old('startup') }}</textarea>
                                 <p class="text-muted small">用于此预设创建的新服务器的默认启动命令。您可以根据需要更改每个服务器。</p>
                             </div>
+                            <div class="form-group">
+                                <label for="pConfigFeatures" class="control-label">Features</label>
+                                <div>
+                                    <select class="form-control" name="features[]" id="pConfigFeatures" multiple>
+                                    </select>
+                                    <p class="text-muted small">Additional features belonging to the egg. Useful for configuring additional panel modifications.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -160,5 +168,10 @@
             $(this).val(prepend + '    ' + append);
         }
     });
-</script>
+    $('#pConfigFeatures').select2({
+        tags: true,
+        selectOnClose: false,
+        tokenSeparators: [',', ' '],
+    });
+    </script>
 @endsection

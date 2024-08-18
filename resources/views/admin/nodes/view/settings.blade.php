@@ -107,11 +107,11 @@
                         <label class="form-label"><span class="label label-warning"><i class="fa fa-wrench"></i></span> 维护模式</label>
                         <div>
                             <div class="radio radio-success radio-inline">
-                                <input type="radio" id="pMaintenanceFalse" value="0" name="maintenance_mode" {{ (old('behind_proxy', $node->maintenance_mode) == false) ? 'checked' : '' }}>
+                                <input type="radio" id="pMaintenanceFalse" value="0" name="maintenance_mode" {{ (old('maintenance_mode', $node->maintenance_mode) == false) ? 'checked' : '' }}>
                                 <label for="pMaintenanceFalse"> 关闭</label>
                             </div>
                             <div class="radio radio-warning radio-inline">
-                                <input type="radio" id="pMaintenanceTrue" value="1" name="maintenance_mode" {{ (old('behind_proxy', $node->maintenance_mode) == true) ? 'checked' : '' }}>
+                                <input type="radio" id="pMaintenanceTrue" value="1" name="maintenance_mode" {{ (old('maintenance_mode', $node->maintenance_mode) == true) ? 'checked' : '' }}>
                                 <label for="pMaintenanceTrue"> 开启</label>
                             </div>
                         </div>

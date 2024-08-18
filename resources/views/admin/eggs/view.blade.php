@@ -113,6 +113,17 @@
                                 <textarea id="pStartup" name="startup" class="form-control" rows="8">{{ $egg->startup }}</textarea>
                                 <p class="text-muted small">使用此预设的新服务器的默认启动命令.</p>
                             </div>
+                            <div class="form-group">
+                                <label for="pConfigFeatures" class="control-label">Features</label>
+                                <div>
+                                    <select class="form-control" name="features[]" id="pConfigFeatures" multiple>
+                                        @foreach(($egg->features ?? []) as $feature)
+                                            <option value="{{ $feature }}" selected>{{ $feature }}</option>
+                                        @endforeach
+                                    </select>
+                                    <p class="text-muted small">Additional features belonging to the egg. Useful for configuring additional panel modifications.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -200,6 +211,11 @@
 
             $(this).val(prepend + '    ' + append);
         }
+    });
+    $('#pConfigFeatures').select2({
+        tags: true,
+        selectOnClose: false,
+        tokenSeparators: [',', ' '],
     });
     </script>
 @endsection
