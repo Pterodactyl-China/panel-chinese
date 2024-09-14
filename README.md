@@ -1,7 +1,6 @@
 [![Logo Image](https://api.pterodactyl.top/logos/new/pterodactyl_china_logo.png)](https://pterodactyl.top)
 
 ![GitHub Stars](https://img.shields.io/github/stars/pterodactyl-china/panel?style=for-the-badge&logo=appveyor)
-[![KOOK](https://img.shields.io/badge/dynamic/json?color=44cc11&label=KOOK&query=online_count&suffix=%20ONLINE&url=https%3A%2F%2Fwww.kookapp.cn%2Fapi%2Fguilds%2F3158748478503304%2Fwidget.json&style=for-the-badge&logo=googlechat)](https://kook.top/FRyhXY)
 ![GitHub Releases](https://img.shields.io/github/v/release/pterodactyl-china/panel?style=for-the-badge&logo=appveyor)
 ![GitHub Releases](https://img.shields.io/github/downloads/pterodactyl-china/panel/total?style=for-the-badge)
 ![GitHub Releases Latest](https://img.shields.io/github/downloads/pterodactyl-china/panel/latest/total?style=for-the-badge)
@@ -22,7 +21,7 @@ Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP�
 * [Panel 文档](https://pterodactyl.top/panel/1.0/getting_started.html)
 * [Wings 文档](https://pterodactyl.top/wings/1.0/installing.html)
 * [社区指南文档](https://pterodactyl.top/community/about.html)
-* 或者，[通过 KOOK](https://kook.top/0Grsf5) 或 [通过 翼龙中国社区](https://bbs.pterodactyl.top) 来获得更多帮助
+* 或者，[通过 腾讯频道](https://pd.qq.com/s/2schz3it0) 或 [通过 翼龙中国社区](https://bbs.pterodactyl.top) 来获得更多帮助
 
 ## 赞助商
 
