@@ -11,7 +11,7 @@ class TwoFactorAuthRequiredException extends HttpException implements HttpExcept
     /**
      * TwoFactorAuthRequiredException constructor.
      */
-    public function __construct(\Throwable $previous = null)
+    public function __construct(?\Throwable $previous = null)
     {
         parent::__construct(Response::HTTP_BAD_REQUEST, '此帐户需要动态口令认证才能访问此端点。', $previous);
     }
